@@ -15,7 +15,8 @@ ModManager.modules.push(function(){
                     data:{
                         boxMd2Heavenfall:{
                             EN:"from MD2 Heavenfall",
-                            IT:"da MD2 Heavenfall"
+                            IT:"da MD2 Heavenfall",
+                            FR:"de MD2 Heavenfall"
                         }
                     }
                 },{

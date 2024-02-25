@@ -19,7 +19,8 @@ ModManager.modules.push(function(){
                                 isMandatory:true,
                                 title:{
                                     IT:"Materiali disponibili",
-                                    EN:"Available components"
+                                    EN:"Available components",
+                                    FR:"Mat&eacute;riel disponible"
                                 },
                                 entries:[
                                     {
@@ -28,33 +29,39 @@ ModManager.modules.push(function(){
                                         isDefault:true,
                                         label:{
                                             IT:"Massive Darkness 2: Hellscape",
-                                            EN:"Massive Darkness 2: Hellscape"
+                                            EN:"Massive Darkness 2: Hellscape",
+                                            FR:"Massive Darkness 2 : Hellscape"
                                         },
                                         description:{
                                             IT:"La scatola base del gioco",
-                                            EN:"The game core box"
+                                            EN:"The game core box",
+                                            FR:"La bo&icirc;te de base du jeu"
                                         },
                                         tags:[ "md2-hellscape" ]
                                     },{
                                         code:"C",
                                         label:{
                                             IT:"Massive Darkness 2: Heavenfall",
-                                            EN:"Massive Darkness 2: Heavenfall"
+                                            EN:"Massive Darkness 2: Heavenfall",
+                                            FR:"Massive Darkness 2 : Heavenfall"
                                         },
                                         description:{
                                             IT:"Una modalit&agrave; campagna per Massive Darkness 2",
-                                            EN:"A campaign mode for Massive Darkness 2"
+                                            EN:"A campaign mode for Massive Darkness 2",
+                                            FR:"Un mode campagne pour Massive Darkness 2"
                                         },
                                         tags:[ "md2-heavenfall" ]
                                     },{
                                         code:"B",
                                         label:{
                                             IT:"Massive Darkness: Una Missione di Lava &amp; Cristalli",
-                                            EN:"Massive Darkness: A Quest of Crystal & Lava"
+                                            EN:"Massive Darkness: A Quest of Crystal & Lava",
+                                            FR:"Massive Darkness : Une Qu&ecirc;te de Cristal et de Lave"
                                         },
                                         description:{
                                             IT:"Una nuova campagna e 15 tessere",
-                                            EN:"A new campaign and 15 tiles"
+                                            EN:"A new campaign and 15 tiles",
+                                            FR:"Une nouvelle campagne et 15 dalles"
                                         },
                                         tags:[ "md2-crystallava" ]
                                     }
@@ -65,18 +72,21 @@ ModManager.modules.push(function(){
                                 isMandatory:true,
                                 title:{
                                     IT:"Grandezza delle mappa",
-                                    EN:"Map size"
+                                    EN:"Map size",
+                                    FR:"Taille de la carte"
                                 },
                                 entries:[
                                     {
                                         code:"0",
                                         label:{
                                             IT:"Piccola",
-                                            EN:"Small"
+                                            EN:"Small",
+                                            FR:"Petite"
                                         },
                                         description:{
                                             IT:"Se possibile, la mappa dell'avventura ha 1 tessera in meno rispetto a quelle suggerite.",
-                                            EN:"If possible, the quest map has 1 fewer tile than suggested."
+                                            EN:"If possible, the quest map has 1 fewer tile than suggested.",
+                                            FR:"Si possible, la carte de la qu&ecirc;te a 1 dalle de moins que sugg&eacute;r&eacute;."
                                         },
                                         tags:[ "maps-size-small" ]
                                     },{
@@ -84,22 +94,26 @@ ModManager.modules.push(function(){
                                         isDefault:true,
                                         label:{
                                             IT:"Normale",
-                                            EN:"Normal"
+                                            EN:"Normal",
+                                            FR:"Normale"
                                         },
                                         description:{
                                             IT:"La mappa dell'avventura ha il numero suggerito di tessere.",
-                                            EN:"The adventure map has the suggested number of tiles."
+                                            EN:"The adventure map has the suggested number of tiles.",
+                                            FR:"La carte de la qu&ecirc;te a le nombre de dalles sugger&eacute;."
                                         },
                                         tags:[ "maps-size-normal" ]
                                     },{
                                         code:"2",
                                         label:{
                                             IT:"Grande",
-                                            EN:"Large"
+                                            EN:"Large",
+                                            FR:"Grande"
                                         },
                                         description:{
                                             IT:"Se possibile, la mappa dell'avventura ha 1 tessera in pi&ugrave; rispetto a quelle suggerite.",
-                                            EN:"If possible, the quest map has 1 more tile than suggested."
+                                            EN:"If possible, the quest map has 1 more tile than suggested.",
+                                            FR:"Si possible, la carte de la qu&ecirc;te a 1 dalle de plus que sugg&eacute;r&eacute;."
                                         },
                                         tags:[ "maps-size-large" ]
                                     }
@@ -110,7 +124,8 @@ ModManager.modules.push(function(){
                                 isMandatory:true,
                                 title:{
                                     IT:"Stile della mappa",
-                                    EN:"Map style"
+                                    EN:"Map style",
+                                    FR:"Style de la carte"
                                 },
                                 entries:[
                                     {
@@ -118,22 +133,26 @@ ModManager.modules.push(function(){
                                         isDefault:true,
                                         label:{
                                             IT:"Uniforme",
-                                            EN:"Uniform"
+                                            EN:"Uniform",
+                                            FR:"Uniforme"
                                         },
                                         description:{
                                             IT:"Tutte le tessere della mappa mostrano la stessa ambientazione.",
                                             EN:"All tiles on the map show the same setting.",
+                                            FR:"Toutes les dalles de la carte ont le m&ecirc;me environnement."
                                         },
                                         tags:[ "maps-default-uniform" ]
                                     },{
                                         code:"z",
                                         label:{
                                             IT:"Interdimensionale",
-                                            EN:"Interdimensional"
+                                            EN:"Interdimensional",
+                                            FR:"Interdimensionnel"
                                         },
                                         description:{
                                             IT:"Le tessere sulla mappa possono mostrare ambientazioni diverse. Aumenta la variet&agrave; di struttura a scapito dell'estetica.",
                                             EN:"The map tiles can show different environments. Increase layout variety to the detriment of aesthetics.",
+                                            FR:"Les dalles de la carte peuvent utiliser diff&eacute;rents environnements. Augmente la diversit&eacute; d'agencement au d&eacute;triment de l'esth&eacute;tique."
                                         },
                                         tags:[ "maps-default-notuniform" ]
                                     }
@@ -144,7 +163,8 @@ ModManager.modules.push(function(){
                                 isMandatory:true,
                                 title:{
                                     IT:"Modalit&agrave; di gioco",
-                                    EN:"Game mode"
+                                    EN:"Game mode",
+                                    FR:"Mode de jeu"
                                 },
                                 entries:[
                                     {
@@ -152,22 +172,26 @@ ModManager.modules.push(function(){
                                         isDefault:true,
                                         label:{
                                             IT:"Modalit&agrave; Normale",
-                                            EN:"Normal Mode"
+                                            EN:"Normal Mode",
+                                            FR:"Mode Normal"
                                         },
                                         description:{
                                             IT:"La classica esperienza di Massive Darkness 2.",
                                             EN:"The classic Massive Darkness 2 experience",
+                                            FR:"L'exp&eacute;rience Massive Darkness 2 classique"
                                         },
                                         tags:[]
                                     },{
                                         code:"y",
                                         label:{
                                             IT:"Modalit&agrave; Esplorazione",
-                                            EN:"Dungeon Crawling Mode"
+                                            EN:"Dungeon Crawling Mode",
+                                            FR:"Mode Exploration"
                                         },
                                         description:{
                                             IT:"Il contenuto delle Camere &egrave; nascosto e viene mostrato quando vengono rivelate.",
                                             EN:"The content of the Chambers is hidden and is shown when they are revealed.",
+                                            FR:"Le contenu de chaque Salle est cach&eacute; et devient visible au moment o&ugrave; elle est r&eacute;v&eacute;l&eacute;e."
                                         },
                                         tags:[ "gamemode-dungeoncrawling" ]
                                     }
@@ -176,36 +200,44 @@ ModManager.modules.push(function(){
                         ],
                         supportedLanguages:{
                             EN:"English",
-                            IT:"Italiano"
+                            IT:"Italiano",
+                            FR:"Fran&ccedil;ais"
                         },
                         labels:{                            
                             toolName:{
                                 IT:"Massive Randomness 2",
-                                EN:"Massive Randomness 2"
+                                EN:"Massive Randomness 2",
+                                FR:"Massive Randomness 2"
                             },
                             toolDescription:{
                                 IT:"Un generatore casuale di avventure one-shot per Massive Darkness 2",
-                                EN:"A Massive Darkness 2 one-shot quest random generator"
+                                EN:"A Massive Darkness 2 one-shot quest random generator",
+                                FR:"Un g&eacute;n&eacute;rateur de qu&ecirc;te one-shot al&eacute;atoire pour Massive Darkness 2"
                             },
                             footer:{
                                 IT:"Meglio su Firefox/Chrome - {toolName} - {toolVersion} - &copy; 2024 by KesieV - Sorgenti su <a target=_blank href='{sourcesAtFull}'>{sourcesAtShort}</a>",
-                                EN:"Best on Firefox/Chrome - {toolName} - {toolVersion} - &copy; 2024 by KesieV - Sources at <a target=_blank href='{sourcesAtFull}'>{sourcesAtShort}</a>"
+                                EN:"Best on Firefox/Chrome - {toolName} - {toolVersion} - &copy; 2024 by KesieV - Sources at <a target=_blank href='{sourcesAtFull}'>{sourcesAtShort}</a>",
+                                FR:"Optimis&eacute; pour Firefox/Chrome - {toolName} - {toolVersion} - &copy; 2024 by KesieV - Sources sur <a target=_blank href='{sourcesAtFull}'>{sourcesAtShort}</a>"
                             },
                             notice:{
                                 EN:"Massive Darkness 2 and all related properties are owned by CMON Global Limited",
-                                IT:"Massive Darkness 2 e tutte le relative propriet&agrave; sono marchi registrati CMON Global Limited"
+                                IT:"Massive Darkness 2 e tutte le relative propriet&agrave; sono marchi registrati CMON Global Limited",
+                                FR:"Massive Darkness 2 et tous les produits associ&eacute;s sont des marques d&eacute;pos&eacute;es de CMON Global Limited"
                             },
                             wait:{
                                 IT:"Sto preparando l'avventura...",
-                                EN:"Please wait..."
+                                EN:"Please wait...",
+                                FR:"Merci de patienter..."
                             },
                             tooltipNewQuest:{
                                 IT:"Genera una nuova avventura",
-                                EN:"Generate a new quest"
+                                EN:"Generate a new quest",
+                                FR:"G&eacute;n&eacute;rer une nouvelle qu&ecirc;te"
                             },
                             tooltipSettings:{
                                 IT:"Impostazioni",
-                                EN:"Settings"
+                                EN:"Settings",
+                                FR:"Options"
                             }
                         }
                     }

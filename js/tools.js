@@ -5,7 +5,8 @@ Tools=(function(){
         TESTQUESTS_ITERATIONS = 400,
         ALLOWED_ENTITIES={
             IT:[ "ograve", "agrave", "egrave", "eacute", "ugrave", "igrave", "deg", "amp", "Egrave" ],
-            EN:[ "amp" ]
+            EN:[ "amp" ],
+            FR:[ "agrave", "acirc", "eacute", "ecirc", "egrave", "euml", "icirc", "iuml", "ocirc", "oelig", "ucirc", "ugrave", "uuml", "ccedil" ]
         },
         ALLOWED_TAGS=[ "p", "/p", "ul", "/ul", "ol", "/ol", "li", "/li", "b", "/b", "i", "/i", "span class='phase'", "/span" ],
         ALLOWED_PLACEHOLDER_MODS=[ "capital" ],

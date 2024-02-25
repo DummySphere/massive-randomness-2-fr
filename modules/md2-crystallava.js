@@ -15,7 +15,8 @@ ModManager.modules.push(function(){
                     data:{
                         boxMd2CrystalLava:{
                             EN:"from MD A Quest of Crystal &amp; Lava",
-                            IT:"da MD Una Missione di Lava e Cristalli"
+                            IT:"da MD Una Missione di Lava e Cristalli",
+                            FR:"de MD Une Qu&ecirc;te de Cristal et de Lave"
                         }
                     }
                 },{
@@ -27,11 +28,13 @@ ModManager.modules.push(function(){
                                 type:"rule",
                                 name:{
                                     IT:"Sonno di Lyidan",
-                                    EN:"Lyidan's Sleep"
+                                    EN:"Lyidan's Sleep",
+                                    FR:"Le sommeil de Lyidan"
                                 },
                                 explanation:{
                                     IT:"Rimuovere le carte di Lyidan da tutti i mazzi dei Mostri Erranti.",
-                                    EN:"Remove Lyidan cards from all Roaming Monster decks."
+                                    EN:"Remove Lyidan cards from all Roaming Monster decks.",
+                                    FR:"Retirez les cartes de Lyidan de tous les paquets de Monstres Errants."
                                 }
                             }
                         ]
