@@ -4,7 +4,7 @@
 
 ---
 
-<div align="center"><a href="https://www.kesiev.com/massive-randomness-2/">Generate a quest</a></div>
+<div align="center"><a href="https://www.kesiev.com/massive-randomness-2/">Generate a quest</a> | <a href="https://boardgamegeek.com/thread/3242331/massive-randomness-2-very-beta-one-shot-quest-rand">BGG discussion thread</a></div>
 
 ---
 
@@ -27,6 +27,10 @@ The generated quests are designed to be disposable but, if you prefer, you can p
 _Massive Darkness 2_ is a nice light scenario-based hack & slash dungeon crawler board game with hordes of enemies to kill and tons of loot to grab. The game scenarios, both included in the game manual or found around the internet, are kept replayable both by randomizing enemies and events and by adding expansions, which mostly are more enemies and Hero classes to drop into its random pools.
 
 I've been looking for _that Diablo-esque tabletop experience_ for a long time and this game is the closest thing I've found: total ignorance, immense character growth, and death just around the corner. All that's missing are the random dungeons... and that's how this project was born.
+
+### Technical notes
+
+ * If your browser supports PWA and Service Worker, you should be able to install MR2 on your device from the browser options menu and use it offline. Offline support for web applications has been a bit esoteric in the past and still is, so it may not work for you. If you intend to self-host MR2 and do not want this functionality, please remove/comment out the inclusion of the `js/installer.js` script in `index.html`.
 
 ### Credits
 

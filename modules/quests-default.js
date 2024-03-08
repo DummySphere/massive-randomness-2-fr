@@ -47,6 +47,21 @@ ModManager.modules.push(function(){
                             IT:"I segnalini Bottino vanno collocati in base al numero di Eroi:",
                             EN:"Loot tokens are placed according to the number of Heroes:",
                             FR:"Les pions Butin sont plac&eacute;s en fonction du nombre de H&eacute;ros :"
+                        },
+                        questHeader:{
+                            IT:"Avventura One-Shot:",
+                            EN:"One-Shot Quest:",
+                            FR:"Qu&ecirc;te one-shot :"
+                        },
+                        questFooter:{
+                            IT:"Massive Randomness 2 - Avventura One-Shot",
+                            EN:"Massive Randomness 2 - One Shot Quest",
+                            FR:"Massive Randomness 2 - Qu&ecirc;te one-shot"
+                        },
+                        showHiddenText:{
+                            IT:"Mostra testo nascosto",
+                            EN:"Show hidden text",
+                            FR:"Afficher le texte cach&eacute;"
                         }
                     }
                 }

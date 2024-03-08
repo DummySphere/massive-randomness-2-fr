@@ -8,39 +8,49 @@ Tools=(function(){
             EN:[ "amp" ],
             FR:[ "agrave", "acirc", "eacute", "ecirc", "egrave", "euml", "icirc", "iuml", "ocirc", "oelig", "ucirc", "ugrave", "uuml", "ccedil" ]
         },
-        ALLOWED_TAGS=[ "p", "/p", "ul", "/ul", "ol", "/ol", "li", "/li", "b", "/b", "i", "/i", "span class='phase'", "/span" ],
+        ALLOWED_TAGS=[ "p", "/p", "ul", "/ul", "ol", "/ol", "li", "/li", "b", "/b", "i", "/i", "span class='phase'", "span class='displayonly'", "span class='printonly'", "span class='hiddentext'",  "/span" ],
         ALLOWED_PLACEHOLDER_MODS=[ "capital" ],
         ALLOWED_CELLTYPES=[ "light", "dark", "crystal", "lava", "blocking" ],
-        DEFAULT_TILELABELS=[ "first", "second", "third", "fourth", "fifth", "center" ],
+        ALLOWED_PLACEHOLDERS=[
+            // Common tile labels
+            "tileLabel.first", "tileLabel.second", "tileLabel.third", "tileLabel.fourth", "tileLabel.fifth", "tileLabel.center",
+            // Investigation quest placeholders
+            "who", "testimony.corruptionLord", "testimony.corruptionLordServant", "testimony.timeLord", "testimony.timeLordServant",
+            "ending.corruptionLord", "ending.timeLord"
+        ],
+        WARNING_WORDS={
+            EN:[ "wandering", "quest" ],
+            IT:[ "quest", "xp", "avventura" ]
+        },
         QUEST_CONFIGS=[
             {
                 id:"maps-size-small",
                 excludes:[],
-                needs:[ "quests", "maps-default", "md2-hellscape", "maps-size-small", "maps-default-uniform" ]
+                needs:[ "quests", "maps-default", "md2-hellscape", "maps-size-small", "maps-default-uniform", "challenges-default" ]
             },
             {
                 id:"maps-size-normal",
                 excludes:[],
-                needs:[ "quests", "maps-default", "md2-hellscape", "maps-size-normal", "maps-default-uniform" ]
+                needs:[ "quests", "maps-default", "md2-hellscape", "maps-size-normal", "maps-default-uniform", "challenges-default" ]
             },
             {
                 id:"maps-size-large",
                 excludes:[],
-                needs:[ "quests", "maps-default", "md2-hellscape", "maps-size-large", "maps-default-uniform" ]
+                needs:[ "quests", "maps-default", "md2-hellscape", "maps-size-large", "maps-default-uniform", "challenges-default" ]
             },{
                 id:"maps-size-small-heavenfall",
                 excludes:[],
-                needs:[ "quests", "maps-default", "md2-hellscape", "md2-heavenfall", "maps-size-small", "maps-default-uniform" ]
+                needs:[ "quests", "maps-default", "md2-hellscape", "md2-heavenfall", "maps-size-small", "maps-default-uniform", "challenges-default" ]
             },
             {
                 id:"maps-size-normal-heavenfall",
                 excludes:[],
-                needs:[ "quests", "maps-default", "md2-hellscape", "md2-heavenfall", "maps-size-normal", "maps-default-uniform" ]
+                needs:[ "quests", "maps-default", "md2-hellscape", "md2-heavenfall", "maps-size-normal", "maps-default-uniform", "challenges-default" ]
             },
             {
                 id:"maps-size-large-heavenfall",
                 excludes:[],
-                needs:[ "quests", "maps-default", "md2-hellscape", "md2-heavenfall", "maps-size-large", "maps-default-uniform" ]
+                needs:[ "quests", "maps-default", "md2-hellscape", "md2-heavenfall", "maps-size-large", "maps-default-uniform", "challenges-default" ]
             }
         ];
 
@@ -175,18 +185,22 @@ Tools=(function(){
     }
 
     function addSentenceTokens(tokens,language,sentence) {
-        if (!tokens[language]) tokens[language]={};
+        if (!tokens[language]) tokens[language]={ warningCount:0, words:{} };
         decodeEntities(sentence)
             .toLowerCase()
             .replace(/<([^>]+)>/g," ")
             .replace(/{([^}]+)}/g," ")
             .replace(/[0-9]/g," ")
-            .replace(/[!?&/.;+,:\"()°-]/g," ")
+            .replace(/[&!?/.;,:\"()-+°]/g," ")
             .replace(/'s /g," ")
             .split(" ").forEach(m=>{
                 if (m) {
-                    if (!tokens[language][m]) tokens[language][m]=[];
-                    tokens[language][m].push(sentence);
+                    if (!tokens[language].words[m]) {
+                        let isWarning = WARNING_WORDS[language].indexOf(m) != -1;
+                        if (isWarning) tokens[language].warningCount++;
+                        tokens[language].words[m]={ isWarning:isWarning, entries:[] };
+                    }
+                    tokens[language].words[m].entries.push(sentence);
                 }
             });
     }
@@ -830,8 +844,8 @@ Tools=(function(){
             for (let k in resources.symbols)
                 globalLabels["symbol."+k]=true;
 
-            DEFAULT_TILELABELS.forEach(label=>{
-                globalLabels["tileLabel."+label]=true;
+            ALLOWED_PLACEHOLDERS.forEach(label=>{
+                globalLabels[label]=true;
             });
 
             for (let k in resources.globalLabels)
@@ -946,11 +960,13 @@ Tools=(function(){
 
                 languageId++;
                     
-                html+="<h2 style='cursor:pointer' onclick=\"document.getElementById('"+languageSetId+"').style.display=(document.getElementById('"+languageSetId+"').style.display == 'block' ? 'none' : 'block')\">"+k+"</h2><ol id='"+languageSetId+"' style='display:none'>";
-                for (let w in wordTokens[k])
-                    list.push({word:w, count:wordTokens[k][w].length, entries:wordTokens[k][w] });
+                html+="<h2 style='cursor:pointer' onclick=\"document.getElementById('"+languageSetId+"').style.display=(document.getElementById('"+languageSetId+"').style.display == 'block' ? 'none' : 'block')\">"+k+(wordTokens[k].warningCount ? " <span style='color:red'>("+wordTokens[k].warningCount+")</span>" : "") + "</h2><ol id='"+languageSetId+"' style='display:none'>";
+                for (let w in wordTokens[k].words)
+                    list.push({ isWarning:wordTokens[k].words[w].isWarning, word:w, count:wordTokens[k].words[w].entries.length, entries:wordTokens[k].words[w].entries });
                 list.sort((a,b)=>{
-                    if (a.word < b.word) return -1;
+                    if (a.isWarning && !b.isWarning) return -1;
+                    else if (!a.isWarning && b.isWarning) return 1;
+                    else if (a.word < b.word) return -1;
                     else if (a.word > b.word) return 1;
                     else return 0;
                 });
@@ -958,7 +974,7 @@ Tools=(function(){
                     let
                         setId = "set-"+entryId;
                     entryId++;
-                    html+="<li style='cursor:pointer' onclick=\"document.getElementById('"+setId+"').style.display=(document.getElementById('"+setId+"').style.display == 'block' ? 'none' : 'block')\">"+word.word+" ("+word.count+")<ul id='"+setId+"' style='display:none'>";
+                    html+="<li style='cursor:pointer"+(word.isWarning ? ";color:red" : "")+"' onclick=\"document.getElementById('"+setId+"').style.display=(document.getElementById('"+setId+"').style.display == 'block' ? 'none' : 'block')\">"+word.word+" ("+word.count+")<ul id='"+setId+"' style='display:none'>";
                     word.entries.forEach(entry=>{
                         html+="<li>"+entry+"</li>";
                     })

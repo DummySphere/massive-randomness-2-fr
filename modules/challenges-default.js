@@ -238,7 +238,7 @@ ModManager.modules.push(function(){
                                     explanation:[
                                         {
                                             IT:"Non utilizzare alcun gettone Latore di Vita. Se un Eroe viene messo KO, la Missione termina con la sconfitta.",
-                                            EN:"Do not use any Lifebringer tokens. If one Hero is KO'd, the Quest ends in defeat.",
+                                            EN:"Do not use any Lifebringer tokens. If one Hero is KO'd, the Mission ends in defeat.",
                                             FR:"N'utilisez pas les pions Porteur de Vie. Si un H&eacute;ros est KO, la Qu&ecirc;te se termine imm&eacute;diatement sur une d&eacute;faite."
                                         }
                                     ]

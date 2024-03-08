@@ -59,11 +59,23 @@ ModManager.modules.push(function(){
                                             FR:"Massive Darkness : Une Qu&ecirc;te de Cristal et de Lave"
                                         },
                                         description:{
-                                            IT:"Una nuova campagna e 15 tessere",
-                                            EN:"A new campaign and 15 tiles",
-                                            FR:"Une nouvelle campagne et 15 dalles"
+                                            IT:"6 tessere cristalli/lava",
+                                            EN:"6 crystal/lava tiles",
+                                            FR:"6 dalles de cristal/lave"
                                         },
-                                        tags:[ "md2-crystallava" ]
+                                        tags:[ "md2-crystallava-cl" ]
+                                    },{
+                                        code:"b",
+                                        label:{
+                                            IT:"Massive Darkness: Una Missione di Lava &amp; Cristalli",
+                                            EN:"Massive Darkness: A Quest of Crystal & Lava"
+                                        },
+                                        description:{
+                                            IT:"9 tessere del pack di aggiornamento",
+                                            EN:"9 upgrade pack tiles",
+                                            FR:"9 dalles du kit de mise &agrave; jour"
+                                        },
+                                        tags:[ "md2-crystallava-up" ]
                                     }
                                 ]
                             },{
@@ -158,31 +170,29 @@ ModManager.modules.push(function(){
                                     }
                                 ]
                             },{
-                                type:"includeSelected",
-                                isSingleOption:true,
-                                isMandatory:true,
+                                type:"includeExclude",
                                 title:{
-                                    IT:"Modalit&agrave; di gioco",
-                                    EN:"Game mode",
-                                    FR:"Mode de jeu"
+                                    IT:"Extra",
+                                    EN:"Extras",
+                                    FR:"Extras"
                                 },
                                 entries:[
                                     {
-                                        code:"Y",
-                                        isDefault:true,
+                                        code:"X",
                                         label:{
-                                            IT:"Modalit&agrave; Normale",
-                                            EN:"Normal Mode",
-                                            FR:"Mode Normal"
+                                            IT:"Sfide",
+                                            EN:"Challenges",
+                                            FR:"Challenges"
                                         },
                                         description:{
-                                            IT:"La classica esperienza di Massive Darkness 2.",
-                                            EN:"The classic Massive Darkness 2 experience",
-                                            FR:"L'exp&eacute;rience Massive Darkness 2 classique"
+                                            IT:"Aggiunge all'avventura delle sfide extra, che potrai decidere se accettare o meno.",
+                                            EN:"It adds extra challenges to the adventure, you can decide whether to accept or not.",
+                                            FR:"Ajoute des challenges suppl&eacute;mentaires &agrave; l'aventure, que vous pouvez d&eacute;cider d'accepter ou non.",
                                         },
-                                        tags:[]
-                                    },{
-                                        code:"y",
+                                        tags:[ "challenges-default" ]
+                                    },
+                                    {
+                                        code:"Y",
                                         label:{
                                             IT:"Modalit&agrave; Esplorazione",
                                             EN:"Dungeon Crawling Mode",
@@ -194,6 +204,18 @@ ModManager.modules.push(function(){
                                             FR:"Le contenu de chaque Salle est cach&eacute; et devient visible au moment o&ugrave; elle est r&eacute;v&eacute;l&eacute;e."
                                         },
                                         tags:[ "gamemode-dungeoncrawling" ]
+                                    },
+                                    {
+                                        isButton:true,
+                                        isInstallerButton:true,
+                                        label:{
+                                            IT:"Installa",
+                                            EN:"Install"
+                                        },
+                                        description:{
+                                            IT:"Permette di usare Massive Randomness 2 offline.",
+                                            EN:"Allows you to use Massive Randomness 2 offline."
+                                        }
                                     }
                                 ]
                             }

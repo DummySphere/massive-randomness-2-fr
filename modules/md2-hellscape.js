@@ -139,10 +139,20 @@ ModManager.modules.push(function(){
                             className:{
                                 map:"token door"
                             },
+                            splitFlippedTo:"openDoor",
                             label:{
                                 IT:[ "Segnalino Porta Chiusa", "Segnalini Porta Chiusa" ],
                                 EN:[ "Closed Door", "Closed Doors" ],
                                 FR:[ "Porte ferm&eacute;e", "Portes ferm&eacute;es" ]
+                            }
+                        },
+                        openDoor:{
+                            className:{
+                                map:"token flipped door"
+                            },
+                            label:{
+                                IT:[ "Segnalino Porta Aperta", "Segnalini Porta Aperta" ],
+                                EN:[ "Open Door", "Open Doors" ]
                             }
                         },
                         objective:{
@@ -367,6 +377,7 @@ ModManager.modules.push(function(){
                 
                         // Virtual tokens
                         greenPortal:3,
+                        openDoor:15,
                         startMob:10,
                         startRoaming:10,
                         startPoint:10

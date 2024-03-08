@@ -7,6 +7,11 @@ BODY {
     padding: 0;
 }
 
+HTML,BODY {
+    width: 100%;
+    height: 100%;
+}
+
 * {
     -webkit-print-color-adjust: exact !important;
     color-adjust: exact !important;
@@ -94,6 +99,19 @@ BODY {
     font-weight: bold;
 }
 
+.header .settings .item .optionbutton {
+    display: inline-block;
+    background-color: #333;
+    color:#fff;
+    border-radius: 5px;
+    padding: 0px 10px;
+    font-family: Seshat;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+}
+
 .header .toolbar {
     white-space: nowrap;
 }
@@ -164,11 +182,30 @@ BODY {
 /* Quest */
 
 .quest {
-    padding:30px 0;
+    padding:30px 0 0 0;
     width:70%;
     margin:auto;
     background-color: #fff;
     box-shadow: 0px 0px 5px #333;
+    background-image: url(../images/background.png);
+    background-repeat: repeat-y;
+}
+
+.quest .sheetHeader {
+    height:30px;
+    background-image: url(../images/header.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0 10px 20px 10px;
+}
+
+.quest .sheetQuestHeader {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-transform:uppercase;
 }
 
 .quest .questHead {
@@ -176,12 +213,36 @@ BODY {
 }
 
 .quest .title {
+    justify-content: center;
+    margin:0px 20px 0px 20px;
+    position: relative;
+    display: flex;
+    margin: auto;
+}
+
+.quest .title .diamond  {
+    min-width:40px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    background-image: url(../images/titleDiamond.png);
+}
+
+.quest .title .diamond .left {
+    vertical-align:right center;
+}
+
+.quest .title .diamond .right {
+    vertical-align:left center;
+}
+
+.quest .title .text {
+    text-transform: uppercase;
     font-family: Ferrum;
     font-size: 40px;
     line-height: 44px;
     text-align: center;
-    margin:0px 20px 0px 20px;
-    text-transform: uppercase;
+    padding: 0 10px;
 }
 
 .quest .author {
@@ -203,9 +264,20 @@ BODY {
     font-family: Ferrum;
     border-bottom: 1px solid #000;
     font-size: 20px;
-    padding:10px 0;
+    padding:0;
     margin:20px 0;
     text-transform: uppercase;
+}
+
+.quest .objectivesTitle .diamond, .quest .specialRulesTitle .diamond, .quest .challengesTitle .diamond  {
+    background-image: url(../images/subtitleDiamond.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width:20px;
+    height:20px;
+    margin-right: 10px;
+    display: inline-block;
 }
 
 .quest .objectives, .quest .specialRules, .quest .tiles, .quest .story, .quest .challenges {
@@ -444,6 +516,69 @@ BODY {
     font-weight: bold;
     font-variant: small-caps;
     text-decoration: underline;
+}
+
+.quest .mapseparator {
+    height:30px;
+    background-image: url(../images/mapSeparator.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.quest .questFooter {
+    white-space: nowrap;
+    overflow: hidden;
+    color:#fff;
+    font-family: Ferrum;
+    text-align: center;
+    line-height: 90px;
+    background-image: url(../images/footer.png);
+    background-repeat: repeat-x;
+    background-size:auto 100%;
+    height:90px;
+    font-size: 30px;
+}
+
+.quest .questFooter .arrow  {
+    display: inline-block;
+    vertical-align:middle;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: 0 10px 10px 10px;
+    width:50px;
+    height:50px;
+}
+
+.quest .questFooter .arrow.left {
+    background-image: url(../images/footerArrowLeft.png);
+}
+
+.quest .questFooter .arrow.right {
+    background-image: url(../images/footerArrowRight.png);
+}
+
+.quest .showtext {
+    border-radius:5px;
+    white-space: inherit;
+    border:2px solid #333;
+    background-color: rgba(0,255,0,0.2);
+    padding:5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 980px) {
+
+    .quest .questFooter {
+        font-size: 18px;
+    }
+
+    .quest .questFooter .arrow {
+        width: 20px;
+        height:20px;
+        margin-bottom: 5px;
+    }
 }
 
 /* Map */
@@ -765,6 +900,10 @@ BODY {
     background-image: url('../images/tokenDoor.png');
 }
 
+.token.flipped.door {
+    background-image: url('../images/tokenOpenDoor.png');
+}
+
 .cell .door {
     z-index: 50;
     width:30px;
@@ -799,9 +938,10 @@ BODY {
 }
 
 .token.door.side-2 {
-    border-bottom-width: 4px;
-    left:47px;
-    bottom:-19px;
+    border-top-width: 4px;
+    left:46px;
+    bottom:-18px;
+    transform: rotate(180deg);
 }
 
 .token.door.marked.side-2 {
@@ -811,8 +951,8 @@ BODY {
 }
 
 .token.door.side-3 {
-    border-right-width: 4px;
-    transform: rotate(90deg);
+    border-left-width: 4px;
+    transform: rotate(270deg);
     left:-17px;
     top:45px;
 }
@@ -837,12 +977,20 @@ BODY {
         font-size:14px;
     }
 
-    .printonly {
-        display: inherit;
+    SPAN.printonly {
+        display: inline;
+    }
+
+    DIV.printonly {
+        display: block;
+    }
+
+    LI.printonly {
+        display: list-item;
     }
 
     .displayonly {
-        display: none;
+        display: none !important;
     }
 
     .header, .footer {
@@ -854,6 +1002,7 @@ BODY {
         padding:0;
         width:auto;
         box-shadow: none;
+        background-image: none;
     }
 
     .quest .questHead {
@@ -910,9 +1059,8 @@ BODY {
     }
 
     .quest .objectivesTitle, .quest .specialRulesTitle, .quest .challengesTitle {
-        margin:10px 0;
-        padding-top:5px;
-        padding-bottom: 5px;
+        margin:15px 0 10px 0;
+        padding-bottom:5px;
     }
 
     .quest .objectives, .quest .specialRules, .quest .tiles, .quest .story, .quest .challenges, .quest .lootRatio {
@@ -949,6 +1097,14 @@ BODY {
     .quest .mapImage {
         transform-origin: 0 0;
         transform:scale(0.5);
+    }
+
+    .quest .showtext {
+        display: none;
+    }
+
+    .quest .hiddentext {
+        display:inline !important;
     }
 
     .tile .cell.room .inner {
