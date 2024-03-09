@@ -152,7 +152,8 @@ ModManager.modules.push(function(){
                             },
                             label:{
                                 IT:[ "Segnalino Porta Aperta", "Segnalini Porta Aperta" ],
-                                EN:[ "Open Door", "Open Doors" ]
+                                EN:[ "Open Door", "Open Doors" ],
+                                FR:[ "Porte ouverte", "Portes ouvertes" ]
                             }
                         },
                         objective:{

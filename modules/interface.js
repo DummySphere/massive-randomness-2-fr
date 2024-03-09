@@ -68,12 +68,13 @@ ModManager.modules.push(function(){
                                         code:"b",
                                         label:{
                                             IT:"Massive Darkness: Una Missione di Lava &amp; Cristalli",
-                                            EN:"Massive Darkness: A Quest of Crystal & Lava"
+                                            EN:"Massive Darkness: A Quest of Crystal & Lava",
+                                            FR:"Massive Darkness"
                                         },
                                         description:{
                                             IT:"9 tessere del pack di aggiornamento",
-                                            EN:"9 upgrade pack tiles",
-                                            FR:"9 dalles du kit de mise &agrave; jour"
+                                            EN:"9 upgrade pack tiles", // those are actually Massive Darkness 1 tiles (also available in A Quest of Crystal & Lava tiles pack)
+                                            FR:"9 dalles de Massive Darkness 1 (aussi dans le pack de dalles d'Une Qu&ecirc;te de Cristal et de Lave)"
                                         },
                                         tags:[ "md2-crystallava-up" ]
                                     }
@@ -210,11 +211,13 @@ ModManager.modules.push(function(){
                                         isInstallerButton:true,
                                         label:{
                                             IT:"Installa",
-                                            EN:"Install"
+                                            EN:"Install",
+                                            FR:"Installer"
                                         },
                                         description:{
                                             IT:"Permette di usare Massive Randomness 2 offline.",
-                                            EN:"Allows you to use Massive Randomness 2 offline."
+                                            EN:"Allows you to use Massive Randomness 2 offline.",
+                                            FR:"Permet d'utiliser Massive Randomness 2 en mode d&eacute;connect&eacute;."
                                         }
                                     }
                                 ]
