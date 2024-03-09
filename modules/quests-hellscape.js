@@ -18,7 +18,8 @@ ModManager.modules.push(function(){
                             type:"finalBoss",
                             by:{
                                 IT:"Ispirato all'avventura di Hellscape \"Hellscape\"",
-                                EN:"Inspired by the Hellscape quest \"Hellscape\""
+                                EN:"Inspired by the Hellscape quest \"Hellscape\"",
+                                FR:"Inspir&eacute; de la qu&ecirc;te \"Hellscape\" de Hellscape"
                             },
                             suggestedTilesCount:5,
                             versions:[
@@ -29,97 +30,121 @@ ModManager.modules.push(function(){
                                                 problem:[
                                                     {
                                                         IT:[ "Qualcosa &egrave; andato storto con l'ultimo portale! Ci siamo persi e" ],
-                                                        EN:[ "Something went wrong with the last portal! We got lost and" ]
+                                                        EN:[ "Something went wrong with the last portal! We got lost and" ],
+                                                        FR:[ "Quelque chose a mal tourn&eacute avec le dernier portail ! Nous nous somme perdus et" ]
                                                     },{
                                                         IT:[ "Non ricordiamo cosa sia successo. Appena abbiamo riaperto gli occhi ci siamo accorti che" ],
-                                                        EN:[ "We don't remember what happened. As soon as we reopened our eyes we realized that" ]
+                                                        EN:[ "We don't remember what happened. As soon as we reopened our eyes we realized that" ],
+                                                        FR:[ "Nous ne nous souvenons plus de ce qu'il s'est pass&eacute;. A peine les yeux ouverts nous r&eacute;alisons que" ]
                                                     },{
                                                         IT:[ "Quella di separarci nella foresta non &egrave; stata una buona idea..." ],
-                                                        EN:[ "Separating us in the forest wasn't a good idea..." ]
+                                                        EN:[ "Separating us in the forest wasn't a good idea..." ],
+                                                        FR:[ "Nous s&eacute;parer dans la for&ecirc;t n'&eacute;tait pas une bonne id&eacute;e..." ]
                                                     }
                                                 ],
                                                 lost:[
                                                     {
                                                         IT:[ "ora siamo separati gli uni dagli altri!", "Separati!" ],
-                                                        EN:[ "we are now separated from each other!", "Separated!" ]
+                                                        EN:[ "we are now separated from each other!", "Separated!" ],
+                                                        FR:[ "nous avons &eacute;t&eacute; s&eacute;par&eacute;s les uns des autres !", "S&eacute;par&eacute;s !" ]
                                                     },{
                                                         IT:[ "qualche forza misteriosa deve averci separato!", "La Forza Misteriosa" ],
-                                                        EN:[ "some mysterious force must have separated us!", "The Mysterious Force" ]
+                                                        EN:[ "some mysterious force must have separated us!", "The Mysterious Force" ],
+                                                        FR:[ "une force myst&eacute;rieuse nous a s&eacute;par&eacute;s !", "La Force Myst&eacute;rieuse" ]
                                                     },{
                                                         IT:[ "non capiamo dove siamo finiti!", "Dove siamo finiti?" ],
-                                                        EN:[ "we don't understand where we ended up!", "Where have we ended up?" ]
+                                                        EN:[ "we don't understand where we ended up!", "Where have we ended up?" ],
+                                                        FR:[ "nous ne savons pas o&ugrave; nous sommes !", "O&ugrave; sommes nous ?" ]
                                                     }
                                                 ],
                                                 guard:[
                                                     {
                                                         IT:[ "C'&egrave; un Mostro Errante che fa la guardia all'unica via d'uscita" ],
-                                                        EN:[ "There is a Roaming Monster guarding the only way out" ]
+                                                        EN:[ "There is a Roaming Monster guarding the only way out" ],
+                                                        FR:[ "Un Monstre Errant barre la route de la seule sortie possible" ]
                                                     },{
                                                         IT:[ "Si narra che da queste parti si trovi una tremenda creaturea" ],
-                                                        EN:[ "It is said that in these parts there is a terrible creature" ]
+                                                        EN:[ "It is said that in these parts there is a terrible creature" ],
+                                                        FR:[ "On raconte qu'une terrible cr&eacute;ature s&eacute;vit dans ces lieux" ]
                                                     },{
                                                         IT:[ "Qualcosa di terribile si aggira tra queste mura" ],
-                                                        EN:[ "Something terrible is lurking within these walls" ]
+                                                        EN:[ "Something terrible is lurking within these walls" ],
+                                                        FR:[ "Quelque chose de terrible r&ocirc;de entre ces murs" ]
                                                     }
                                                 ],
                                                 avoid:[
                                                     {
                                                         IT:[ "e non possiamo rischiare che ci segua." ],
-                                                        EN:[ "and we can't risk him following us." ]
+                                                        EN:[ "and we can't risk him following us." ],
+                                                        FR:[ "et nous nous pouvons pas le laisser nous suivre." ]
                                                     },{
                                                         IT:[ "e non abbiamo altra scelta che affrontarla." ],
-                                                        EN:[ "and we have no choice but to face it." ]
+                                                        EN:[ "and we have no choice but to face it." ],
+                                                        FR:[ "et nous n'avons pas d'autre choix que d'y faire face." ]
                                                     },{
                                                         IT:[ "e potrebbe essere l'obiettivo che cercavamo da tempo." ],
-                                                        EN:[ "and it could be the goal we've been looking for for some time." ]
+                                                        EN:[ "and it could be the goal we've been looking for for some time." ],
+                                                        FR:[ "et c'est peut-&ecirc;tre l'objectif que nous cherchions jusqu'ici." ]
                                                     }
                                                 ],
                                                 objective:[
                                                     {
                                                         IT:[ "Dobbiamo riunirci e sopprimere il mostro" ],
                                                         EN:[ "We must gather and eliminate the monster" ],
+                                                        FR:[ "Nous devons nous r&eacute;unir et &eacute;liminer le monstre" ]
                                                     },{
                                                         IT:[ "Dovremo affrontare una durissima battaglia" ],
-                                                        EN:[ "We will have to face a very tough battle" ]
+                                                        EN:[ "We will have to face a very tough battle" ],
+                                                        FR:[ "Nous devrons nous engager dans une bataille f&eacute;roce" ]
                                                     },{
                                                         IT:[ "Non possiamo farcela da soli... Dobbiamo ritrovarci" ],
-                                                        EN:[ "We can't do it alone... We have to reunite" ]
+                                                        EN:[ "We can't do it alone... We have to reunite" ],
+                                                        FR:[ "Nous ne pouvons y faire face seul... Il nous faut nous retrouver" ]
                                                     }
                                                 ],
                                                 goal:[
                                                     {
                                                         IT:[ "prima di tornare a casa!" ],
-                                                        EN:[ "before going home!" ]
+                                                        EN:[ "before going home!" ],
+                                                        FR:[ "avant de pouvoir rentrer chez nous !" ]
                                                     },{
                                                         IT:[ "per poter porre fine a tutto questo!" ],
-                                                        EN:[ "to be able to put an end to all this!" ]
+                                                        EN:[ "to be able to put an end to all this!" ],
+                                                        FR:[ "pour pouvoir mettre fin &agrave; tout &ccedil;a !" ]
                                                     },{
                                                         IT:[ "o per il Regno non ci sar&agrave; speranza!" ],
-                                                        EN:[ "or there will be no hope for the Kingdom!" ]
+                                                        EN:[ "or there will be no hope for the Kingdom!" ],
+                                                        FR:[ "ou tout espoir sera perdu pour le Royaume !" ]
                                                     }
                                                 ],
                                                 gate:[
                                                     {
                                                         IT:[ "Portale Arcano", "Portali Arcani", "i", "un", "il suo portale" ],
-                                                        EN:[ "Arcane Portal", "Arcane Portals", "the", "an", "his portal" ]
+                                                        EN:[ "Arcane Portal", "Arcane Portals", "the", "an", "his portal" ],
+                                                        FR:[ "Portail Arcanique", "Portails Arcaniques", "les", "un", "son portail" ]
                                                     },{
                                                         IT:[ "Teletrasporto", "Teletrasporti", "i", "un", "il suo teletrasporto" ],
-                                                        EN:[ "Teleporter", "Teleporters", "the", "a", "his teleporter" ]
+                                                        EN:[ "Teleporter", "Teleporters", "the", "a", "his teleporter" ],
+                                                        FR:[ "T&eacute;l&eacute;porteur", "T&eacute;l&eacute;porteurs", "les", "un", "son t&eacute;l&eacute;porteur" ]
                                                     },{
                                                         IT:[ "Specchio Incantato", "Specchi Incantati", "gli", "uno", "il suo specchio" ],
-                                                        EN:[ "Enchanted Mirror", "Enchanted Mirrors", "the", "an", "his mirror" ]
+                                                        EN:[ "Enchanted Mirror", "Enchanted Mirrors", "the", "an", "his mirror" ],
+                                                        FR:[ "Miroir Enchant&eacute;", "Miroirs Enchant&eacute;s", "les", "un", "son miroir" ] // accent? (uppercase)
                                                     }
                                                 ],
                                                 cliffhanger:[
                                                     {
                                                         IT:[ "L'Interferenza Oscura" ],
-                                                        EN:[ "The Dark Interference" ]
+                                                        EN:[ "The Dark Interference" ],
+                                                        FR:[ "L'Interf&eacute;rence Obscure" ]
                                                     },{
                                                         IT:[ "Il Combattimento Finale" ],
-                                                        EN:[ "The Final Battle" ]
+                                                        EN:[ "The Final Battle" ],
+                                                        FR:[ "La Bataille Finale" ]
                                                     },{
                                                         IT:[ "L'Ultima Prova" ],
-                                                        EN:[ "The Last Challenge" ]
+                                                        EN:[ "The Last Challenge" ],
+                                                        FR:[ "La Derni&egrave;re Epreuve" ]
                                                     }
                                                 ]
                                             }
@@ -142,7 +167,8 @@ ModManager.modules.push(function(){
                                     objectivesHeader:[
                                         {
                                             IT:"Completate gli obiettivi nell'ordine indicato:",
-                                            EN:"Complete the objectives in order:"
+                                            EN:"Complete the objectives in order:",
+                                            FR:"Compl&eacute;tez les objectifs dans l'ordre :"
                                         }
                                     ],
                                     challenges:[
@@ -157,13 +183,15 @@ ModManager.modules.push(function(){
                                                 name:[
                                                     {
                                                         IT:"L'Adunanza",
-                                                        EN:"The Gathering"
+                                                        EN:"The Gathering",
+                                                        FR:"Le Rassemblement"
                                                     }
                                                 ],
                                                 summary:[
                                                     {
                                                         IT:"Tutti gli Eroi devono raggiungere la Tessera {tileLabel.center}",
-                                                        EN:"All Heroes must reach the {tileLabel.center} tile"
+                                                        EN:"All Heroes must reach the {tileLabel.center} tile",
+                                                        FR:"Tous les H&eacute;ros doivent atteindre la dalle {tileLabel.center}"
                                                     }
                                                 ]
                                             }
@@ -173,13 +201,15 @@ ModManager.modules.push(function(){
                                                 name:[
                                                     {
                                                         IT:"Sconfiggere il Mostro",
-                                                        EN:"Defeating the Monster"
+                                                        EN:"Defeating the Monster",
+                                                        FR:"Vaincre le Monstre"
                                                     }
                                                 ],
                                                 summary:[
                                                     {
                                                         IT:"Sconfiggere il Mostro Errante Finale",
-                                                        EN:"Defeating the Final Roaming Monster"
+                                                        EN:"Defeating the Final Roaming Monster",
+                                                        FR:"Vaincre le Monstre Errant Final"
                                                     }
                                                 ]
                                             }
@@ -189,13 +219,15 @@ ModManager.modules.push(function(){
                                                 name:[
                                                     {
                                                         IT:"Separati",
-                                                        EN:"Separated"
+                                                        EN:"Separated",
+                                                        FR:"S&eacute;par&eacute;s"
                                                     }
                                                 ],
                                                 explanation:[
                                                     {
                                                         IT:"In questa Missione, gli Eroi partono separati e ogni giocatore deve collocare il proprio Eroe in una Zona di Partenza diversa. In una partita a 5 o 6 Eroi, 1 o 2 Zone di Partenza possono contenere un massimo di 2 Eroi. A tutti i fini (facendo eccezione per il Mostro Errante Finale), considerate la Missione come se soltanto 2 Eroi stessero giocando.<p>In una partita a meno di 4 Eroi, rimuovete abbastanza Tessere in modo che restino solo la Tessera del Boss ({tileLabel.center}) pi&ugrave; 1 Tessera per Eroe. Non rimuovete la tessera {tileLabel.first}.</p>",
-                                                        EN:"In this Mission, the Heroes start separately and each player must place their Hero in a different Starting Zone. In a game with 5 or 6 Heroes, 1 or 2 Starting Zones can contain a maximum of 2 Heroes. For any purposes (except for the Final Roaming Monster), treat the Mission as if only 2 Heroes were playing.<p>In a game with fewer than 4 Heroes, remove enough Tiles so that only the Boss Tile remains ({tileLabel.center}) plus 1 Tile per Hero. Do not remove the {tileLabel.first} tile.</p>"
+                                                        EN:"In this Mission, the Heroes start separately and each player must place their Hero in a different Starting Zone. In a game with 5 or 6 Heroes, 1 or 2 Starting Zones can contain a maximum of 2 Heroes. For any purposes (except for the Final Roaming Monster), treat the Mission as if only 2 Heroes were playing.<p>In a game with fewer than 4 Heroes, remove enough Tiles so that only the Boss Tile remains ({tileLabel.center}) plus 1 Tile per Hero. Do not remove the {tileLabel.first} tile.</p>",
+                                                        FR:"Dans cette Qu&ecirc;te, les H&eacute;ros commencent s&eacute;par&eacute;s et chaque joueur doit placer son H&eacute;ros dans une Zone de D&eacute;part diff&eacute;rente. Dans une partie &agrave; 5 ou 6 H&eacute;ros, 1 ou 2 Zones de D&eacute;part peuvent contenir jusqu'&agrave; 2 H&eacute;ros. Pour toutes les r&egrave;gles (&agrave; l'exception du Monstre Errant Final), consid&eacute;rez cette Qu&ecirc;te comme n'ayant que 2 H&eacute;ros en jeu.<p>Dans une partie avec moins de 4 H&eacute;ros, retirez assez de Dalles pour qu'il ne reste que la Dalle du Boss ({tileLabel.center}) plus 1 Dalle par H&eacute;ros. Ne retirez pas la dalle {tileLabel.first}.</p>"
                                                     }
                                                 ]
                                             }
@@ -205,13 +237,15 @@ ModManager.modules.push(function(){
                                                 name:[
                                                     {
                                                         IT:"Nota",
-                                                        EN:"Note"
+                                                        EN:"Note",
+                                                        FR:"Note"
                                                     }
                                                 ],
                                                 explanation:[
                                                     {
                                                         IT:"Le Orde vengono generate soltanto con 2 Gregari e il proprio Comandante e i Mostri Erranti hanno la Salute equivalente solo a 2 Eroi.",
-                                                        EN:"The Hordes are only generated with 2 Minions and their Leader and the Roaming Monsters have the equivalent Health of only 2 Heroes."
+                                                        EN:"The Hordes are only generated with 2 Minions and their Leader and the Roaming Monsters have the equivalent Health of only 2 Heroes.",
+                                                        FR:"Les Bandes sont g&eacute;n&eacute;r&eacute;es avec seulement 2 S&eacute;ides et leur Chef et les Monstres Errants ont la Sant&eacute; &eacute;quivalente &agrave; seulement 2 H&eacute;ros."
                                                     }
                                                 ]
                                             }
@@ -230,7 +264,10 @@ ModManager.modules.push(function(){
                                                             "Qualsiasi Eroe che ha attivato {label.gate@4} pu&ograve; spendere 1 PM mentre si trova in una Zona con un segnalino Obiettivo di qualsiasi colore per muoversi fino a una qualsiasi altra zona con un segnalino Obiettivo di qualsiasi colore.",
                                                         EN: "The tiles are not connected in this Mission and can only be accessed using {label.gate@2} {label.gate@1} represented by the Objective tokens, which however are deactivated."+
                                                         "<p>{label.gate:capital@3} {label.gate@0} activates immediately and its Objective token is flipped to its colored side after its corresponding tile remains have no Enemies and all Chambers are been revealed.</p>"+
-                                                        "Any Hero who has activated {label.gate@4} can spend 1 MP while in a Zone with an Objective token of any color to move to any other zone with an Objective token of any color."
+                                                        "Any Hero who has activated {label.gate@4} can spend 1 MP while in a Zone with an Objective token of any color to move to any other zone with an Objective token of any color.",
+                                                        FR:"Les dalles ne sont pas connect&eacute;es dans cette Qu&ecirc;te et ne peuvent &ecirc;tre acc&eacute;d&eacute;es qu'en utilisant {label.gate@2} {label.gate@1} represent&eacute;s par les pions Objectif, qui sont cepandant d&eacute;sactiv&eacute;s."+
+                                                        "<p>{label.gate:capital@3} {label.gate@0} s'activate imm&eacute;diatement et son pion Objectif est retourn&eacute; sur son c&ocirc;t&eacute; color&eacute; d&egrave;s qu'il ne reste plus d'Ennemi et que toutes les Salles ont &eacute;t&eacute; r&eacute;v&eacute;l&eacute;es sur sa dalle correspondante.</p>"+
+                                                        "Un H&eacute;ros qui a activ&eacute; {label.gate@4} peut d&eacute;penser 1 PM dans une Zone avec un pion Objectif de n'importe quelle couleur pour bouger dans une autre zone avec un pion Objectif de n'importe quelle couleur."
                                                     }
                                                 ]
                                             }
@@ -245,7 +282,8 @@ ModManager.modules.push(function(){
                                                 explanation:[
                                                     {
                                                         IT:"Quando aprite la porte con il bordo rosso sulla Tessera {tileLabel.center} non risolvete carte Porta, rimuovete il segnalino Corruzione {symbol.corruptionToken} e generate un Mostro Errante di Livello 5 nella sua zona.<p>Pescate carte dal mazzo degli Oggetti dell'Orda di Livello 5 finch&eacute; non rivelate un'arma con lo stesso tipo di attacco del Mostro Errante. Assegnate quell'arma al Mostro Errante, aggiungendo i dadi dell'arma alla riserva di dadi di Attacco del Mostro Errante.</p>",
-                                                        EN:"When you open the door with the red outline on the {tileLabel.center} tile, do not resolve Door cards, remove the Corruption token {symbol.corruptionToken}, and generate a Level 5 Roaming Monster in its area.<p>Draw cards from the Level 5 Horde Items deck until you reveal a weapon with the same attack type as the Roaming Monster. Equip that weapon to the Roaming Monster, adding the weapon's dice to the Roaming Monster's Attack dice pool.</p>"
+                                                        EN:"When you open the door with the red outline on the {tileLabel.center} tile, do not resolve Door cards, remove the Corruption token {symbol.corruptionToken}, and generate a Level 5 Roaming Monster in its area.<p>Draw cards from the Level 5 Horde Items deck until you reveal a weapon with the same attack type as the Roaming Monster. Equip that weapon to the Roaming Monster, adding the weapon's dice to the Roaming Monster's Attack dice pool.</p>",
+                                                        FR:"Quand vous ouvrez la porte au contour rouge sur la dalle {tileLabel.center}, ne r&eacute;solvez pas de carte Porte, retirez le pion Corruption {symbol.corruptionToken}, et g&eacute;n&eacute;rez un Monstre Errant Level 5 &agrave; la place.<p>Piochez des cartes depuis le paquet des Objets de Bandes jusqu'&agrave; trouver une arme avec le m&ecirc;me type d'attaque que le Monstre Errant. Assignez cette arme au Monstre Errant, ajoutant les d&eacute;s de l'arme &agrave; la r&eacute;serve de d&eacute;s d'Attaque du Monstre Errant.</p>"
                                                     }
                                                 ]
                                             }
