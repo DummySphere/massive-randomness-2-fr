@@ -8,19 +8,23 @@ Tools=(function(){
             EN:[ "amp" ],
             FR:[ "agrave", "acirc", "eacute", "ecirc", "egrave", "euml", "icirc", "iuml", "ocirc", "oelig", "ucirc", "ugrave", "uuml", "ccedil" ]
         },
-        ALLOWED_TAGS=[ "p", "/p", "ul", "/ul", "ol", "/ol", "li", "/li", "b", "/b", "i", "/i", "span class='phase'", "span class='displayonly'", "span class='printonly'", "span class='hiddentext'",  "/span" ],
+        ALLOWED_TAGS=[ "p", "/p", "ul", "/ul", "ol", "/ol", "li", "/li", "b", "/b", "i", "/i", "span class='phase'", "span class='displayonly'", "span class='printonly'", "span class='hiddentext'",  "/span", "br", "p class='credits'", "/a", /^a target=_blank href='[^']+'$/ ],
         ALLOWED_PLACEHOLDER_MODS=[ "capital" ],
-        ALLOWED_CELLTYPES=[ "light", "dark", "crystal", "lava", "blocking" ],
+        ALLOWED_CELLTYPES=[ "light", "dark", "crystal", "lava", "blocking", "water" ],
         ALLOWED_PLACEHOLDERS=[
             // Common tile labels
             "tileLabel.first", "tileLabel.second", "tileLabel.third", "tileLabel.fourth", "tileLabel.fifth", "tileLabel.center",
             // Investigation quest placeholders
             "who", "testimony.corruptionLord", "testimony.corruptionLordServant", "testimony.timeLord", "testimony.timeLordServant",
-            "ending.corruptionLord", "ending.timeLord"
+            "ending.corruptionLord", "ending.timeLord",
+            // Ending
+            "token.order1", "token.order2", "token.order3", "token.order4",
+            "action.order1", "action.order2", "action.order3"
         ],
         WARNING_WORDS={
-            EN:[ "wandering", "quest" ],
-            IT:[ "quest", "xp", "avventura" ]
+            EN:[ "wandering", "quest", "marker" ],
+            IT:[ "quest", "xp", "avventura" ],
+            FR:[ ]
         },
         QUEST_CONFIGS=[
             {
@@ -37,7 +41,25 @@ Tools=(function(){
                 id:"maps-size-large",
                 excludes:[],
                 needs:[ "quests", "maps-default", "md2-hellscape", "maps-size-large", "maps-default-uniform", "challenges-default" ]
-            },{
+            },
+            // --- MD2: Rainbow Crossing
+            {
+                id:"maps-size-small-rainbowcrossing",
+                excludes:[],
+                needs:[ "quests", "maps-default", "md2-hellscape", "md2-rainbowcrossing", "maps-size-small", "maps-default-uniform", "challenges-default" ]
+            },
+            {
+                id:"maps-size-normal-rainbowcrossing",
+                excludes:[],
+                needs:[ "quests", "maps-default", "md2-hellscape", "md2-rainbowcrossing", "maps-size-normal", "maps-default-uniform", "challenges-default" ]
+            },
+            {
+                id:"maps-size-large-rainbowcrossing",
+                excludes:[],
+                needs:[ "quests", "maps-default", "md2-hellscape", "md2-rainbowcrossing", "maps-size-large", "maps-default-uniform", "challenges-default" ]
+            },
+            // --- MD2: Heavenfall
+            {
                 id:"maps-size-small-heavenfall",
                 excludes:[],
                 needs:[ "quests", "maps-default", "md2-hellscape", "md2-heavenfall", "maps-size-small", "maps-default-uniform", "challenges-default" ]
@@ -51,6 +73,38 @@ Tools=(function(){
                 id:"maps-size-large-heavenfall",
                 excludes:[],
                 needs:[ "quests", "maps-default", "md2-hellscape", "md2-heavenfall", "maps-size-large", "maps-default-uniform", "challenges-default" ]
+            },
+            // --- ZC: Black Plague
+            {
+                id:"maps-size-small-zcblackplague",
+                excludes:[],
+                needs:[ "quests", "maps-default", "md2-hellscape", "zc-blackplague", "maps-size-small", "maps-default-uniform", "challenges-default" ]
+            },
+            {
+                id:"maps-size-normal-zcblackplague",
+                excludes:[],
+                needs:[ "quests", "maps-default", "md2-hellscape", "zc-blackplague", "maps-size-normal", "maps-default-uniform", "challenges-default" ]
+            },
+            {
+                id:"maps-size-large-zcblackplague",
+                excludes:[],
+                needs:[ "quests", "maps-default", "md2-hellscape", "zc-blackplague", "maps-size-large", "maps-default-uniform", "challenges-default" ]
+            },
+            // --- ZC: Green horde
+            {
+                id:"maps-size-small-zcgreenhorde",
+                excludes:[],
+                needs:[ "quests", "maps-default", "md2-hellscape", "zc-greenhorde", "maps-size-small", "maps-default-uniform", "challenges-default" ]
+            },
+            {
+                id:"maps-size-normal-zcgreenhorde",
+                excludes:[],
+                needs:[ "quests", "maps-default", "md2-hellscape", "zc-greenhorde", "maps-size-normal", "maps-default-uniform", "challenges-default" ]
+            },
+            {
+                id:"maps-size-large-zcgreenhorde",
+                excludes:[],
+                needs:[ "quests", "maps-default", "md2-hellscape", "zc-greenhorde", "maps-size-large", "maps-default-uniform", "challenges-default" ]
             }
         ];
 
@@ -157,8 +211,10 @@ Tools=(function(){
                     if (Array.isArray(item.data)) {
                         if (!out[item.type]) out[item.type]=[];
                         item.data.forEach(element=>{
-                            element._package = package.id;
-                            out[item.type].push(element);
+                            let copy = JSON.parse(JSON.stringify(element));
+                            copy._package = package.id;
+                            copy._packageData = package;
+                            out[item.type].push(copy);
                         })
                     } else {
                         if (!out[item.type]) out[item.type]={};
@@ -210,15 +266,23 @@ Tools=(function(){
             errors.push(errorHeader,"EN language missing");
         for (let lang in set) {
             let
+                okTag = "XXX",
                 entry = set[lang];
             if (!Array.isArray(entry))
                 entry = [entry];
             entry.forEach((argument,aid)=>{
                 let
                     orgArgument = argument.replace(/<([^>]+)>/g,(m,m1)=>{
-                        if (ALLOWED_TAGS.indexOf(m1) == -1)
-                            errors.push(errorHeader+" L["+lang+"] O["+aid+"]: invalid tag &lt;"+m1+"&gt;");
-                        return "XXX";
+                        for (let i=0;i<ALLOWED_TAGS.length;i++) {
+                            let allowedTag = ALLOWED_TAGS[i];
+                            if (allowedTag instanceof RegExp) {
+                                if (allowedTag.test(m1))
+                                    return okTag;
+                            } else if (allowedTag == m1)
+                                return okTag;
+                        }
+                        errors.push(errorHeader+" L["+lang+"] O["+aid+"]: invalid tag &lt;"+m1+"&gt;");
+                        return okTag;
                     }).replace(/{([^}]+)}/g,(m,m1)=>{
                         let
                             errorPHeader=errorHeader+" L["+lang+"] O["+aid+"]: ",
@@ -228,11 +292,11 @@ Tools=(function(){
                             errors.push(errorPHeader+"unavailable placeholder "+parts[0]);
                         if (parts[1] && (ALLOWED_PLACEHOLDER_MODS.indexOf(parts[1]) == -1))
                             errors.push(errorPHeader+"invalid placeholder modifier '"+parts[1]+"'");
-                        return "XXX"
+                        return okTag;
                     }).replace(/&([^;]+);/g,(m,m1)=>{
                         if (ALLOWED_ENTITIES[lang] && (ALLOWED_ENTITIES[lang].indexOf(m1) == -1))
                             errors.push(errorHeader+" L["+lang+"] O["+aid+"]: invalid entity for "+lang+": &amp;"+m1+";");
-                        return "XXX";
+                        return okTag;
                     }),
                     checkArgument = orgArgument.replace(/([^0-9a-zA-Z() +/\-,.;:'!?"]+)/g,function(m,m1){
                         return "<span style='background-color:#000;color:#fff'>"+m1+"</span>";
@@ -293,8 +357,9 @@ Tools=(function(){
                 iteration = 0;
                 testResult = {
                     test:test,
-                    questSeeds:[],
+                    seeds:[],
                     bridgeSeeds:[],
+                    mergedRoomsSeeds:[],
                     counters:{},
                     tokensIndex:[],
                     tokens:[]
@@ -312,13 +377,17 @@ Tools=(function(){
                 },(resources,result)=>{
                     questTesterAddCounter(testResult,iteration,result.map.placedTiles > result.quest.suggestedTilesCount ? "map-large" : result.map.placedTiles < result.quest.suggestedTilesCount ? "map-small" : "map-normal" )
                     if (result.map.hasBridge) {
-                        testResult.bridgeSeeds.push(result.questSeed);
+                        testResult.bridgeSeeds.push(result.seed);
                         questTesterAddCounter(testResult,iteration,"hasBridge");
+                    }
+                    if (result.map.hasMergedRooms.length) {
+                        testResult.mergedRoomsSeeds.push(result.seed);
+                        questTesterAddCounter(testResult,iteration,"hasMergedRooms");
                     }
                     if (result.map.bridgeRemoved) questTesterAddCounter(testResult,iteration,"bridgeRemoved");
                     testResult.label = result.quest.by.EN;
                     testResult.roomsDefaults = result.mapConfig.roomsDefaults;
-                    testResult.questSeeds.push(result.questSeed);
+                    testResult.seeds.push(result.seed);
                     result.map.grid.forEach(row=>{
                         row.forEach(cell=>{
                             if (cell) {
@@ -329,15 +398,17 @@ Tools=(function(){
                         })
                     });
                     result.map.rooms.forEach(room=>{
-                        let
-                            mobs = 0;
-                        room.cells.forEach(cell=>{
-                            cell.tokens.forEach(token=>{
-                                if (token.id == "mob")
-                                    mobs++;
-                            })
-                        });
-                        questTesterAddToken(testResult,iteration,{ id:"ROOM-mobs-"+mobs });
+                        if (room) {
+                            let
+                                mobs = 0;
+                            room.cells.forEach(cell=>{
+                                cell.tokens.forEach(token=>{
+                                    if (token.id == "mob")
+                                        mobs++;
+                                })
+                            });
+                            questTesterAddToken(testResult,iteration,{ id:"ROOM-mobs-"+mobs });
+                        }
                     });
                     questTesterAddToken(testResult,iteration,{ id:"ATTEMPTS" },result.attempt);
                     setTimeout(()=>{
@@ -369,6 +440,7 @@ Tools=(function(){
                         stats:"Sug.Tiles: "+result.test.quest.suggestedTilesCount+" | Risk:"+result.roomsDefaults.risk+" | Reward:"+result.roomsDefaults.reward,
                         counters:result.counters,
                         bridgeSeeds:result.bridgeSeeds,
+                        mergedRoomsSeeds:result.mergedRoomsSeeds,
                         tokensResult:[]
                     };
 
@@ -392,13 +464,13 @@ Tools=(function(){
                         }
 
                         if ((max === undefined) || (amount > max)) {
-                            maxSeed = result.questSeeds[id];
+                            maxSeed = result.seeds[id];
                             max = amount;
                             maxCount = 0;
                         }
 
                         if ((min === undefined) || (amount < min)) {
-                            minSeed = result.questSeeds[id];
+                            minSeed = result.seeds[id];
                             min = amount;
                             minCount = 0;
                         }
@@ -465,6 +537,14 @@ Tools=(function(){
 
                 seedSelectorNode =  createNode(countersNode,"select");
                 createNode(seedSelectorNode,"option").innerHTML="---";
+
+
+                resultRow.mergedRoomsSeeds.forEach(seed=>{
+                    let
+                        option = createNode(seedSelectorNode,"option");
+                    option.value = seed;
+                    option.innerHTML = "MERGED: "+seed
+                });
 
                 resultRow.bridgeSeeds.forEach(seed=>{
                     let
@@ -562,6 +642,10 @@ Tools=(function(){
                         sideContainerNode = createNode(tileNode,"div"),
                         sideInfo = createNode(sideContainerNode,"div"),
                         sideNode = createTileTo(sideContainerNode,"div"),
+                        isOutdoor = side.skins.indexOf("outdoor") != -1,
+                        hasHedges,
+                        hasWater,
+                        hasSolidWalls,
                         rows = side.angles[0].length,
                         cols = side.angles[0][0].length,
                         expectedTags = [ "any" ],
@@ -593,6 +677,11 @@ Tools=(function(){
                             
                             if (cell.type)
                                 cell.type.forEach(type=>{
+                                    if (type == "water") hasWater = true;
+                                    if (cell.solidWalls)
+                                        cell.solidWalls.forEach(wall=>{
+                                            if (wall) hasSolidWalls = true;
+                                        })
                                     label+=type.substr(0,2);
                                     title+=type+" ";
                                 });
@@ -614,29 +703,42 @@ Tools=(function(){
                                 roomsCount++;
                             }
 
+                            if (cell.hedges)
+                                cell.hedges.forEach(hedge=>{
+                                    if (hedge) hasHedges = true;
+                                })
+
                             // --- Cell walls check
                             if (cell.walls[0]) {
                                 if (!cell.isWalled && upperCell && !upperCell.walls[2])
                                     errors.push(errorHeaderCell+": mismatching wall on upper cell");
-                                cellNode.style.borderTop="1px solid #000";
+                                cellNode.style.borderTop=cell.solidWalls && cell.solidWalls[0] ? "2px solid #000" : "1px solid #000";
+                            } else if (cell.hedges && cell.hedges[0]) {
+                                cellNode.style.borderTop="1px solid #0F0";
                             }
 
                             if (cell.walls[1]) {
                                 if (!cell.isWalled && rightCell && !rightCell.walls[3])
                                     errors.push(errorHeaderCell+": mismatching wall on right cell");
-                                cellNode.style.borderRight="1px solid #000";
+                                cellNode.style.borderRight=cell.solidWalls && cell.solidWalls[1] ? "2px solid #000" : "1px solid #000";
+                            } else if (cell.hedges && cell.hedges[1]) {
+                                cellNode.style.borderRight="1px solid #0F0";
                             }
 
                             if (cell.walls[2]) {
                                 if (!cell.isWalled && lowerCell && !lowerCell.walls[0])
                                     errors.push(errorHeaderCell+": mismatching wall on lower cell");
-                                cellNode.style.borderBottom="1px solid #000";
+                                cellNode.style.borderBottom=cell.solidWalls && cell.solidWalls[2] ? "2px solid #000" :  "1px solid #000";
+                            } else if (cell.hedges && cell.hedges[2]) {
+                                cellNode.style.borderBottom="1px solid #0F0";
                             }
 
                             if (cell.walls[3]) {
                                 if (!cell.isWalled && leftCell && !leftCell.walls[1])
                                     errors.push(errorHeaderCell+": mismatching wall on left cell");
-                                cellNode.style.borderLeft="1px solid #000";
+                                cellNode.style.borderLeft=cell.solidWalls && cell.solidWalls[3] ? "2px solid #000" : "1px solid #000";
+                            } else if (cell.hedges && cell.hedges[3]) {
+                                cellNode.style.borderLeft="1px solid #0F0";
                             }
 
                             if (cell.isRoom) {
@@ -696,6 +798,18 @@ Tools=(function(){
                                 if (!cell.isWalled && leftCell && !(leftCell.isRoom || leftCell.isBlocking) && cell.walls[3])
                                     errors.push(errorHeaderCell+": extra wall on corridor left");
 
+                                if (cell.hedges) {
+
+                                    if (cell.hedges[0] && upperCell && (!upperCell.hedges || !upperCell.hedges[2]))
+                                        errors.push(errorHeaderCell+": hedges not matching on top");
+                                    if (cell.hedges[1] && rightCell && (!rightCell.hedges || !rightCell.hedges[3]))
+                                        errors.push(errorHeaderCell+": hedges not matching on right");
+                                    if (cell.hedges[2] && lowerCell && (!lowerCell.hedges || !lowerCell.hedges[0]))
+                                        errors.push(errorHeaderCell+": hedges not matching on bottom");
+                                    if (cell.hedges[3] && leftCell && (!leftCell.hedges || !leftCell.hedges[1]))
+                                        errors.push(errorHeaderCell+": hedges not matching on left");
+                                }
+
                             } else {
                                 if (!(cell.walls[0] && cell.walls[1] && cell.walls[2] && cell.walls[3]))
                                     errors.push(errorHeaderCell+": missing walls on a blocking cell");
@@ -711,6 +825,17 @@ Tools=(function(){
                                 });
                             else
                                 errors.push(errorHeaderCell+": missing cell types");
+
+                            // --- Cell outdoor check
+                            if (isOutdoor)
+                                if ((cell.type.indexOf("light")!= -1) && cell.isRoom)
+                                    errors.push(errorHeaderCell+": outdoor light cell can't bee a room");
+                                else if ((cell.type.indexOf("dark") != -1) && !cell.isRoom && !cell.isBlocking)
+                                    errors.push(errorHeaderCell+": outdoor dark cell must be a room");
+                                else if ((cell.type.indexOf("dark") == -1) && cell.isRoom)
+                                    errors.push(errorHeaderCell+": outdoor room cell must be dark");
+                                else if ((cell.type.indexOf("light") == -1) && (cell.type.indexOf("water") == -1) && !cell.isRoom && !cell.isBlocking)
+                                    errors.push(errorHeaderCell+": outdoor street cell must be light or water");
 
                         });
 
@@ -735,12 +860,42 @@ Tools=(function(){
                         deniedSkins.push("red");
                         deniedSkins.push("light");
                         expectedSpecialRules.push("noLydian");
+                    } else if (hasHedges) {
+                        deniedCells.push("crystal");
+                        deniedCells.push("lava");
+                        deniedSkins.push("heaven");
+                        deniedSkins.push("red");
+                        deniedSkins.push("light");
+                        allowedSkins.push("outdoor");
+                        allowedSkins.push("village");
+                        deniedSkins.push("lava");
+                        deniedSkins.push("crystal");
+                        expectedSpecialRules.push("noLydian");
+                        expectedSpecialRules.push("zombicideHedges");
+                        expectedSpecialRules.push("zombicideTiles");
+                        if (hasWater) expectedSpecialRules.push("zombicideWater");
+                        if (hasSolidWalls) expectedSpecialRules.push("zombicideSolidWalls");
+                    } else if (isOutdoor) {
+                        deniedCells.push("crystal");
+                        deniedCells.push("lava");
+                        deniedSkins.push("heaven");
+                        deniedSkins.push("red");
+                        deniedSkins.push("light");
+                        allowedSkins.push("outdoor");
+                        deniedSkins.push("lava");
+                        deniedSkins.push("crystal");
+                        expectedSpecialRules.push("noLydian");
+                        expectedSpecialRules.push("zombicideTiles");
+                        if (hasWater) expectedSpecialRules.push("zombicideWater");
+                        if (hasSolidWalls) expectedSpecialRules.push("zombicideSolidWalls");
                     } else {
                         deniedCells.push("crystal");
                         deniedCells.push("lava");
+                        allowedSkins.push("rainbow");
                         allowedSkins.push("heaven");
                         allowedSkins.push("red");
                         allowedSkins.push("light");
+                        deniedSkins.push("outdoor");
                         deniedSkins.push("lava");
                         deniedSkins.push("crystal");
                     }
@@ -763,12 +918,16 @@ Tools=(function(){
                     // --- Extra rules check
 
                     if (expectedSpecialRules.length)
-                        if (side.specialRules)
+                        if (side.specialRules) {
                             expectedSpecialRules.forEach(rule=>{
                                 if (side.specialRules.indexOf(rule) == -1)
                                     errors.push(errorHeaderSide+": expected extra rule "+rule);
                             })
-                        else
+                            side.specialRules.forEach(rule=>{
+                                if (expectedSpecialRules.indexOf(rule) == -1)
+                                    errors.push(errorHeaderSide+": unexpected extra rule "+rule);
+                            })
+                        } else
                             errors.push(errorHeaderSide+": expected extra rules "+expectedSpecialRules.join(", "));
 
                     // --- Tags check
@@ -834,9 +993,21 @@ Tools=(function(){
                 errorsNode = createErrorsNode(into),
                 resultsNode = createNode(into,"div"),
                 errors = [],
-                resources = getAllResourcesTypes([ "quests", "tokensAvailable", "symbols", "globalLabels", "challenges" ]),
+                resources = getAllResourcesTypes([ "quests", "tokensAvailable", "symbols", "globalLabels", "challenges", "interface" ]),
                 globalLabels = {},
-                wordTokens = {};
+                wordTokens = {},
+                translations = {},
+                translationExcludeOption;
+
+            // Look for the untranslated exclusion option
+            resources.interface.settings.forEach(option=>{
+                option.entries.forEach(entry=>{
+                    if (entry.languageExcludeTags)
+                        translationExcludeOption = entry.languageExcludeTags;
+                })
+            })
+
+            // Prepare global labels
 
             for (let k in resources.tokensAvailable)
                 globalLabels["tokensCount."+k]=true;
@@ -850,6 +1021,8 @@ Tools=(function(){
 
             for (let k in resources.globalLabels)
                 checkLabel(errors,wordTokens,"Global label "+k,globalLabels,resources.globalLabels[k]);
+
+            // Check data
 
             resources.challenges.forEach((challenge,cid)=>{
                 challenge.rules.forEach((rule,rid)=>{
@@ -874,8 +1047,15 @@ Tools=(function(){
             });
 
             resources.quests.forEach((quest,id)=>{
+
                 let
                     errorHeader="["+quest._package+"] Quest "+(id+1);
+
+                if (!translations[quest._package]) translations[quest._package] = { packageData:quest._packageData, translations:{} };
+                for (let k in quest.by) {
+                    if (!translations[quest._package].translations[k]) translations[quest._package].translations[k]=0;
+                    translations[quest._package].translations[k]++;
+                }    
 
                 if (quest.by)
                     checkLabel(errors,wordTokens,errorHeader+" BY",0,quest.by);
@@ -948,6 +1128,28 @@ Tools=(function(){
 
                 })
             });
+
+            // Show stats
+
+            html+="<h2>Translations</h2><ul>";
+            for (let k in translations) {
+                let total = translations[k].translations.EN;
+                html+="<li><b>"+k+"</b><ul>";
+                for (let l in resources.interface.supportedLanguages) {
+                    let
+                        count = translations[k].translations[l]||0,
+                        prc = count/total;
+                    if (prc > 1)
+                        errors.push("Quest set "+k+": Invalid "+l+" percentage "+prc);
+                    else if ((prc <1) && (translations[k].packageData.provides.indexOf(translationExcludeOption[l][0]) == -1))
+                        errors.push("Quest set "+k+": missing provides tag "+translationExcludeOption[l][0]);
+                    else if ((prc == 1) && (translations[k].packageData.provides.indexOf(translationExcludeOption[l][0]) != -1))
+                        errors.push("Quest set "+k+": provides tag "+translationExcludeOption[l][0]+" not needed");
+                    html+="<li>"+l+": "+formatPercentage(prc)+" ("+count+"/"+total+")</li>";
+                }
+                html+="</ul></li>";
+            }
+            html+="</ul>";
 
             let
                 languageId = 0,

@@ -1,9 +1,14 @@
 Generator=(function(){
 
     const
-        SEED_RANGE=1000000;
+        GIVEUP_ATTEMPT = 50,
+        SEED_RANGE = 1000000;
+
+    function getNextSeed(seed) {
+        return SEED_RANGE+Math.floor(((seed * 9301 + 49297) % 233280) / 233280 * SEED_RANGE);
+    }
         
-    function rawGenerate(needs,questSeed,flags,cb,mapSeed,attempt) {
+    function rawGenerate(needs,seed,flags,cb,mapSeed,questSeed,attempt) {
 
         let
             resources = ModManager.load(JSON.parse(JSON.stringify(needs))),
@@ -14,39 +19,55 @@ Generator=(function(){
         else
             attempt++;
 
-        if (!questSeed) {
-            questSeed = Math.floor(Math.random()*SEED_RANGE);
+        if (!seed) {
+            seed = Math.floor(Math.random()*SEED_RANGE);
         } else if (mapSeed)
-            mapSeed = SEED_RANGE+Math.floor(((mapSeed * 9301 + 49297) % 233280) / 233280 * SEED_RANGE);
+            mapSeed = getNextSeed(mapSeed);
+
+        if (!questSeed)
+            questSeed = seed;
+
+        if (attempt % GIVEUP_ATTEMPT == 0) {
+            questSeed++;
+            mapSeed = 0;
+        }
 
         if (!mapSeed)
             mapSeed = questSeed;
 
         result = {
             attempt:attempt,
+            seed: seed,
             questSeed: questSeed,
             mapSeed: mapSeed
         };
 
-        // console.log(flags && flags.quest ? flags.quest.by.EN : "", questSeed,mapSeed);
+        // console.log(flags && flags.quest ? flags.quest.by.EN : "", seed,"(",questSeed,")",mapSeed);
 
-        QuestGenerator.generate(resources,result,flags);
-        MapGenerator.generate(resources,result);
+        if (resources.quests) {
 
-        if (result && result.map && result.map.index && result.map.isValid)
+            QuestGenerator.generate(resources,result,flags);
+            MapGenerator.generate(resources,result);
+        
+            if (result && result.map && result.map.index && result.map.isValid)
+                cb(resources,result);
+            else {
+                setTimeout(()=>{
+                    rawGenerate(needs,seed,flags,cb,mapSeed,questSeed,attempt);
+                },10);
+            }
+
+        } else {
+            result.noQuestsAvailable = true;
             cb(resources,result);
-        else {
-            setTimeout(()=>{
-                rawGenerate(needs,questSeed,flags,cb,mapSeed,attempt);
-            },10);
         }
 
     }
 
     return {
         SEED_RANGE:SEED_RANGE,
-        generate:(needs,questSeed,flags,cb)=>{
-            return rawGenerate(needs,questSeed,flags,cb);
+        generate:(needs,seed,flags,cb)=>{
+            return rawGenerate(needs,seed,flags,cb);
         }
     }
 }())

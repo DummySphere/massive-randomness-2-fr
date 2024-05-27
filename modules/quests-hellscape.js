@@ -5,14 +5,13 @@ ModManager.modules.push(function(){
 
             id:"quests-hellscape",
             needs:[ "quests-default", "md2-hellscape" ],
-            provides:[ "quests", "quests-hellscape" ],
+            provides:[ "quests", "quests-hellscape", "untranslated-fr" ],
             label:{
-                EN:"MD2 Hellscape inspired quest models"
+                EN:"MD2: Hellscape inspired quest models"
             },
             content:[
             {
                     type:"quests",
-                    
                     data:[
                         {
                             type:"finalBoss",
@@ -295,6 +294,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "cross" ],
                                             difficulty:[ "none" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "none" ],
                                             skin:[ "default" ],
                                             bridges:[ "none" ],
                                             lootRatio: [ "same" ],
@@ -477,6 +477,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "xpAndDeliver" ],
                                             difficulty:[ "default" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "default" ],
                                             skin:[ "default" ],
                                             size: [ "default" ],
                                             bridges:[ "default" ],
@@ -774,6 +775,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "unlockAndActivate" ],
                                             difficulty:[ "default" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "default" ],
                                             skin:[ "default" ],
                                             size: [ "default" ],
                                             bridges:[ "default" ],
@@ -1000,6 +1002,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "targets" ],
                                             difficulty:[ "default" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "default" ],
                                             skin:[ "default" ],
                                             size: [ "default" ],
                                             bridges:[ "default" ],
@@ -1031,7 +1034,7 @@ ModManager.modules.push(function(){
                                                         EN:[ "It is said that"]
                                                     },{
                                                         IT:[ "Nei testi sacri si dice che" ],
-                                                        EN:[ "In the sacred texts it is said that"]
+                                                        EN:[ "In the sacred texts, it is said that"]
                                                     }
                                                 ],
                                                 monsters:[
@@ -1079,7 +1082,7 @@ ModManager.modules.push(function(){
                                                         EN:[ "No one has ever managed to defeat them all but, in ancient texts, it is said that those who will be able to defeat them all" ]
                                                     },{
                                                         IT:[ "Chi riuscir&agrave; a porre fine alla loro tormento" ],
-                                                        EN:[ "Who will be able to put an end to their torment" ]
+                                                        EN:[ "Those who will be able to put an end to their torment" ]
                                                     }
                                                 ],
                                                 prize:[
@@ -1211,6 +1214,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "magicMazeHunt" ],
                                             difficulty:[ "default" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "none" ],
                                             skin:[ "default" ],
                                             size: [ "square" ],
                                             bridges:[ "default" ],
@@ -1454,6 +1458,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "targets" ],
                                             difficulty:[ "default" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "default" ],
                                             skin:[ "default" ],
                                             size: [ "default" ],
                                             bridges:[ "default" ],
@@ -1708,6 +1713,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "escort" ],
                                             difficulty:[ "default" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "default" ],
                                             skin:[ "default" ],
                                             size: [ "default" ],
                                             bridges:[ "default" ],
@@ -1934,6 +1940,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "collectAndDeliver" ],
                                             difficulty:[ "default" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "default" ],
                                             skin:[ "default" ],
                                             size: [ "default" ],
                                             bridges:[ "default" ],

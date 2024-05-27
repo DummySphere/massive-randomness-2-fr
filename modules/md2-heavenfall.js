@@ -7,16 +7,16 @@ ModManager.modules.push(function(){
             needs:[ ],
             provides:[ "md2-heavenfall" ],
             label:{
-                EN:"MD2 Heavenfall box content"
+                EN:"MD2: Heavenfall box content"
             },
             content:[
                 {
                     type:"globalLabels",
                     data:{
                         boxMd2Heavenfall:{
-                            EN:"from MD2 Heavenfall",
-                            IT:"da MD2 Heavenfall",
-                            FR:"de MD2 Heavenfall"
+                            EN:"from MD2: Heavenfall",
+                            IT:"da MD2: Heavenfall",
+                            FR:"de MD2: Heavenfall"
                         }
                     }
                 },{

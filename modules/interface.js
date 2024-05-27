@@ -46,11 +46,33 @@ ModManager.modules.push(function(){
                                             FR:"Massive Darkness 2 : Heavenfall"
                                         },
                                         description:{
-                                            IT:"Una modalit&agrave; campagna per Massive Darkness 2",
-                                            EN:"A campaign mode for Massive Darkness 2",
-                                            FR:"Un mode campagne pour Massive Darkness 2"
+                                            IT:"4 tessere paradiso",
+                                            EN:"4 heaven tiles",
+                                            FR:"4 dalles de paradis"
                                         },
                                         tags:[ "md2-heavenfall" ]
+                                    },{
+                                        code:"G",
+                                        label:{
+                                            IT:"Massive Darkness 2: Rainbow Crossing",
+                                            EN:"Massive Darkness 2: Rainbow Crossing"
+                                        },
+                                        description:{
+                                            IT:"4 tessere arcobaleno",
+                                            EN:"4 rainbow tiles"
+                                        },
+                                        tags:[ "md2-rainbowcrossing" ]
+                                    },{
+                                        code:"D",
+                                        label:{
+                                            IT:"Massive Darkness",
+                                            EN:"Massive Darkness"
+                                        },
+                                        description:{
+                                            IT:"9 tessere dungeon",
+                                            EN:"9 dungeon tiles"
+                                        },
+                                        tags:[ "md1-base" ]
                                     },{
                                         code:"B",
                                         label:{
@@ -72,11 +94,59 @@ ModManager.modules.push(function(){
                                             FR:"Massive Darkness"
                                         },
                                         description:{
-                                            IT:"9 tessere del pack di aggiornamento",
-                                            EN:"9 upgrade pack tiles", // those are actually Massive Darkness 1 tiles (also available in A Quest of Crystal & Lava tiles pack)
-                                            FR:"9 dalles de Massive Darkness 1 (aussi dans le pack de dalles d'Une Qu&ecirc;te de Cristal et de Lave)"
+                                            IT:"9 tessere dungeon che replicano quelle di Massive Darkness 1",
+                                            EN:"9 dungeon tiles replicating Massive Darkness 1 tiles",
+                                            FR:"9 dalles de donjon identiques à celles de Massive Darkness 1"
                                         },
                                         tags:[ "md2-crystallava-up" ]
+                                    },{
+                                        ifFlag:"zombicide",
+                                        code:"E",
+                                        label:{
+                                            IT:"Zombicide: Black Plague",
+                                            EN:"Zombicide: Black Plague"
+                                        },
+                                        description:{
+                                            IT:"9 tessere esterne",
+                                            EN:"9 outdoor tiles"
+                                        },
+                                        tags:[ "zc-blackplague" ]
+                                    },{
+                                        ifFlag:"zombicide",
+                                        code:"F",
+                                        label:{
+                                            IT:"Zombicide: Green Horde",
+                                            EN:"Zombicide: Green Horde"
+                                        },
+                                        description:{
+                                            IT:"9 tessere esterne/villaggio",
+                                            EN:"9 outdoor/village tiles"
+                                        },
+                                        tags:[ "zc-greenhorde" ]
+                                    },{
+                                        ifFlag:"zombicide",
+                                        code:"f",
+                                        label:{
+                                            IT:"Zombicide: Friends and Foes",
+                                            EN:"Zombicide: Friends and Foes"
+                                        },
+                                        description:{
+                                            IT:"5 tessere esterne/villaggio",
+                                            EN:"5 outdoor/village tiles"
+                                        },
+                                        tags:[ "zc-friendfoes" ]
+                                    },{
+                                        ifFlag:"zombicide",
+                                        code:"e",
+                                        label:{
+                                            IT:"Zombicide: Wulfsburg",
+                                            EN:"Zombicide: Wulfsburg"
+                                        },
+                                        description:{
+                                            IT:"2 tessere torre",
+                                            EN:"2 tower tiles"
+                                        },
+                                        tags:[ "zc-wulfsburg" ]
                                     }
                                 ]
                             },{
@@ -191,8 +261,7 @@ ModManager.modules.push(function(){
                                             FR:"Ajoute des challenges suppl&eacute;mentaires &agrave; l'aventure, que vous pouvez d&eacute;cider d'accepter ou non.",
                                         },
                                         tags:[ "challenges-default" ]
-                                    },
-                                    {
+                                    },{
                                         code:"Y",
                                         label:{
                                             IT:"Modalit&agrave; Esplorazione",
@@ -205,8 +274,64 @@ ModManager.modules.push(function(){
                                             FR:"Le contenu de chaque Salle est cach&eacute; et devient visible au moment o&ugrave; elle est r&eacute;v&eacute;l&eacute;e."
                                         },
                                         tags:[ "gamemode-dungeoncrawling" ]
-                                    },
-                                    {
+                                    },{
+                                        code:"W",
+                                        label:{
+                                            IT:"Escludi avventure non tradotte",
+                                            EN:"Exclude untranslated quests",
+                                            FR:"Exclure les qu&#xEA;tes non traduites"
+
+                                        },
+                                        description:{
+                                            IT:"Non vengono generate le avventure non disponibili nella lingua selezionata.",
+                                            EN:"Adventures not available in the selected language are not generated.",
+                                            FR:"Les aventures non disponibles dans la langue s&#xE9;lectionn&#xE9;e ne sont pas g&#xE9;n&#xE9;r&#xE9;es."
+                                        },
+                                        languageExcludeTags:{
+                                            IT:[ "untranslated-it" ],
+                                            EN:[ "untranslated-en" ],
+                                            FR:[ "untranslated-fr" ]
+                                        }
+                                    },{
+                                        ifFlag:"zombicide",
+                                        isFlag:"zombicideRules",
+                                        label:{
+                                            IT:"Nascondi regole per Zombicide",
+                                            EN:"Hide Zombicide rules"
+
+                                        },
+                                        description:{
+                                            IT:"Le regole comuni per giocare con le tessere di Zombicide non vengono aggiunte all'avventura.",
+                                            EN:"The common rules for playing with Zombicide tiles are not added to the adventure."
+                                        },
+                                        excludeTags:[ "quest-default-zombicide" ]
+                                    },{
+                                        ifNotFlag:"zombicide",
+                                        isButton:true,
+                                        isFlagButton:"zombicide",
+                                        label:{
+                                            IT:"Usa",
+                                            EN:"Use"
+                                        },
+                                        description:{
+                                            IT:"Prova ad usare alcuni componenti della serie Zombicide.",
+                                            EN:"Try using some components from the Zombicide series."
+                                        },
+                                        message:{
+                                            IT:"<p>Alcuni capitoli della serie <i>Fantasy Zombicide</i> usano tessere dalla dimensione e struttura simile a quelle usate da Massive Darkness 2. Queste includono nuove ambientazioni, spazi aperti e nuovi ostacoli ma possono risultare troppo facili o difficili da affrontare con le regole di Massive Darkness 2.</p><p>Se disponi di questi materiali e ti senti <i>molto coraggioso</i>, Massive Randomness 2 pu&ograve; usarle per generare le avventure.</p><p>Vuoi provarci?</p>",
+                                            EN:"<p>Some chapters in the <i>Fantasy Zombicide</i> series use tiles with a similar size and structure to those used in Massive Darkness 2. These include new environments, open spaces, and new obstacles but may be too easy or difficult to deal with the Massive Darkness 2 rules.</p><p>If you have these materials and are feeling <i>very brave</i>, Massive Randomness 2 can use them to generate adventures.</p><p>Do you want to try it?</p>"
+                                        },
+                                        buttons:{
+                                            yes:{
+                                                IT:"Si",
+                                                EN:"Yes"
+                                            },
+                                            no:{
+                                                IT:"No",
+                                                EN:"No"
+                                            }
+                                        }
+                                    },{
                                         isButton:true,
                                         isInstallerButton:true,
                                         label:{
@@ -219,6 +344,10 @@ ModManager.modules.push(function(){
                                             EN:"Allows you to use Massive Randomness 2 offline.",
                                             FR:"Permet d'utiliser Massive Randomness 2 en mode d&eacute;connect&eacute;."
                                         }
+                                    },{
+                                        isHidden:true,
+                                        isCounterTrigger:true,
+                                        tags:[ "quests-mr-ending" ]
                                     }
                                 ]
                             }
@@ -245,9 +374,9 @@ ModManager.modules.push(function(){
                                 FR:"Optimis&eacute; pour Firefox/Chrome - {toolName} - {toolVersion} - &copy; 2024 by KesieV - Sources sur <a target=_blank href='{sourcesAtFull}'>{sourcesAtShort}</a>"
                             },
                             notice:{
-                                EN:"Massive Darkness 2 and all related properties are owned by CMON Global Limited",
-                                IT:"Massive Darkness 2 e tutte le relative propriet&agrave; sono marchi registrati CMON Global Limited",
-                                FR:"Massive Darkness 2 et tous les produits associ&eacute;s sont des marques d&eacute;pos&eacute;es de CMON Global Limited"
+                                EN:"Massive Darkness, Zombicide, and all related properties are owned by CMON Global Limited",
+                                IT:"Massive Darkness, Zombicide e tutte le relative propriet&agrave; sono marchi registrati CMON Global Limited",
+                                FR:"Massive Darkness, Zombicide et tous les produits associ&eacute;s sont des marques d&eacute;pos&eacute;es de CMON Global Limited"
                             },
                             wait:{
                                 IT:"Sto preparando l'avventura...",
@@ -263,6 +392,16 @@ ModManager.modules.push(function(){
                                 IT:"Impostazioni",
                                 EN:"Settings",
                                 FR:"Options"
+                            },
+                            languageUnavailable:{
+                                IT:"Questa avventura non &egrave; disponibile in italiano. Puoi escludere le avventure non tradotte dalle opzioni.",
+                                EN:"This adventure is not available in English. You can exclude untranslated adventures from the options.",
+                                FR:"Cette aventure n&#x27;est pas disponible en fran&#xE7;ais. Vous pouvez exclure les aventures non traduites des options."
+                            },
+                            questUnavailable:{
+                                IT:"Spiacente. Questa avventura non &egrave; disponibile.",
+                                EN:"Sorry. This adventure is not available.",
+                                FR:"D&#xE9;sol&#xE9;. Cette aventure n&#x27;est pas disponible."
                             }
                         }
                     }

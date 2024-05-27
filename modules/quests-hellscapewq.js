@@ -5,9 +5,9 @@ ModManager.modules.push(function(){
 
             id:"quests-hellscapewq",
             needs:[ "quests-default", "md2-hellscape" ],
-            provides:[ "quests", "quests-hellscapewq" ],
+            provides:[ "quests", "quests-hellscapewq", "untranslated-fr" ],
             label:{
-                EN:"MD2 Hellscape Web Quest inspired quest models"
+                EN:"MD2: Hellscape Web Quest inspired quest models"
             },
             content:[
                 {
@@ -270,6 +270,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "theCure" ],
                                             difficulty:[ "default" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "default" ],
                                             skin:[ "default" ],
                                             size: [ "default" ],
                                             bridges:[ "default" ],
@@ -455,6 +456,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "arena" ],
                                             difficulty:[ "hard" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "default" ],
                                             skin:[ "default" ],
                                             size: [ "square" ],
                                             bridges:[ "default" ],
@@ -757,6 +759,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "elementalLord" ],
                                             difficulty:[ "default" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "default" ],
                                             skin:[ "default" ],
                                             size: [ "default" ],
                                             bridges:[ "default" ],
@@ -919,6 +922,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "largeTargets" ],
                                             difficulty:[ "default" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "default" ],
                                             skin:[ "default" ],
                                             size: [ "default" ],
                                             bridges:[ "default" ],
@@ -1168,8 +1172,8 @@ ModManager.modules.push(function(){
                                                 ],
                                                 explanation:[
                                                     {
-                                                        IT:"Le porte contrassegnate da un contorno rosso rappresentano {label.door@3} {label.door@1}. Queste porte {label.door@5}. Non appena tutte le Camere nella Tessera iniziale ({tileLabel.first}) sono state rivelate, {label.door@3} {label.door@1} {label.door@4} {label.door@6} come solito.",
-                                                        EN:"The doors marked with a red outline represent {label.door@3} {label.door@1}. These doors {label.door@5}. As soon as all Chambers in the starting Tile ({tileLabel.first}) have been revealed, {label.door@3} {label.door@1} {label.door@4} and {label.door@6} as usual."
+                                                        IT:"Le porte contrassegnate da un contorno rosso rappresentano {label.door@3} {label.door@1}. Queste porte {label.door@5}. Non appena tutte le Camere con almeno 1 Zona nella Tessera iniziale ({tileLabel.first}) sono state rivelate, {label.door@3} {label.door@1} {label.door@4} {label.door@6} come solito.",
+                                                        EN:"The doors marked with a red outline represent {label.door@3} {label.door@1}. These doors {label.door@5}. As soon as all Chambers with at least 1 Zone in the starting Tile ({tileLabel.first}) have been revealed, {label.door@3} {label.door@1} {label.door@4} and {label.door@6} as usual."
                                                     }
                                                 ]
                                             }
@@ -1227,6 +1231,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "unlockAndEscape" ],
                                             difficulty:[ "default" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "default" ],
                                             skin:[ "default" ],
                                             size: [ "default" ],
                                             bridges:[ "default" ],
@@ -1501,6 +1506,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "adventureAndBoss" ],
                                             difficulty:[ "default" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "default" ],
                                             skin:[ "default" ],
                                             size: [ "default" ],
                                             bridges:[ "default" ],
@@ -1748,6 +1754,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "collectAndForge" ],
                                             difficulty:[ "default" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "default" ],
                                             skin:[ "default" ],
                                             size: [ "default" ],
                                             bridges:[ "default" ],
@@ -1944,6 +1951,7 @@ ModManager.modules.push(function(){
                                             gameMode: [ "targetsSmall" ],
                                             difficulty:[ "default" ],
                                             roomLimits:[ "default" ],
+                                            roomsMerges:[ "default" ],
                                             skin:[ "default" ],
                                             size: [ "default" ],
                                             bridges:[ "default" ],
