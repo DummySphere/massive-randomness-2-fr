@@ -14,7 +14,8 @@ ModManager.modules.push(function(){
                     data:{
                         boxZcFriendFoes:{
                             EN:"from Zombicide: Friends and Foes",
-                            IT:"da Zombicide: Friends and Foes"
+                            IT:"da Zombicide: Friends and Foes",
+                            FR:"de Zombicide: Friends and Foes"
                         }
                     }
                 },{

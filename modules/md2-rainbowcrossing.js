@@ -15,7 +15,8 @@ ModManager.modules.push(function(){
                     data:{
                         boxMd2RainbowCrossing:{
                             EN:"from MD2: Rainbow Crossing",
-                            IT:"da MD2: Rainbow Crossing"
+                            IT:"da MD2: Rainbow Crossing",
+                            FR:"de MD2: Au-del&agrave; de l'Arc-en-ciel"
                         }
                     }
                 },

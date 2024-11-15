@@ -14,7 +14,8 @@ ModManager.modules.push(function(){
                     data:{
                         boxZcWulfsburg:{
                             EN:"from Zombicide: Wulfsburg",
-                            IT:"da Zombicide: Wulfsburg"
+                            IT:"da Zombicide: Wulfsburg",
+                            FR:"de Zombicide: Wulfsburg"
                         }
                     }
                 },{

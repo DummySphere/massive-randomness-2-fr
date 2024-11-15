@@ -14,7 +14,8 @@ ModManager.modules.push(function(){
                     data:{
                         boxZcGreenHorde:{
                             EN:"from Zombicide: Green Horde",
-                            IT:"da Zombicide: Green Horde"
+                            IT:"da Zombicide: Green Horde",
+                            FR:"de Zombicide: Green Horde"
                         }
                     }
                 },{

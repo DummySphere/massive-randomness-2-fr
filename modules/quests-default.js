@@ -65,7 +65,8 @@ ModManager.modules.push(function(){
                         },
                         massiveDarkness1:{
                             EN:"from Massive Darkness 1",
-                            IT:"da Massive Darkness 1"
+                            IT:"da Massive Darkness 1",
+                            FR:"de Massive Darkness 1"
                         }
                     }
                 },{
@@ -77,11 +78,13 @@ ModManager.modules.push(function(){
                                 type:"rule",
                                 name:{
                                     IT:"Sonno di Lyidan",
-                                    EN:"Lyidan's Sleep"
+                                    EN:"Lyidan's Sleep",
+                                    FR:"Le Sommeil de Lyidan"
                                 },
                                 explanation:{
                                     IT:"Rimuovere le carte di Lyidan da tutti i mazzi dei Mostri Erranti.",
-                                    EN:"Remove Lyidan cards from all Roaming Monster decks."
+                                    EN:"Remove Lyidan cards from all Roaming Monster decks.",
+                                    FR:"Retirez les cartes de Lyidan de tous les paquets de Monstres Errants."
                                 }
                             }
                         ]
@@ -106,11 +109,13 @@ ModManager.modules.push(function(){
                                 type:"rule",
                                 name:{
                                     IT:"Cross-over con Zombicide",
-                                    EN:"Zombicide Cross-over"
+                                    EN:"Zombicide Cross-over",
+                                    FR:"Cross-over avec Zombicide"
                                 },
                                 explanation:{
                                     IT:"Le tessere di Zombicide (indicate con <b>[Z]</b>) sono da considerarsi divise in 3&times;3 Zone come le tessere di Massive Darkness. Gli edifici sono da equivalenti alle Camere di Massive Darkness 2 ed i muri sui bordi di una tessera o tra una Zona di edificio ed una Zona di strada sono da considerarsi sempre chiusi, a meno che non vi sia un segnalino Porta. Le tessere di Zombicide sono ambientate all'esterno, per cui le Zone di strada sono considerate Zone di Luce e le Zone degli edifici sono considerate Zone d'Ombra.",
-                                    EN:"The Zombicide tiles (indicated with <b>[Z]</b>) are to be considered split into 3&times;3 Zones like the Massive Darkness tiles. The buildings are equivalent to Massive Darkness 2 Chambers and the walls on tile borders or between a building Zone and a street Zone are always considered closed unless there is a door token. Zombicide tiles are set outdoors, so the street Zones are considered Light Zones and the building Zones are considered Shadow Zones."
+                                    EN:"The Zombicide tiles (indicated with <b>[Z]</b>) are to be considered split into 3&times;3 Zones like the Massive Darkness tiles. The buildings are equivalent to Massive Darkness 2 Chambers and the walls on tile borders or between a building Zone and a street Zone are always considered closed unless there is a door token. Zombicide tiles are set outdoors, so the street Zones are considered Light Zones and the building Zones are considered Shadow Zones.",
+                                    FR:"Les dalles Zombicide (indiqu&eacute;es par <b>[Z]</b>) doivent &ecirc;tre consid&eacute;r&eacute;es divis&eacute;es en 3&times;3 Zones comme les dalles de Massive Darkness. Les b&acirc;timents sont &eacute;quivalents aux Salles de Massive Darkness 2 et les murs au bord des dalles ou entre une Zone de b&acirc;timent et une Zone de rue sont toujours consid&eacute;r&eacute;s comme ferm&eacute;s &agrave; moins qu'il y ait un pion Porte. Les dalles Zombicide se passent en ext&eacute;rieur, donc les Zones de rues sont consid&eacute;r&eacute;es comme des Zones Lumineuses et les Zones de b&acirc;timents sont consid&eacute;r&eacute;es comme des Zones d'Ombre."
                                 }
                             }
                         ],
@@ -120,11 +125,13 @@ ModManager.modules.push(function(){
                                 type:"rule",
                                 name:{
                                     IT:"Le Siepi",
-                                    EN:"The Hedges"
+                                    EN:"The Hedges",
+                                    FR:"Les Haies"
                                 },
                                 explanation:{
                                     IT:"Le siepi stampate sulle tessere possono essere attraversate normalmente ma interrompono le Linee di Vista di Eroi e Nemici.",
-                                    EN:"Hedges printed on tiles can be crossed normally but interrupt Lines of Sight of Heroes and Enemies."
+                                    EN:"Hedges printed on tiles can be crossed normally but interrupt Lines of Sight of Heroes and Enemies.",
+                                    FR:"Les haies imprim&eacute;es sur les dalles peuvent &ecirc;tre travers&eacute;es normalement mais bloquent la Ligne de Vue des H&eacute;ros et des Ennemis."
                                 }
                             }
                         ],

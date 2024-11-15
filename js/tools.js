@@ -6,7 +6,7 @@ Tools=(function(){
         ALLOWED_ENTITIES={
             IT:[ "ograve", "agrave", "egrave", "eacute", "ugrave", "igrave", "deg", "amp", "Egrave" ],
             EN:[ "amp" ],
-            FR:[ "agrave", "acirc", "eacute", "ecirc", "egrave", "euml", "icirc", "iuml", "ocirc", "oelig", "ucirc", "ugrave", "uuml", "ccedil" ]
+            FR:[ "amp", "agrave", "acirc", "eacute", "ecirc", "egrave", "euml", "icirc", "iuml", "ocirc", "oelig", "ucirc", "ugrave", "uuml", "ccedil" ]
         },
         ALLOWED_TAGS=[ "p", "/p", "ul", "/ul", "ol", "/ol", "li", "/li", "b", "/b", "i", "/i", "span class='phase'", "span class='displayonly'", "span class='printonly'", "span class='hiddentext'",  "/span", "br", "p class='credits'", "/a", /^a target=_blank href='[^']+'$/ ],
         ALLOWED_PLACEHOLDER_MODS=[ "capital" ],

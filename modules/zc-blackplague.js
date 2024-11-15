@@ -15,7 +15,8 @@ ModManager.modules.push(function(){
                     data:{
                         boxZcBlackPlague:{
                             EN:"from Zombicide: Black Plague",
-                            IT:"da Zombicide: Black Plague"
+                            IT:"da Zombicide: Black Plague",
+                            FR:"de Zombicide: Black Plague"
                         }
                     }
                 },{
