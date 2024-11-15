@@ -1,7 +1,21 @@
 ModManager.modules.push(function(){
 
-    return [
+    const
+        QUESTVICTORY = [
             {
+                IT:[ "la Missione termina con una vittoria", "terminare la Missione con una vittoria" ],
+                EN:[ "the Mission ends with a victory", "end the Mission with a victory" ]
+            }
+        ],
+        BOSSBEAT = [
+            {
+                IT:[ "viene eliminato", "viene eliminata" ],
+                EN:[ "it is eliminated", "it is eliminated" ]
+            }
+        ];
+
+    return [
+        {
 
             id:"quests-internet",
             needs:[ "quests-default", "md2-hellscape" ],
@@ -14,7 +28,11 @@ ModManager.modules.push(function(){
                     type:"quests",
                     data:[
                         {
+                            forActs:[], // Uses armor sets.
                             type:"armorToBoss",
+                            objective:{
+                                EN:"Collect an armor set, elimiminate a Roaming Monster, and reach a Zone to win."
+                            },
                             by:{
                                 IT:"Ispirato all'avventura di hugolink10/Zoju su BGG \"The Warrior of Light\"",
                                 EN:"Inspired by hugolink10/Zoju quest on BGG \"The Warrior of Light\""
@@ -114,7 +132,9 @@ ModManager.modules.push(function(){
                                                         IT:[ "il leggendario equipaggiamento del Flagello delle Ombre", "l'equipaggiamento", "del set del Flagello delle Ombre", "dal set del Flagello delle Ombre", "il set del Flagello delle Ombre", "parte dell'equipaggiamento" ],
                                                         EN:[ "the legendary Shadowbane equipment", "the equipment", "of the Shadowbane Set", "from the Shadowbane Set", "the Shadowbane Set", "piece of equipment" ]
                                                     }
-                                                ]
+                                                ],
+                                                bossBeat:BOSSBEAT,
+                                                questVictory:QUESTVICTORY
                                             }
                                         ]
                                     ],
@@ -201,8 +221,8 @@ ModManager.modules.push(function(){
                                                 ],
                                                 explanation:[
                                                     {
-                                                        IT:"I Comandanti tirano anche un {symbol.blackDie} quando attaccano o difendono. I Mostri Erranti guadagnano +1{symbol.blackDie} in attacco o in difesa ogni 2 giocatori. (1-2 giocatori: +1{symbol.blackDie} , 3-4 giocatori: +2{symbol.blackDie} , 5-6 giocatori: +3{symbol.blackDie})",
-                                                        EN:"Leaders also roll a {symbol.blackDie} when attacking or defending. Roaming Monsters gain +1{symbol.blackDie} on attacking or defending for every 2 players. (1-2 Players: +1{symbol.blackDie} , 3-4 players: +2{symbol.blackDie} , 5-6 players: +3{symbol.blackDie})"
+                                                        IT:"I Comandanti tirano anche un {symbol.blackDie} quando attaccano o difendono. I Mostri Erranti guadagnano +1 {symbol.blackDie} in attacco o in difesa ogni 2 giocatori. (1-2 giocatori: +1 {symbol.blackDie} , 3-4 giocatori: +2 {symbol.blackDie} , 5-6 giocatori: +3 {symbol.blackDie})",
+                                                        EN:"Leaders also roll a {symbol.blackDie} when attacking or defending. Roaming Monsters gain +1 {symbol.blackDie} on attacking or defending for every 2 players. (1-2 Players: +1 {symbol.blackDie} , 3-4 players: +2 {symbol.blackDie} , 5-6 players: +3 {symbol.blackDie})"
                                                     }
                                                 ]
                                             }
@@ -249,8 +269,8 @@ ModManager.modules.push(function(){
                                                 ],
                                                 explanation:[
                                                     {
-                                                        IT:"Un Eroe con la chiave pu&ograve; aprire la porta contrassegnata da un contorno rosso utilizzando 1 PM. Non pescare una carta Porta per quella Camera. Una volta aperta la porta, sostituisci il segnalino Corruzione {symbol.corruptionToken} con un Mostro Errante di livello 5 e gira il segnalino Obiettivo grigio sulla Tessera {tileLabel.fourth} sul suo lato colorato. Inoltre, tutti gli eroi ricevono immediatamente 2{symbol.frostToken}.",
-                                                        EN:"A Hero with the key may open the door marked with a red outline using 1 MP. Do not draw a door card for that Chamber. Once that door is opened, replace the Corruption token {symbol.corruptionToken} for a level 5 Roaming Monster and flip the grayed Objective token on the {tileLabel.fourth} Tile to the color side up. Also, all heroes immediately receive 2{symbol.frostToken}."
+                                                        IT:"Un Eroe con la chiave pu&ograve; aprire la porta contrassegnata da un contorno rosso utilizzando 1 PM. Non pescare una carta Porta per quella Camera. Una volta aperta la porta, sostituisci il segnalino Corruzione {symbol.corruptionToken} con un Mostro Errante di livello 5 e gira il segnalino Obiettivo grigio sulla Tessera {tileLabel.fourth} sul suo lato colorato. Inoltre, tutti gli eroi ricevono immediatamente 2 {symbol.frostToken}.",
+                                                        EN:"A Hero with the key may open the door marked with a red outline using 1 MP. Do not draw a door card for that Chamber. Once that door is opened, replace the Corruption token {symbol.corruptionToken} for a level 5 Roaming Monster and flip the grayed Objective token on the {tileLabel.fourth} Tile to the color side up. Also, all heroes immediately receive 2 {symbol.frostToken}."
                                                     }
                                                 ]
                                             }
@@ -279,8 +299,8 @@ ModManager.modules.push(function(){
                                                 ],
                                                 explanation:[
                                                     {
-                                                        IT:"Dopo che {label.chosenOne@0} ha ricevuto {label.equipment@4}, gira il rimanente segnalino Obiettivo in grigio sulla Tessera {tileLabel.fifth} sul suo lato colorato e genera un Mostro Errante nella sua Zona: questo &egrave; {label.badGuy@0}.<p>{label.badGuy:capital@0} &egrave; un Mostro Errante di livello 5 con +15 Punti Vita. Ottiene anche +2{symbol.sword} quando attacca e +3{symbol.shield} quando difende. Inoltre, {label.badGuy@0} si attiva due volte nella Fase dei Nemici.</p>",
-                                                        EN:"After {label.chosenOne@0} receives {label.equipment@4}, flip the remaining grayed Objective token on {tileLabel.fifth} Tile to the color side up and spawn a Roaming Monster in its Zone: this is {label.badGuy@0}.<p>{label.badGuy:capital@0} is a level 5 Roaming Monster with +15 Life Points. It also receives a +2{symbol.sword} when Attacking and a +3{symbol.shield} when defending. {label.badGuy:capital@0} also activates twice at the Enemy Phase.</p>"
+                                                        IT:"Dopo che {label.chosenOne@0} ha ricevuto {label.equipment@4}, gira il rimanente segnalino Obiettivo in grigio sulla Tessera {tileLabel.fifth} sul suo lato colorato e genera un Mostro Errante nella sua Zona: questo &egrave; {label.badGuy@0}.<p>{label.badGuy:capital@0} &egrave; un Mostro Errante di livello 5 con +15 Punti Vita. Ottiene anche +2 {symbol.sword} quando attacca e +3 {symbol.shield} quando difende. Inoltre, {label.badGuy@0} si attiva due volte nella Fase dei Nemici.</p>",
+                                                        EN:"After {label.chosenOne@0} receives {label.equipment@4}, flip the remaining grayed Objective token on {tileLabel.fifth} Tile to the color side up and spawn a Roaming Monster in its Zone: this is {label.badGuy@0}.<p>{label.badGuy:capital@0} is a level 5 Roaming Monster with +15 Life Points. It also receives a +2 {symbol.sword} when Attacking and a +3 {symbol.shield} when defending. {label.badGuy:capital@0} also activates twice at the Enemy Phase.</p>"
                                                     }
                                                 ]
                                             }
@@ -295,8 +315,8 @@ ModManager.modules.push(function(){
                                                 ],
                                                 explanation:[
                                                     {
-                                                        IT:"Una volta che {label.badGuy@0} {label.badGuy@2} e ogni Eroe si trova nella zona del segnalino Obiettivo con il lato colorato rivolto verso l'alto della Tessera {tileLabel.fifth} senza che ci siano nemici in quella zona, la Missione termina con la vittoria.",
-                                                        EN:"Once {label.badGuy@0} {label.badGuy@2} and every hero is at the color-side-up Objective token zone on the {tileLabel.fifth} Tile and with no enemies in that zone, the Mission ends in victory."
+                                                        IT:"Una volta che {label.badGuy@0} {label.badGuy@2} e ogni Eroe si trova nella zona del segnalino Obiettivo con il lato colorato rivolto verso l'alto della Tessera {tileLabel.fifth} senza che ci siano nemici in quella zona, {label.questVictory@0}.",
+                                                        EN:"Once {label.badGuy@0} {label.badGuy@2} and every hero is at the color-side-up Objective token zone on the {tileLabel.fifth} Tile and with no enemies in that zone, {label.questVictory@0}."
                                                     }
                                                 ]
                                             }
@@ -315,7 +335,384 @@ ModManager.modules.push(function(){
                                             lootRatio: [ "default" ],
                                             corridors: [ "armorToBoss" ],
                                         }
-                                    ]
+                                    ],
+                                    boss:{
+                                        rules:[
+                                            {
+                                                type:"objective",
+                                                name:{
+                                                    IT:"Sconfiggere {boss.bossBadName@0}",
+                                                    EN:"Defeat {boss.bossBadName@0}",
+                                                },
+                                                summary:{
+                                                    IT:"Elimina {boss.bossBadName@0}, custode {label.equipment@2}",
+                                                    EN:"Eliminate {boss.bossBadName@0}, keeper {label.equipment@2}"
+                                                }
+                                            }
+                                        ],
+                                        preparation:{
+                                            IT:"<p>Rimuovere tutti i segnalini Obiettivo dall'inventario degli Eroi.</p>",
+                                            EN:"<p>Remove all Objective tokens from the Heroes' inventories.</p>"
+                                        },
+                                        levelByTilesCount:{
+                                            3:1,
+                                            4:2,
+                                            5:3,
+                                            6:4
+                                        }
+                                    }
+                                }
+                            ]
+                        },{
+                            forMaps:[2],
+                            type:"mirrors",
+                            objective:{
+                                EN:"Align mirrors to remove a token type from the map. Remove all of them and beat a Roaming Monster to win."
+                            },
+                            by:{
+                                IT:"Ispirato all'avventura di Spidey_NZ su BGG \"Riflessi Oscuri\"",
+                                EN:"Inspired by Spidey_NZ quest on BGG \"Dark reflections\""
+                            },
+                            suggestedTilesCount:4,
+                            versions:[
+                                {
+                                    labels:[
+                                        [
+                                            {
+                                                energy:[
+                                                    {
+                                                        IT:[ "l'Energia Sacra", "di Energia Sacra", "l'unica", "guidarla" ],
+                                                        EN:[ "Sacred Energy", "a Sacred Energy", "the only one", "guide it" ]
+                                                    },{
+                                                        IT:[ "la Luce Divina", "di Luce Divina", "l'unica", "guidarla" ],
+                                                        EN:[ "Divine Light", "a Divine Light", "the only one", "guide it" ]
+                                                    },{
+                                                        IT:[ "il Potere Astrale", "di Potere Astrale", "l'unico", "guidarlo" ],
+                                                        EN:[ "Astral Power", "an Astral Power", "the only one", "guide it" ]
+                                                    }
+                                                ],
+                                                flow:[
+                                                    {
+                                                        IT:[ "il raggio", "un raggio", "dal raggio", "del raggio" ],
+                                                        EN:[ "the ray", "ray", "by the ray", "ray" ]
+                                                    },{
+                                                        IT:[ "il flusso", "un flusso", "dal flusso", "del flusso" ],
+                                                        EN:[ "the flow", "flow", "by the flow", "flow" ]
+                                                    },{
+                                                        IT:[ "il globo", "un globo", "dal globo", "del globo" ],
+                                                        EN:[ "the globe", "globe", "by the globe", "globe" ]
+                                                    }
+                                                ],
+                                                mirror:[
+                                                    {
+                                                        IT:[ "gli Specchi", "uno Specchio", "raccoglierlo" ],
+                                                        EN:[ "the Mirrors", "a Mirror", "to pick it up" ]
+                                                    },{
+                                                        IT:[ "i Fari", "un Faro", "raccoglierlo" ],
+                                                        EN:[ "the Lighthouses", "a Lighthouse", "to pick it up" ]
+                                                    },{
+                                                        IT:[ "i Cristalli", "un Cristallo", "raccoglierlo" ],
+                                                        EN:[ "the Crystals", "a Crystal", "to pick it up" ]
+                                                    }
+                                                ],
+                                                mud:[
+                                                    {
+                                                        IT:[ "la Melma", "{label.poison@0}", "", "della Melma" ],
+                                                        EN:[ "the Slime", "{label.poison@0}", "has", "the Slime" ]
+                                                    },{
+                                                        IT:[ "le Spore", "{label.poison@1}", "", "delle Spore" ],
+                                                        EN:[ "the Spores", "{label.poison@1}", "have", "the Spores" ]
+                                                    },{
+                                                        IT:[ "l'Oscurit&agrave;", "{label.poison@0}", "", "dell'Oscurit&agrave;" ],
+                                                        EN:[ "the Darkness", "{label.poison@0}", "have", "the Darkness" ]
+                                                    }
+                                                ],
+                                                poison:[
+                                                    {
+                                                        IT:[ "avvelena", "avvelenano" ],
+                                                        EN:[ "that {label.mud@2} been poisoning", "that {label.mud@2} been poisoning" ]
+                                                    },{
+                                                        IT:[ "corrompe", "corrompono" ],
+                                                        EN:[ "that {label.mud@2} been corrupting", "that {label.mud@2} been corrupting" ]
+                                                    },{
+                                                        IT:[ "infetta", "infettano" ],
+                                                        EN:[ "that {label.mud@2} been infecting", "that {label.mud@2} been infecting" ]
+                                                    }
+                                                ],
+                                                enemy:[
+                                                    {
+                                                        IT:[ "il Distruttore" ],
+                                                        EN:[ "the Destroyer" ]
+                                                    },{
+                                                        IT:[ "il Guardiano" ],
+                                                        EN:[ "the Guardian" ]
+                                                    },{
+                                                        IT:[ "l'Assassino" ],
+                                                        EN:[ "the Assassin" ]
+                                                    }
+                                                ],
+                                                remove:[
+                                                    {
+                                                        IT:[ "in grado di sciogliere" ],
+                                                        EN:[ "that can dissolve" ]
+                                                    },{
+                                                        IT:[ "che pu&ograve; eliminare" ],
+                                                        EN:[ "that can eliminate" ]
+                                                    }
+                                                ],
+                                                time:[
+                                                    {
+                                                        IT:[ "che da molto tempo" ],
+                                                        EN:[ "for a long time" ]
+                                                    },{
+                                                        IT:[ "che da mesi" ],
+                                                        EN:[ "for months" ]
+                                                    },{
+                                                        IT:[ "che da giorni" ],
+                                                        EN:[ "for days" ]
+                                                    }
+                                                ],
+                                                infecting:[
+                                                    {
+                                                        IT:[ "i corsi d'acqua" ],
+                                                        EN:[ "the waterways" ]
+                                                    },{
+                                                        IT:[ "l'aria" ],
+                                                        EN:[ "the air" ]
+                                                    },{
+                                                        IT:[ "il cibo" ],
+                                                        EN:[ "the food" ]
+                                                    }
+                                                ],
+                                                solve:[
+                                                    {
+                                                        IT:[ "e eliminare il problema" ],
+                                                        EN:[ "and eliminate the problem" ]
+                                                    },{
+                                                        IT:[ "e risolvere la questione" ],
+                                                        EN:[ "and resolve the issue" ]
+                                                    },{
+                                                        IT:[ "e porre fine questa piaga" ],
+                                                        EN:[ "and put an end to this plague" ]
+                                                    }
+                                                ],
+                                                forever:[
+                                                    {
+                                                        IT:[ "per sempre" ],
+                                                        EN:[ "forever" ]
+                                                    },{
+                                                        IT:[ "una volta per tutte" ],
+                                                        EN:[ "once and for all" ]
+                                                    },{
+                                                        IT:[ "alla radice" ],
+                                                        EN:[ "at the root" ]
+                                                    }
+                                                ],
+                                                guardian:[
+                                                    {
+                                                        IT:[ "un silenzioso guardiano" ],
+                                                        EN:[ "a silent guardian" ]
+                                                    },{
+                                                        IT:[ "un assassino spietato" ],
+                                                        EN:[ "a ruthless assassin" ]
+                                                    },{
+                                                        IT:[ "una creatura immonda" ],
+                                                        EN:[ "a bloody creature" ]
+                                                    }
+                                                ],
+                                                watch:[
+                                                    {
+                                                        IT:[ "li osserva da lontano..." ],
+                                                        EN:[ "is watching them from afar..." ]
+                                                    },{
+                                                        IT:[ "li tiene sott'occhio..." ],
+                                                        EN:[ "is keeping an eye on them..." ]
+                                                    },{
+                                                        IT:[ "li attende da tempo..." ],
+                                                        EN:[ "is waiting for them for a long time..." ]
+                                                    }
+                                                ],
+                                                bossBeat:BOSSBEAT,
+                                                questVictory:QUESTVICTORY,
+                                                teamwork:[
+                                                    {
+                                                        IT:[ "dividersi il lavoro", "assicurandosi che ogni Eroe abbia posseduto {label.mirror@1} almeno una volta" ],
+                                                        EN:[ "divide the work", "ensuring that each Hero has owned {label.mirror@1} at least once" ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    ],
+                                    title:[
+                                        {
+                                            IT:"{label.mirror:capital@0}",
+                                            EN:"{label.mirror:capital@0}"
+                                        },{
+                                            IT:"{label.mud:capital@0}",
+                                            EN:"{label.mud:capital@0}"
+                                        },{
+                                            IT:"{label.guardian:capital@0}",
+                                            EN:"{label.guardian:capital@0}"
+                                        }
+                                    ],
+                                    story:[
+                                        {
+                                            IT:"{label.energy:capital@0} &egrave; {label.energy@2} {label.remove@0} {label.mud@0} {label.time@0} {label.mud@1} {label.infecting@0}. Con un po' d'ingegno e lavoro di squadra, gli Eroi possono {label.energy@3} {label.solve@0} {label.forever@0}. Ma {label.guardian@0} {label.watch@0}",
+                                            EN:"{label.energy:capital@0} is {label.energy@2} {label.remove@0} {label.mud@0} {label.mud@1} {label.infecting@0} {label.time@0}. With ingenuity and teamwork, the Heroes can {label.energy@3} {label.solve@0} {label.forever@0}. But {label.guardian@0} {label.watch@0}",
+                                        }
+                                    ],
+                                    objectivesHeader:[
+                                        {
+                                            IT:"Completate gli obiettivi nell'ordine indicato:",
+                                            EN:"Complete the objectives in order:"
+                                        }
+                                    ],
+                                    challenges:[
+                                        { intensity:1, tag:"default" },
+                                        { intensity:2, tag:"default" },
+                                        { intensity:3, tag:"default" },
+                                    ],
+                                    rules:[
+                                        [
+                                            {
+                                                type:"objective",
+                                                name:[
+                                                    {
+                                                        IT:"Eliminare {label.mud@0}",
+                                                        EN:"Eliminate {label.mud@0}"
+                                                    }
+                                                ],
+                                                summary:[
+                                                    {
+                                                        IT:"Usare {label.energy@0} e {label.mirror@0} per eliminare {label.mud@0}",
+                                                        EN:"Use {label.energy@0} and {label.mirror@0} to eliminate {label.mud@0}"
+                                                    }
+                                                ]
+                                            }
+                                        ],[
+                                            {
+                                                type:"objective",
+                                                name:[
+                                                    {
+                                                        IT:"Eliminare {label.enemy@0}",
+                                                        EN:"Eliminate {label.enemy@0}",
+                                                    }
+                                                ],
+                                                summary:[
+                                                    {
+                                                        IT:"Uccidere {label.enemy@0}",
+                                                        EN:"Kill {label.enemy@0}"
+                                                    }
+                                                ]
+                                            }
+                                        ],[
+                                            {
+                                                type:"rule",
+                                                name:[
+                                                    {
+                                                        IT:"{label.mirror:capital@0}",
+                                                        EN:"{label.mirror:capital@0}"
+                                                    }
+                                                ],
+                                                explanation:[
+                                                    {
+                                                        IT:"I segnalini Obiettivo con il lato colorato a faccia in su rappresentano {label.mirror@0}. Qualsiasi Eroe pu&ograve; che si trova nella Zona di {label.mirror@1} pu&ograve; spendere 1 PM per {label.mirror@2}. Un Eroe in possesso di {label.mirror@1} pu&ograve; spendere 1 PM per lasciarlo nella sua Zona. Inoltre, {label.mirror@0} possono essere scambiati come fossero oggetti.",
+                                                        EN:"Objective tokens with the colored side up represent {label.mirror@0}. Any Hero who is in the Zone of {label.mirror@1} can spend 1 MP {label.mirror@2}. A Hero who owns {label.mirror@1} can spend 1 MP to drop it in his Zone. Additionally, {label.mirror@0} can be exchanged as if they were items."
+                                                    }
+                                                ]
+                                            }
+                                        ],[
+                                            {
+                                                type:"rule",
+                                                name:[
+                                                    {
+                                                        IT:"Eliminare {label.mud@0}",
+                                                        EN:"Eliminate {label.mud@0}"
+                                                    }
+                                                ],
+                                                explanation:[
+                                                    {
+                                                        IT:"I segnalini Tempo {symbol.timeToken} rappresentano {label.mud@0}. All'inizio di ogni Fase dell'Oscurit&agrave;, {label.flow@1} {label.energy@1} parte dal segnalino Obiettivo grigio e si muove in linea retta rispettando la Linea di Vista. I giocatori possono interrompere il movimento {label.flow@3} in qualsiasi momento."+
+                                                        "<p>Se {label.flow@0} raggiunge un segnalino Obiettivo con il lato colorato a faccia in su, {label.flow@0} pu&ograve; cambiare direzione."+
+                                                        "<p>Se {label.flow@0} raggiunge un segnalino Tempo {symbol.timeToken}, il segnalino viene rimosso ed il percorso del raggio si interrompe.</p>"+
+                                                        "<p>Se {label.flow@0} raggiunge un Nemico, il Nemico subisce 1 Ferita ed il percorso {label.flow@3} prosegue normalmente. Un nemico pu&ograve; essere colpito {label.flow@2} una sola volta per round.</p>",
+                                                        EN:"The Time tokens {symbol.timeToken} represent {label.mud@0}. At the start of each Darkness Phase, {label.energy@1} {label.flow@1} starts from the gray Objective token and moves in a straight line respecting the Line of Sight. Players can interrupt the {label.flow@3} movement at any time."+
+                                                        "<p>If {label.flow@0} reaches an Objective token with the colored side up, {label.flow@0} can change direction."+
+                                                        "<p>If {label.flow@0} reaches a Time token {symbol.timeToken}, the token is removed and the ray movement is interrupted.</p>"+
+                                                        "<p>If {label.flow@0} reaches an Enemy, the Enemy suffers 1 Wound and the {label.flow@3} movement continues normally. An enemy can only be hit {label.flow@2} once per round.</p>"
+                                                    }
+                                                ]
+                                            }
+                                        ],[
+                                            {
+                                                type:"rule",
+                                                name:[
+                                                    {
+                                                        IT:"{label.enemy:capital@0}",
+                                                        EN:"{label.enemy:capital@0}",
+                                                    }
+                                                ],
+                                                explanation:[
+                                                    {
+                                                        IT:"La porta con il bordo rosso pu&ograve; essere aperta solo se tutti i segnalini Tempo {symbol.timeToken} sono stati rimossi. Quando aprite la porte con il bordo rosso, rimuovete il segnalino Corruzione {symbol.corruptionToken} e generate un Mostro Errante di Livello 5 nella sua zona: &egrave; {label.enemy@0}. Non appena {label.enemy@0} viene eliminato, {label.questVictory@0}.",
+                                                        EN:"The door with the red border can only be opened if all Time tokens {symbol.timeToken} have been removed. When you open the door with the red border, remove the Corruption token {symbol.corruptionToken} and spawn a Level 5 Roaming Monster in its zone: it is {label.enemy@0}. As soon as {label.enemy@0} is eliminated, {label.questVictory@0}."
+                                                    }
+                                                ],
+                                                campaignExplanation:[
+                                                    {
+                                                        IT:"La porta con il bordo rosso pu&ograve; essere aperta solo se tutti i segnalini Tempo {symbol.timeToken} sono stati rimossi. Quando aprite la porte con il bordo rosso, rimuovete il segnalino Corruzione {symbol.corruptionToken} e generate {label.campaignBoss@0} nella sua zona: &egrave; {label.enemy@0}. Non appena {label.enemy@0} viene eliminato, {label.questVictory@0}.",
+                                                        EN:"The door with the red border can only be opened if all Time tokens {symbol.timeToken} have been removed. When you open the door with the red border, remove the Corruption token {symbol.corruptionToken} and spawn {label.campaignBoss@0} in its zone: it is {label.enemy@0}. As soon as {label.enemy@0} is eliminated, {label.questVictory@0}."
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    ],
+                                    map:[
+                                        {
+                                            structure:[ "pathToRoom-large" ],
+                                            gameMode: [ "mirrorToBoss" ],
+                                            difficulty:[ "default" ],
+                                            roomLimits:[ "default" ],
+                                            roomsMerges:[ "default" ],
+                                            skin:[ "default" ],
+                                            size: [ "default" ],
+                                            bridges:[ "default" ],
+                                            lootRatio: [ "default" ],
+                                            corridors: [ "mirrorToBoss" ]
+                                        }
+                                    ],
+                                    campaign:{
+                                        sideQuests:[
+                                            { tags:[
+                                                [ "visitAllRooms", "teamwork" ]
+                                            ] }
+                                        ]
+                                    },
+                                    boss:{
+                                        rules:[
+                                            {
+                                                type:"objective",
+                                                name:{
+                                                    IT:"Sconfiggere {boss.bossBadName@0}",
+                                                    EN:"Defeat {boss.bossBadName@0}",
+                                                },
+                                                summary:{
+                                                    IT:"Elimina {boss.bossBadName@0}, la fonte {label.mud@3}",
+                                                    EN:"Eliminate {boss.bossBadName@0}, the source of {label.mud@3}"
+                                                }
+                                            }
+                                        ],
+                                        preparation:{
+                                            IT:"<p>Rimuovere tutti i segnalini Obiettivo dall'inventario degli Eroi.</p>",
+                                            EN:"<p>Remove all Objective tokens from the Heroes' inventories.</p>"
+                                        },
+                                        levelByTilesCount:{
+                                            3:1,
+                                            4:2,
+                                            5:3,
+                                            6:4
+                                        }
+                                    }
                                 }
                             ]
                         }

@@ -40,15 +40,16 @@ ModManager.modules.push(function(){
                                         tags:[ "md2-hellscape" ]
                                     },{
                                         code:"C",
+                                        idOption:"md2-heavenfall",
                                         label:{
                                             IT:"Massive Darkness 2: Heavenfall",
                                             EN:"Massive Darkness 2: Heavenfall",
                                             FR:"Massive Darkness 2 : Heavenfall"
                                         },
                                         description:{
-                                            IT:"4 tessere paradiso",
-                                            EN:"4 heaven tiles",
-                                            FR:"4 dalles de paradis"
+                                            IT:"4 tessere paradiso, Modalit&agrave; Campagna e boss",
+                                            EN:"4 heaven tiles, Campaign Mode, and bosses",
+                                            FR:"4 dalles de paradis, Mode Campagne et Boss"
                                         },
                                         tags:[ "md2-heavenfall" ]
                                     },{
@@ -64,6 +65,42 @@ ModManager.modules.push(function(){
                                             FR:"4 dalles arc-en-ciel"
                                         },
                                         tags:[ "md2-rainbowcrossing" ]
+                                    },{
+                                        idOption:"campaign-upgradepack",
+                                        code:"H",
+                                        label:{
+                                            IT:"Massive Darkness 2: Pack di Aggiornamento",
+                                            EN:"Massive Darkness 2: Upgrade Pack"
+                                        },
+                                        description:{
+                                            IT:"Carte della Campagna Prologo e boss",
+                                            EN:"Prologue Campaign cards and boss"
+                                        },
+                                        tags:[ "campaign-upgradepack" ]
+                                    },{
+                                        ifMenuOptionSelected:"campaign-upgradepack",
+                                        code:"I",
+                                        label:{
+                                            IT:"Massive Darkness: Ciclope Scudiera e Ciclope Spaccarupi",
+                                            EN:"Massive Darkness: Spearmaiden Cyclops and Cliffbreaker Cyclops"
+                                        },
+                                        description:{
+                                            IT:"Boss",
+                                            EN:"Boss"
+                                        },
+                                        tags:[ "campaign-upgradepack-cyclopsduo" ]
+                                    },{
+                                        ifMenuOptionSelected:"campaign-upgradepack",
+                                        code:"J",
+                                        label:{
+                                            IT:"Massive Darkness: Hellephant",
+                                            EN:"Massive Darkness: Hellephant"
+                                        },
+                                        description:{
+                                            IT:"Boss",
+                                            EN:"Boss"
+                                        },
+                                        tags:[ "campaign-upgradepack-hellephant" ]
                                     },{
                                         code:"D",
                                         label:{
@@ -162,7 +199,79 @@ ModManager.modules.push(function(){
                                     }
                                 ]
                             },{
+                                type:"includeExclude",
+                                isSingleOption:true,
+                                isMandatory:true,
+                                title:{
+                                    IT:"Ponti",
+                                    EN:"Bridges"
+                                },
+                                entries:[
+                                    {
+                                        code:"U",
+                                        isDefault:true,
+                                        label:{
+                                            IT:"Due uscite",
+                                            EN:"Two Exits"
+                                        },
+                                        description:{
+                                            IT:"Le tessere ponte possono essere attraversate orizzontalmente oppure verticalmente.",
+                                            EN:"Bridge tiles can be crossed horizontally or vertically.",
+                                        },
+                                        tags:[ "bridge-default-twoexits" ]
+                                    },{
+                                        code:"u",
+                                        label:{
+                                            IT:"Quattro uscite",
+                                            EN:"Four exits"
+                                        },
+                                        description:{
+                                            IT:"Le tessere ponte possono essere attraversate da ogni direzione.",
+                                            EN:"Bridge tiles can be crossed from any direction.",
+                                        },
+                                        tags:[ "bridge-default-fourexits" ]
+                                    }
+                                ]
+                            },{
                                 type:"includeSelected",
+                                ifMenuOptionSelected:"md2-heavenfall",
+                                isSingleOption:true,
+                                isMandatory:true,
+                                title:{
+                                    IT:"Generatore",
+                                    EN:"Generator"
+                                },
+                                entries:[
+                                    {
+                                        idOption:"generator-oneshot",
+                                        code:"V",
+                                        isDefault:true,
+                                        label:{
+                                            IT:"Avventura one-shot",
+                                            EN:"One-shot quest"
+                                        },
+                                        description:{
+                                            IT:"Genera un'avventura one-shot.",
+                                            EN:"Generate a one-shot quest."
+                                        },
+                                        tags:[ "generator-oneshot" ]
+                                    },{
+                                        idOption:"generator-campaign",
+                                        code:"v",
+                                        label:{
+                                            IT:"Campagna",
+                                            EN:"Campaign"
+                                        },
+                                        description:{
+                                            IT:"Genera una serie di avventure da giocare in sequenza seguendo le regole di Massive Darkness 2: Heavenfall.",
+                                            EN:"Generate a series of adventures to be played in sequence following the rules of Massive Darkness 2: Heavenfall."
+                                        },
+                                        tags:[ "generator-campaign", "boss" ]
+                                    }
+                                ]
+                            },{
+                                type:"includeSelected",
+                                ifMenuOptionSelected:"generator-oneshot",
                                 isSingleOption:true,
                                 isMandatory:true,
                                 title:{
@@ -215,6 +324,7 @@ ModManager.modules.push(function(){
                                 ]
                             },{
                                 type:"includeSelected",
+                                ifMenuOptionSelected:"generator-oneshot",
                                 isSingleOption:true,
                                 isMandatory:true,
                                 title:{
@@ -261,7 +371,20 @@ ModManager.modules.push(function(){
                                 },
                                 entries:[
                                     {
+                                        code:"O",
+                                        ifMenuOptionSelected:"generator-campaign",
+                                        label:{
+                                            IT:"Nascondi gli spoiler",
+                                            EN:"Hide spoilers"
+                                        },
+                                        description:{
+                                            IT:"Le ricompense e le parti narrative vengono nascoste.",
+                                            EN:"The rewards and the narrative parts are hidden.",
+                                        },
+                                        tags:[ "campaign-hidespoilers" ]
+                                    },{
                                         code:"X",
+                                        ifMenuOptionSelected:"generator-oneshot",
                                         label:{
                                             IT:"Sfide",
                                             EN:"Challenges",
@@ -274,7 +397,20 @@ ModManager.modules.push(function(){
                                         },
                                         tags:[ "challenges-default" ]
                                     },{
+                                        code:"N",
+                                        ifMenuOptionSelected:"generator-oneshot",
+                                        label:{
+                                            IT:"Scontri con i Boss",
+                                            EN:"Boss fights"
+                                        },
+                                        description:{
+                                            IT:"Aggiunge al termine di alcune avventure uno scontro con il boss.",
+                                            EN:"It adds a boss fight at the end of some quests.",
+                                        },
+                                        tags:[ "boss" ]
+                                    },{
                                         code:"Y",
+                                        ifMenuOptionSelected:"generator-oneshot",
                                         label:{
                                             IT:"Modalit&agrave; Esplorazione",
                                             EN:"Dungeon Crawling Mode",
@@ -382,14 +518,14 @@ ModManager.modules.push(function(){
                                 FR:"Massive Randomness 2"
                             },
                             toolDescription:{
-                                IT:"Un generatore casuale di avventure one-shot per Massive Darkness 2",
-                                EN:"A Massive Darkness 2 one-shot quest random generator",
-                                FR:"Un g&eacute;n&eacute;rateur de qu&ecirc;te one-shot al&eacute;atoire pour Massive Darkness 2"
+                                IT:"Un generatore casuale di avventure per Massive Darkness 2",
+                                EN:"A Massive Darkness 2 random quest generator",
+                                FR:"Un g&eacute;n&eacute;rateur de qu&ecirc;te al&eacute;atoire pour Massive Darkness 2"
                             },
                             footer:{
                                 IT:"Meglio su Firefox/Chrome - {toolName} - {toolVersion} - &copy; 2024 by KesieV - Sorgenti su <a target=_blank href='{sourcesAtFull}'>{sourcesAtShort}</a>",
-                                EN:"Best on Firefox/Chrome - {toolName} - {toolVersion} - &copy; 2024 by KesieV - Sources at <a target=_blank href='{sourcesAtFull}'>{sourcesAtShort}</a>",
-                                FR:"Optimis&eacute; pour Firefox/Chrome - {toolName} - {toolVersion} - &copy; 2024 by KesieV - Sources sur <a target=_blank href='{sourcesAtFull}'>{sourcesAtShort}</a>"
+                                EN:"Best on Firefox/Chrome - {toolName} - {toolVersion} - &copy; 2024 by KesieV - <a target=_blank href='{discordAt}'>Discord</a> - Sources at <a target=_blank href='{sourcesAtFull}'>{sourcesAtShort}</a>",
+                                FR:"Optimis&eacute; pour Firefox/Chrome - {toolName} - {toolVersion} - &copy; 2024 by KesieV - <a target=_blank href='{discordAt}'>Discord</a> - Sources sur <a target=_blank href='{sourcesAtFull}'>{sourcesAtShort}</a>"
                             },
                             notice:{
                                 EN:"Massive Darkness, Zombicide, and all related properties are owned by CMON Global Limited",

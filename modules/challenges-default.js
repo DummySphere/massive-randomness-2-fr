@@ -216,9 +216,9 @@ ModManager.modules.push(function(){
                                     ],
                                     explanation:[
                                         {
-                                            IT:"I Nemici hanno <span class='phase'>Combattimento</span> {symbol.mana}: +1{symbol.fang}",
-                                            EN:"Enemies have <span class='phase'>Combat</span> {symbol.mana}: +1{symbol.fang}",
-                                            FR:"Les Ennemis ont <span class='phase'>Combat</span> {symbol.mana}: +1{symbol.fang}"
+                                            IT:"I Nemici hanno <span class='phase'>Combattimento</span> {symbol.mana}: +1 {symbol.fang}",
+                                            EN:"Enemies have <span class='phase'>Combat</span> {symbol.mana}: +1 {symbol.fang}",
+                                            FR:"Les Ennemis ont <span class='phase'>Combat</span> {symbol.mana}: +1 {symbol.fang}"
                                         }
                                     ]
                                 }
@@ -237,7 +237,7 @@ ModManager.modules.push(function(){
                                     ],
                                     explanation:[
                                         {
-                                            IT:"Non utilizzare alcun gettone Latore di Vita. Se un Eroe viene messo KO, la Missione termina con la sconfitta.",
+                                            IT:"Non utilizzare alcun segnalino Latore di Vita. Se un Eroe viene messo KO, la Missione termina con la sconfitta.",
                                             EN:"Do not use any Lifebringer tokens. If one Hero is KO'd, the Mission ends in defeat.",
                                             FR:"N'utilisez pas les pions Porteur de Vie. Si un H&eacute;ros est KO, la Qu&ecirc;te se termine imm&eacute;diatement sur une d&eacute;faite."
                                         }
@@ -279,9 +279,9 @@ ModManager.modules.push(function(){
                                     ],
                                     explanation:[
                                         {
-                                            IT:"I Nemici hanno <span class='phase'>Attacco</span>: +1{symbol.sword}",
-                                            EN:"Enemies have <span class='phase'>Attack</span>: +1{symbol.sword}",
-                                            FR:"Les Ennemis ont <span class='phase'>Attaque</span>: +1{symbol.sword}"
+                                            IT:"I Nemici hanno <span class='phase'>Attacco</span>: +1 {symbol.sword}",
+                                            EN:"Enemies have <span class='phase'>Attack</span>: +1 {symbol.sword}",
+                                            FR:"Les Ennemis ont <span class='phase'>Attaque</span>: +1 {symbol.sword}"
                                         }
                                     ]
                                 }
@@ -300,9 +300,9 @@ ModManager.modules.push(function(){
                                     ],
                                     explanation:[
                                         {
-                                            IT:"I Nemici hanno <span class='phase'>Combattimento</span>: +1{symbol.blackDie}",
-                                            EN:"Enemies have <span class='phase'>Combat</span>: +1{symbol.blackDie}",
-                                            FR:"Les Ennemis ont <span class='phase'>Combat</span>: +1{symbol.blackDie}"
+                                            IT:"I Nemici hanno <span class='phase'>Combattimento</span>: +1 {symbol.blackDie}",
+                                            EN:"Enemies have <span class='phase'>Combat</span>: +1 {symbol.blackDie}",
+                                            FR:"Les Ennemis ont <span class='phase'>Combat</span>: +1 {symbol.blackDie}"
                                         }
                                     ]
                                 }
@@ -364,8 +364,8 @@ ModManager.modules.push(function(){
                                     explanation:[
                                         {
                                             IT:"I Nemici hanno <span class='phase'>Combattimento</span>: +1 {symbol.scratch}",
-                                            EN:"Enemies have <span class='phase'>Combat</span>: +1{symbol.scratch}",
-                                            FR:"Les Ennemis ont <span class='phase'>Combat</span>: +1{symbol.scratch}"
+                                            EN:"Enemies have <span class='phase'>Combat</span>: +1 {symbol.scratch}",
+                                            FR:"Les Ennemis ont <span class='phase'>Combat</span>: +1 {symbol.scratch}"
                                         }
                                     ]
                                 }

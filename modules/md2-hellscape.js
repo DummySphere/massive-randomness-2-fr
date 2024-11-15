@@ -47,6 +47,14 @@ ModManager.modules.push(function(){
                             IT:"<span class='symbol dice purple'>V</span>",
                             FR:"<span class='symbol dice purple'>V</span>"
                         },
+                        greenDie:{
+                            EN:"<span class='symbol dice green'>G</span>",
+                            IT:"<span class='symbol dice green'>V</span>"
+                        },
+                        redDie:{
+                            EN:"<span class='symbol dice red'>R</span>",
+                            IT:"<span class='symbol dice red'>R</span>"
+                        },
                         sword:{
                             EN:"<span class='symbol icon sword'></span>"
                         },
@@ -157,6 +165,7 @@ ModManager.modules.push(function(){
                             }
                         },
                         objective:{
+                            groupWhen:2,
                             className:{
                                 map:"token largeRound objective"
                             },
@@ -259,6 +268,7 @@ ModManager.modules.push(function(){
                             }
                         },
                         corruption:{
+                            groupWhen:3,
                             className:{
                                 map:"token smallRound corruption"
                             },
@@ -269,6 +279,7 @@ ModManager.modules.push(function(){
                             }
                         },
                         time:{
+                            groupWhen:3,
                             className:{
                                 map:"token smallRound time"
                             },
@@ -358,8 +369,8 @@ ModManager.modules.push(function(){
                     data:{
                         frost:12,
                         fire:12,
-                        corruption:6,
-                        time:6,
+                        corruption:12,
+                        time:12,
                         bridge:2,
                         regularPortal:1,
                         portal3:1,
@@ -383,22 +394,6 @@ ModManager.modules.push(function(){
                         startRoaming:10,
                         startPoint:10
                     }
-                },{
-                    type:"bridge",
-                    data:{
-                        id:"bridge",
-                        sides:[
-                            {
-                                id:"Bridge",
-                                isBridge:true,
-                                angles:[
-                                    [
-                                        [ { type:[ "dark" ], walls:[ false, false, false, false ] } ]
-                                    ]
-                                ]
-                            }
-                        ]
-                    },
                 },{
                     type:"tiles",
                     data:[
@@ -654,6 +649,62 @@ ModManager.modules.push(function(){
                         }
                         */
                     ]
+                }
+            ]
+        },{
+            id:"md2-hellscape-bridges-twoexits",
+            needs:[ ],
+            provides:[ "bridge-default-twoexits" ],
+            label:{
+                EN:"MD2: Hellscape bridge (two exits)"
+            },
+            content:[
+                {
+                    type:"bridge",
+                    data:{
+                        id:"bridge",
+                        isTwoExits:true,
+                        sides:[
+                            {
+                                id:"Bridge",
+                                isBridge:true,
+                                angles:[
+                                    [
+                                        [ { type:[ "dark" ], isWalled:true, isBridge:true, walls:[ true, false, true, false ] } ]
+                                    ],
+                                    [
+                                        [ { type:[ "dark" ], isWalled:true, isBridge:true, walls:[ false, true, false, true ] } ]
+                                    ]
+                                ]
+                            }
+                        ]
+                    },
+                }
+            ]
+        },{
+            id:"md2-hellscape-bridges-fourexits",
+            needs:[ ],
+            provides:[ "bridge-default-fourexits" ],
+            label:{
+                EN:"MD2: Hellscape bridge (four exits)"
+            },
+            content:[
+                {
+                    type:"bridge",
+                    data:{
+                        id:"bridge",
+                        sides:[
+                            {
+                                id:"Bridge",
+                                isBridge:true,
+                                angles:[
+                                    [
+                                        [ { type:[ "dark" ], isWalled:true, isBridge:true, walls:[ false, false, false, false ] } ]
+                                    ]
+                                ]
+                            }
+                        ]
+                    },
                 }
             ]
         }
