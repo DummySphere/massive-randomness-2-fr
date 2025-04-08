@@ -49,11 +49,13 @@ ModManager.modules.push(function(){
                         },
                         greenDie:{
                             EN:"<span class='symbol dice green'>G</span>",
-                            IT:"<span class='symbol dice green'>V</span>"
+                            IT:"<span class='symbol dice green'>V</span>",
+                            FR:"<span class='symbol dice green'>V</span>"
                         },
                         redDie:{
                             EN:"<span class='symbol dice red'>R</span>",
-                            IT:"<span class='symbol dice red'>R</span>"
+                            IT:"<span class='symbol dice red'>R</span>",
+                            FR:"<span class='symbol dice red'>R</span>"
                         },
                         sword:{
                             EN:"<span class='symbol icon sword'></span>"

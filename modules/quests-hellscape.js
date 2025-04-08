@@ -4,13 +4,15 @@ ModManager.modules.push(function(){
         QUESTVICTORY = [
             {
                 IT:[ "la Missione termina con una vittoria", "terminare la Missione con una vittoria" ],
-                EN:[ "the Mission ends with a victory", "end the Mission with a victory" ]
+                EN:[ "the Mission ends with a victory", "end the Mission with a victory" ],
+                FR:[ "la Qu&ecirc;te se termine par une victoire", "mettre fin &agrave; la Qu&ecirc;te par une victoire" ]
             }
         ],
         BOSSBEAT = [
             {
                 IT:[ "viene eliminato", "viene eliminata" ],
-                EN:[ "it is eliminated", "it is eliminated" ]
+                EN:[ "it is eliminated", "it is eliminated" ],
+                FR:[ "il est &eacute;limin&eacute;", "elle est &eacute;limin&eacute;e" ]
             }
         ];
 
@@ -47,7 +49,7 @@ ModManager.modules.push(function(){
                                                     {
                                                         IT:[ "Qualcosa &egrave; andato storto con l'ultimo portale! Ci siamo persi e" ],
                                                         EN:[ "Something went wrong with the last portal! We got lost and" ],
-                                                        FR:[ "Quelque chose a mal tourn&eacute avec le dernier portail ! Nous nous somme perdus et" ]
+                                                        FR:[ "Quelque chose a foir&eacute avec le dernier passage ! Nous nous somme perdus et" ]
                                                     },{
                                                         IT:[ "Non ricordiamo cosa sia successo. Appena abbiamo riaperto gli occhi ci siamo accorti che" ],
                                                         EN:[ "We don't remember what happened. As soon as we reopened our eyes we realized that" ],
@@ -77,7 +79,7 @@ ModManager.modules.push(function(){
                                                     {
                                                         IT:[ "C'&egrave; un Mostro Errante che fa la guardia all'unica via d'uscita" ],
                                                         EN:[ "There is a Roaming Monster guarding the only way out" ],
-                                                        FR:[ "Un Monstre Errant barre la route de la seule sortie possible" ]
+                                                        FR:[ "Un Monstre Errant prot&egrave;ge l'unique sortie" ]
                                                     },{
                                                         IT:[ "Si narra che da queste parti si trovi una tremenda creaturea" ],
                                                         EN:[ "It is said that in these parts there is a terrible creature" ],
@@ -92,7 +94,7 @@ ModManager.modules.push(function(){
                                                     {
                                                         IT:[ "e non possiamo rischiare che ci segua." ],
                                                         EN:[ "and we can't risk him following us." ],
-                                                        FR:[ "et nous nous pouvons pas le laisser nous suivre." ]
+                                                        FR:[ "et nous nous pouvons pas prendre le risque qu'il nous suive." ]
                                                     },{
                                                         IT:[ "e non abbiamo altra scelta che affrontarla." ],
                                                         EN:[ "and we have no choice but to face it." ],
@@ -107,7 +109,7 @@ ModManager.modules.push(function(){
                                                     {
                                                         IT:[ "Dobbiamo riunirci e sopprimere il mostro" ],
                                                         EN:[ "We must gather and eliminate the monster" ],
-                                                        FR:[ "Nous devons nous r&eacute;unir et &eacute;liminer le monstre" ]
+                                                        FR:[ "Nous devons nous r&eacute;unir et abattre cette cr&eacute;ature" ]
                                                     },{
                                                         IT:[ "Dovremo affrontare una durissima battaglia" ],
                                                         EN:[ "We will have to face a very tough battle" ],
@@ -168,7 +170,8 @@ ModManager.modules.push(function(){
                                                 noDoor:[
                                                     {
                                                         IT:[ "{label.gate@5}" ],
-                                                        EN:[ "{label.gate@5}" ]
+                                                        EN:[ "{label.gate@5}" ],
+                                                        FR:[ "{label.gate@5}" ]
                                                     }
                                                 ]
                                             }
@@ -251,7 +254,7 @@ ModManager.modules.push(function(){
                                                     {
                                                         IT:"In questa Missione, gli Eroi partono separati e ogni giocatore deve collocare il proprio Eroe in una Zona di Partenza diversa. In una partita a 5 o 6 Eroi, 1 o 2 Zone di Partenza possono contenere un massimo di 2 Eroi. A tutti i fini (facendo eccezione per il Mostro Errante Finale), considerate la Missione come se soltanto 2 Eroi stessero giocando.<p>In una partita a meno di 4 Eroi, rimuovete abbastanza Tessere in modo che restino solo la Tessera del Boss ({tileLabel.center}) pi&ugrave; 1 Tessera per Eroe. Non rimuovete la tessera {tileLabel.first}.</p>",
                                                         EN:"In this Mission, the Heroes start separately and each player must place their Hero in a different Starting Zone. In a game with 5 or 6 Heroes, 1 or 2 Starting Zones can contain a maximum of 2 Heroes. For any purposes (except for the Final Roaming Monster), treat the Mission as if only 2 Heroes were playing.<p>In a game with fewer than 4 Heroes, remove enough Tiles so that only the Boss Tile remains ({tileLabel.center}) plus 1 Tile per Hero. Do not remove the {tileLabel.first} tile.</p>",
-                                                        FR:"Dans cette Qu&ecirc;te, les H&eacute;ros commencent s&eacute;par&eacute;s et chaque joueur doit placer son H&eacute;ros dans une Zone de D&eacute;part diff&eacute;rente. Dans une partie &agrave; 5 ou 6 H&eacute;ros, 1 ou 2 Zones de D&eacute;part peuvent contenir jusqu'&agrave; 2 H&eacute;ros. Pour toutes les r&egrave;gles (&agrave; l'exception du Monstre Errant Final), consid&eacute;rez cette Qu&ecirc;te comme n'ayant que 2 H&eacute;ros en jeu.<p>Dans une partie avec moins de 4 H&eacute;ros, retirez assez de Dalles pour qu'il ne reste que la Dalle du Boss ({tileLabel.center}) plus 1 Dalle par H&eacute;ros. Ne retirez pas la dalle {tileLabel.first}.</p>"
+                                                        FR:"Dans cette Qu&ecirc;te, les H&eacute;ros commencent s&eacute;par&eacute;s et chaque joueur doit placer son H&eacute;ros dans une Zone de D&eacute;part diff&eacute;rente. Dans une partie &agrave; 5 ou 6 H&eacute;ros, 1 ou 2 Zones de D&eacute;part peuvent contenir jusqu'&agrave; 2 H&eacute;ros. Pour toutes les r&egrave;gles (&agrave; l'exception du Monstre Errant final), consid&eacute;rez cette Qu&ecirc;te comme n'ayant que 2 H&eacute;ros en jeu.<p>Dans une partie avec moins de 4 H&eacute;ros, retirez assez de Dalles pour qu'il ne reste que la Dalle du Boss ({tileLabel.center}) plus 1 Dalle par H&eacute;ros. Ne retirez pas la dalle {tileLabel.first}.</p>"
                                                     }
                                                 ]
                                             }
@@ -347,10 +350,12 @@ ModManager.modules.push(function(){
                                                 name:{
                                                     IT:"Sconfiggere {boss.bossBadName@0}",
                                                     EN:"Defeat {boss.bossBadName@0}",
+                                                    FR:"Vaincre {boss.bossBadName@0}",
                                                 },
                                                 summary:{
                                                     IT:"Finire il combattimento in sospeso contro {boss.bossBadName@0}",
-                                                    EN:"Finish the pending fight against {boss.bossBadName@0}"
+                                                    EN:"Finish the pending fight against {boss.bossBadName@0}",
+                                                    FR:"Finir le combat restant avec {boss.bossBadName@0}"
                                                 }
                                             }
                                         ],
@@ -374,6 +379,7 @@ ModManager.modules.push(function(){
                             by:{
                                 IT:"Ispirato all'avventura di Hellscape \"Il Collezionista di Anime\"",
                                 EN:"Inspired by the Hellscape quest \"The Soul Collector\"",
+                                FR:"Inspir&eacute; de la qu&ecirc;te \"Collectionneur d'&Aacute;mes\" de Hellscape",
                             },
                             suggestedTilesCount:4,
                             versions:[
@@ -384,49 +390,61 @@ ModManager.modules.push(function(){
                                                 gate:[
                                                     {
                                                         IT:[ "i", "cancelli", "che portano",  "sono sbarrati da", "il", "cancello", "Zona del Cancello" ],
-                                                        EN:[ "the", "gates", "leading", "are barred by", "the", "gate", "Zone of the Gate" ]
+                                                        EN:[ "the", "gates", "leading", "are barred by", "the", "gate", "Zone of the Gate" ],
+                                                        FR:[ "les", "portes", "qui m&egrave;nent", "sont prot&eacute;g&eacute;es par", "la", "porte", "Zone de la Porte" ]
                                                     },{
                                                         IT:[ "i", "portali", "che conducono", "sono tenuti ben saldi da", "il", "portale", "Zona del Portale" ],
-                                                        EN:[ "the", "portals", "leading", "are held firmly by", "the", "portal", "Zone of the Portal" ]
+                                                        EN:[ "the", "portals", "leading", "are held firmly by", "the", "portal", "Zone of the Portal" ],
+                                                        FR:[ "les", "portails", "qui m&egrave;nent", "sont fermement tenus par", "le", "portail", "Zone du Portail" ]
                                                     },{
                                                         IT:[ "il", "ponte", "che ci permetterebbe di proseguire", "&egrave; bloccato da", "il", "ponte", "Zona del Ponte" ],
-                                                        EN:[ "the", "bridge", "that would allow us to continue", "is blocked by", "the", "bridge", "Zone of the Bridge" ]
+                                                        EN:[ "the", "bridge", "that would allow us to continue", "is blocked by", "the", "bridge", "Zone of the Bridge" ],
+                                                        FR:[ "le", "pont", "qui nous permettrait de continuer", "est bloqu&eacute; par", "le", "pont", "Zone du Pont" ]
                                                     }
                                                 ],
                                                 destination:[
                                                     {
                                                         IT:[ "alla", "Valle degli Spiriti", "entrare nella", "nella" ],
-                                                        EN:[ "to the", "Spirit Valley", "enter into", "in the" ]
+                                                        EN:[ "to the", "Spirit Valley", "enter into", "in the" ],
+                                                        FR:[ "&agrave; la", "Vall&eacute;e de l'Esprit", "entrer dans la", "dans la" ]
                                                     },{
                                                         IT:[ "verso la", "Capitale degli Antichi", "entrare nella", "nella" ],
                                                         EN:[ "towards the", "Capital of the Ancients", "enter the", "in the" ],
+                                                        FR:[ "vers la", "Capitale des Anciens", "entrer dans la", "dans la" ],
                                                     },{
                                                         IT:[ "verso le", "Scogliere Tempestose", "raggiungere le", "sulle" ],
                                                         EN:[ "toward the", "Stormy Cliffs", "reach the", "on the" ],
+                                                        FR:[ "vers les", "Falaises de la Temp&ecirc;te", "atteindre les", "sur les" ],
                                                     }
                                                 ],
                                                 block:[
                                                     {
                                                         IT:[ "un'Interdizione Demoniaca", "deve essere disattivata con un'offerta in Anime...", "Ma raccogliere qualcosa di effimero come un'anima pu&ograve; essere un'impresa complicata...", "raccogliere", "le", "anime", "anima", "le", "Prigioni delle Anime", "delle", "di" , "l'Interdizione", "dalla", "distruzione", "distrutto", "distruggerli", "distrutti", "a distruggere", "distruggendo", "tutte le" ],
-                                                        EN:[ "a Demonic Ward", "must be deactivated with an offering in Souls...", "But collecting something as ephemeral as a soul can be a tricky business...", "collect", "the", "souls", "soul", "the", "Souls Prisons", "of", "of", "the Interdiction", "from the", "destruction", "destroyed", "destroy them", "destroyed", "to destroy", "destroying", "all the" ]
+                                                        EN:[ "a Demonic Ward", "must be deactivated with an offering in Souls...", "But collecting something as ephemeral as a soul can be a tricky business...", "collect", "the", "souls", "soul", "the", "Souls Prisons", "of", "of", "the Interdiction", "from the", "destruction", "destroyed", "destroy them", "destroyed", "to destroy", "destroying", "all the" ],
+                                                        FR:[ "une Barri&egrave;re D&eacute;moniaque", "doit &ecirc;tre d&eacute;sactiv&eacute;e par une offrande d'&Acirc;mes...", "Sauf que rassembler des choses aussi &eacute;ph&eacute;m&egrave;res que des &acirc;mes est extr&ecirc;mement d&eacute;licat...", "collectez", "les", "&acirc;mes", "&acirc;me", "les", "Prisons d'&Acirc;mes", "de la", "de", "la Barri&egrave;re", "en", "d&eacute;truisant", "d&eacute;truit", "le d&eacute;truire", "d&eacute;truits", "d&eacute;truire", "d&eacute;truisant", "tous les" ]
                                                     },{
                                                         IT:[ "un Grande Guardiano", "deve essere convinto del nostro eroismo...", "Ma dimostrarlo potrebbe essere molto pericoloso...", "raccogliere", "i", "trofei", "trofeo", "le", "Icone del Male", "dei", "di" , "il Custode", "dalla", "distruzione", "distrutte", "distruggerle", "distrutte", "a distruggere", "distruggendo", "tutte le" ],
-                                                        EN:[ "a Great Guardian", "must be convinced of our heroism...", "But proving it could be very dangerous...", "collect", "the", "trophies", "trophy", "the", "Icons of Evil", "of", "of", "the Keeper", "from the", "destruction", "destroyed", "destroy them", "destroyed", "to destroy", "destroying", "all the" ]
+                                                        EN:[ "a Great Guardian", "must be convinced of our heroism...", "But proving it could be very dangerous...", "collect", "the", "trophies", "trophy", "the", "Icons of Evil", "of", "of", "the Keeper", "from the", "destruction", "destroyed", "destroy them", "destroyed", "to destroy", "destroying", "all the" ],
+                                                        FR:[ "un Gardien Supr&ecirc;me", "doit &ecirc;tre convaincu de notre h&eacute;roisme...", "Mais le prouver sera très risqu&eacute;...", "r&eacute;cup&eacute;rez", "les", "troph&eacute;s", "troph&eacute;", "les", "Ic&ocirc;nes du Mal", "du", "de", "le Gardien", "en", "d&eacute;truisant", "d&eacute;truit", "le d&eacute;truire", "d&eacute;truits", "d&eacute;truire", "d&eacute;truisant", "tous les" ]
                                                     },{
                                                         IT:[ "una Guardia Corrotta", "deve essere convinta a collaborare con un bel sacco di monete...", "Ma trovare dell'oro, da queste parti, pu&ograve; costarci la vita...", "raccogliere", "le", "monete", "moneta", "i", "Forzieri", "delle", "di" , "la Guardia", "dall'", "apertura", "aperto", "aprirli", "aperti", "ad aprire", "aprendo", "tutti i" ],
-                                                        EN:[ "a Corrupt Guard", "must be convinced to collaborate with a nice bag of coins...", "But finding gold in these parts can cost us our lives...", "collect" , "the", "coins", "coin", "the", "Chests", "of", "of" , "the Guard", "from the", "opening", "open", "open them" , "opened", "to open", "opening", "all the" ]
+                                                        EN:[ "a Corrupt Guard", "must be convinced to collaborate with a nice bag of coins...", "But finding gold in these parts can cost us our lives...", "collect" , "the", "coins", "coin", "the", "Chests", "of", "of" , "the Guard", "from the", "opening", "open", "open them" , "opened", "to open", "opening", "all the" ],
+                                                        FR:[ "un Garde Corrompu", "doit &ecirc;tre convaincu de collaborer avec un beau sac de pi&egrave;ces...", "Mais trouver de l'or en ces lieux peut nous co&ucirc;ter la vie...", "r&eacute;cup&eacute;rez" , "les", "pièces", "pièce", "les", "Coffres", "du", "de" , "le Garde", "en", "ouvrant", "ouvert", "l'ouvrir" , "ouverts", "ouvrir", "ouvrant", "tous les" ]
                                                     }
                                                 ],
                                                 toGoOn:[
                                                     {
                                                         IT:[ "Per arrivare a destinazione," ],
-                                                        EN:[ "To get to your destination," ]
+                                                        EN:[ "To get to your destination," ],
+                                                        FR:[ "Pour rejoindre votre destination," ]
                                                     },{
                                                         IT:[ "Per poter proseguire," ],
-                                                        EN:[ "To continue," ]
+                                                        EN:[ "To continue," ],
+                                                        FR:[ "Pour continuer," ]
                                                     },{
                                                         IT:[ "Se vogliamo proseguire il nostro viaggio" ],
-                                                        EN:[ "If we want to continue our journey" ]
+                                                        EN:[ "If we want to continue our journey" ],
+                                                        FR:[ "Si nous voulons poursuivre notre aventure" ]
                                                     }
                                                 ],
                                                 bossBeat:BOSSBEAT,
@@ -434,13 +452,15 @@ ModManager.modules.push(function(){
                                                 collectMoreItems:[
                                                     {
                                                         IT:[ 15, "{label.block:capital@5}", "{label.block:capital@5} per ogni Eroe" ],
-                                                        EN:[ 15, "{label.block:capital@5}", "{label.block:capital@5} for each Hero" ]
+                                                        EN:[ 15, "{label.block:capital@5}", "{label.block:capital@5} for each Hero" ],
+                                                        FR:[ 15, "{label.block:capital@5}", "{label.block:capital@5} pour chaque H&eacute;ros" ]
                                                     }
                                                 ],
                                                 collectAllItems:[
                                                     {
                                                         IT:[ "{label.block@17} {label.block@19} {label.block@8}", "{label.block@18} {label.block@19} {label.block@8}", "{label.block@18} {label.block@19} {label.block@8}" ],
                                                         EN:[ "{label.block@17} {label.block@19} {label.block@8}", "{label.block@18} {label.block@19} {label.block@8}", "{label.block@18} {label.block@19} {label.block@8}"],
+                                                        FR:[ "{label.block@17} {label.block@19} {label.block@8}", "{label.block@18} {label.block@19} {label.block@8}", "{label.block@18} {label.block@19} {label.block@8}"],
                                                     }
                                                 ]
                                             }
@@ -449,7 +469,8 @@ ModManager.modules.push(function(){
                                     title:[
                                         {
                                             IT:"Il Collezionista {label.block@10} {label.block:capital@5}",
-                                            EN:"The {label.block:capital@5} Collector"
+                                            EN:"The {label.block:capital@5} Collector",
+                                            FR:"Collectionneur d'{label.block:capital@5}"
                                         },{
                                             EN:"{label.block:capital@4} {label.block:capital@5}"
                                         },{
@@ -464,7 +485,8 @@ ModManager.modules.push(function(){
                                     objectivesHeader:[
                                         {
                                             IT:"Completate gli obiettivi nell'ordine indicato:",
-                                            EN:"Complete the objectives in order:"
+                                            EN:"Complete the objectives in order:",
+                                            FR:"Remplissez les objectifs dans l'ordre :"
                                         }
                                     ],
                                     challenges:[
@@ -484,7 +506,8 @@ ModManager.modules.push(function(){
                                                 summary:[
                                                     {
                                                         IT:"Raccogliere 10 {label.block:capital@5} per ogni Eroe",
-                                                        EN:"Collect 10 {label.block:capital@5} for each Hero"
+                                                        EN:"Collect 10 {label.block:capital@5} for each Hero",
+                                                        FR:"Collectez 10 {label.block:capital@5} par H&eacute;ros"
                                                     }
                                                 ]
                                             }
@@ -499,7 +522,8 @@ ModManager.modules.push(function(){
                                                 summary:[
                                                     {
                                                         IT:"Gli Eroi devono uscire dal Dungeon attraverso {label.gate@4} {label.gate:capital@5}",
-                                                        EN:"Heroes must exit the Dungeon through {label.gate@4} {label.gate:capital@5}"
+                                                        EN:"Heroes must exit the Dungeon through {label.gate@4} {label.gate:capital@5}",
+                                                        FR:"Les Héros doivent quitter le Donjon en traversant {label.gate@4} {label.gate:capital@5}"
                                                     }
                                                 ]
                                             }
@@ -514,7 +538,8 @@ ModManager.modules.push(function(){
                                                 explanation:[
                                                     {
                                                         IT:"{label.block:capital@4} {label.block:capital@5} provengono dall'uccisione dei Nemici e {label.block@12} {label.block@13} dei segnalini Obiettivo. Gli Eroi raccolgono 1 {label.block:capital@6} per ogni Gregario o Comandante ucciso da un Eroe. Ogni Mostro Errante conferisce agli Eroi 3 {label.block:capital@5} quando viene ucciso. I segnalini Obiettivo rappresentano {label.block@7} {label.block@8} e conferiscono 5 {label.block:capital@5} quando {label.block@16}. Collocate i segnalini Salute sulla {label.gate@6} (indicata dal segnalino Obiettivo grigio) per tenere il conto {label.block@9} {label.block:capital@5} che avete raccolto.",
-                                                        EN:"{label.block:capital@4} {label.block:capital@5} come from killing Enemies and {label.block@12} {label.block@13} of the Objective tokens. Heroes collect 1 {label.block:capital@6} for each Minion or Leader killed by a Hero. Each Roaming Monster grants Heroes 3 {label.block:capital@5} when killed. Objective tokens represent {label.block@7} {label.block@8} and grant 5 {label.block:capital@5} when {label.block@16}. Place Health tokens on the {label.gate@6} (indicated by the gray Objective token) to hold the account {label.block@9} {label.block:capital@5} that you have raised."
+                                                        EN:"{label.block:capital@4} {label.block:capital@5} come from killing Enemies and {label.block@12} {label.block@13} of the Objective tokens. Heroes collect 1 {label.block:capital@6} for each Minion or Leader killed by a Hero. Each Roaming Monster grants Heroes 3 {label.block:capital@5} when killed. Objective tokens represent {label.block@7} {label.block@8} and grant 5 {label.block:capital@5} when {label.block@16}. Place Health tokens on the {label.gate@6} (indicated by the gray Objective token) to hold the account {label.block@9} {label.block:capital@5} that you have raised.",
+                                                        FR:"{label.block:capital@4} {label.block:capital@5} sont obtenues en tuant des Ennemis et {label.block@12} {label.block@13} des poins Objectif. Les Héros collectent 1 {label.block:capital@6} chaque fois qu'ils tuent un S&eacute;ide ou un Chef. Chaque Monstre Errant tu&eacute; rapporte 3 {label.block:capital@5}. Les pions Objectif repr&eacute;sentent {label.block@7} {label.block@8} et donnent 5 {label.block:capital@5} quand ils sont {label.block@16}. Placez des pions Sant&eacute; sur la {label.gate@6} (indiqu&eacute;e par le pion Objectif gris) pour indiquer le nombre {label.block@9} {label.block:capital@5} collect&eacute;es."
                                                     }
                                                 ]
                                             }
@@ -529,13 +554,15 @@ ModManager.modules.push(function(){
                                                 explanation:[
                                                     {
                                                         IT:"I segnalini Obiettivo colorati a faccia in su rappresentano {label.block@7} {label.block@8}. Qualsiasi Eroe che si trovi nella stessa Zona di un segnalino Obiettivo pu&ograve; spendere 1 azione per {label.block@15}. Rimuovete il segnalino dal Dungeon. L'Eroe che l'ha {label.block@14} ottiene 5 PE e gli Eroi raccolgono 5 {label.block:capital@5}.",
-                                                        EN:"The colored face-up Objective tokens represent {label.block@7} {label.block@8}. Any Hero in the same Zone as an Objective token can spend 1 action to {label.block@15}. Remove the token from the Dungeon. The Hero who has {label.block@14} it gets 5 XP and the Heroes collect 5 {label.block:capital@5}."
+                                                        EN:"The colored face-up Objective tokens represent {label.block@7} {label.block@8}. Any Hero in the same Zone as an Objective token can spend 1 action to {label.block@15}. Remove the token from the Dungeon. The Hero who has {label.block@14} it gets 5 XP and the Heroes collect 5 {label.block:capital@5}.",
+                                                        FR:"Les Objectifs face color&eacute;e visible repr&eacute;sentent {label.block@7} {label.block@8}. Un H&eacute;ros qui se tient dans la m&ecirc;me Zone qu'un pion Objectif peut d&eacute;penser 1 action pour {label.block@15}. Retirez le pion du Donjon. Le H&eacute;ros qui l'a {label.block@14} gagne 5 XP et le groupe collecte 5 {label.block:capital@5}."
                                                     }
                                                 ],
                                                 campaignExplanation:[
                                                     {
                                                         IT:"I segnalini Obiettivo colorati a faccia in su rappresentano {label.block@7} {label.block@8}. Qualsiasi Eroe che si trovi nella stessa Zona di un segnalino Obiettivo pu&ograve; spendere 1 azione per {label.block@15}. Rimuovete il segnalino dal Dungeon. Gli Eroi raccolgono 5 {label.block:capital@5} e ogni Eroe ottiene 5 PE.",
-                                                        EN:"The colored face-up Objective tokens represent {label.block@7} {label.block@8}. Any Hero in the same Zone as an Objective token can spend 1 action to {label.block@15}. Remove the token from the Dungeon. The Heroes collect 5 {label.block:capital@5} and all Heroes gets 5 XP."
+                                                        EN:"The colored face-up Objective tokens represent {label.block@7} {label.block@8}. Any Hero in the same Zone as an Objective token can spend 1 action to {label.block@15}. Remove the token from the Dungeon. The Heroes collect 5 {label.block:capital@5} and all Heroes gets 5 XP.",
+                                                        FR:"Les Objectifs face color&eacute;e visible repr&eacute;sentent {label.block@7} {label.block@8}. Un H&eacute;ros qui se tient dans la m&ecirc;me Zone qu'un pion Objectif peut d&eacute;penser 1 action pour le {label.block@15}. Retirez le pion du Donjon. Le groupe collecte 5 {label.block:capital@5} et chaque H&eacute;ros gagne 5 XP."
                                                     }
                                                 ]
                                             }
@@ -550,7 +577,8 @@ ModManager.modules.push(function(){
                                                 explanation:[
                                                     {
                                                         IT:"Non appena gli Eroi possiedono un totale di 10 {label.block:capital@5} per Eroe, possono uscire dal Dungeon attraverso {label.gate@4} {label.gate:capital@5}: un Eroe che si trova nella {label.gate@6} pu&ograve; spendere 1 PM per uscire dal Dungeon. Non appena tutti gli Eroi sono usciti dal Dungeon, {label.questVictory@0}.",
-                                                        EN:"As soon as the Heroes have a total of 10 {label.block:capital@5} per Hero, they can exit the Dungeon through {label.gate@4} {label.gate:capital@5}: a Hero in the {label.gate@6} can spend 1 MP to exit the Dungeon. As soon as all Heroes have exited the Dungeon, {label.questVictory@0}."
+                                                        EN:"As soon as the Heroes have a total of 10 {label.block:capital@5} per Hero, they can exit the Dungeon through {label.gate@4} {label.gate:capital@5}: a Hero in the {label.gate@6} can spend 1 MP to exit the Dungeon. As soon as all Heroes have exited the Dungeon, {label.questVictory@0}.",
+                                                        FR:"D&egrave;s que les H&eacute;ros ont collectivement amass&eacute; un total de 10 {label.block:capital@5} par H&eacute;ros, ils peuvent quitter le Donjon en traversant {label.gate@4} {label.gate:capital@5} : un H&eacute;ros qui se tient dans la {label.gate@6} peut d&eacute;penser 1 MP pour quitter le Donjon. Une fois que tous les H&eacute;ros ont quitt&eacute; le Donjon, {label.questVictory@0}."
                                                     }
                                                 ]
                                             }
@@ -584,10 +612,12 @@ ModManager.modules.push(function(){
                                                 name:{
                                                     IT:"Sconfiggere {boss.bossBadName@0}",
                                                     EN:"Defeat {boss.bossBadName@0}",
+                                                    FR:"Vaincre {boss.bossBadName@0}",
                                                 },
                                                 summary:{
                                                     IT:"Eliminare {boss.bossBadName@0}, che attende gli Eroi {label.destination@3} {label.destination@1}",
                                                     EN:"Eliminate {boss.bossBadName@0}, waiting the Heroes {label.destination@3} {label.destination@1}",
+                                                    FR:"Eliminez {boss.bossBadName@0}, qui attend les H&eacute;ros {label.destination@3} {label.destination@1}",
                                                 }
                                             }
                                         ],
@@ -610,7 +640,8 @@ ModManager.modules.push(function(){
                             },
                             by:{
                                 IT:"Ispirato all'avventura di Hellscape \"La Via per Hellscape\"",
-                                EN:"Inspired by the Hellscape quest \"Highway to Hellscape\""
+                                EN:"Inspired by the Hellscape quest \"Highway to Hellscape\"",
+                                FR:"Inspir&eacute; de la qu&ecirc;te \"Highway to Hellscape\" de Hellscape"
                             },
                             suggestedTilesCount:3,
                             versions:[
@@ -961,7 +992,8 @@ ModManager.modules.push(function(){
                             },
                             by:{
                                 IT:"Ispirato all'avventura di Hellscape \"La Bestia dell'Orrore\"",
-                                EN:"Inspired by the Hellscape quest \"The Horror Beast\""
+                                EN:"Inspired by the Hellscape quest \"The Horror Beast\"",
+                                FR:"Inspir&eacute; de la qu&ecirc;te \"La B&ecirc;te de l'Horreur\" de Hellscape"
                             },
                             suggestedTilesCount:4,
                             versions:[
@@ -1238,7 +1270,8 @@ ModManager.modules.push(function(){
                             },
                             by:{
                                 IT:"Ispirato all'avventura di Hellscape \"Il Labirinto Infernale\"",
-                                EN:"Inspired by the Hellscape quest \"Hellish Maze\""
+                                EN:"Inspired by the Hellscape quest \"Hellish Maze\"",
+                                FR:"Inspir&eacute; de la qu&ecirc;te \"D&eacutedale Infernal\" de Hellscape"
                             },
                             suggestedTilesCount:4,
                             versions:[
@@ -1491,7 +1524,8 @@ ModManager.modules.push(function(){
                             },
                             by:{
                                 IT:"Ispirato all'avventura di Hellscape \"La Spada Maledetta\"",
-                                EN:"Inspired by the Hellscape quest \"The Cursed Sword\""
+                                EN:"Inspired by the Hellscape quest \"The Cursed Sword\"",
+                                FR:"Inspir&eacute; de la qu&ecirc;te \"L'&Eacute;p&eacute;e Maudite\" de Hellscape"
                             },
                             suggestedTilesCount:4,
                             versions:[
@@ -1799,7 +1833,8 @@ ModManager.modules.push(function(){
                             },
                             by:{
                                 IT:"Ispirato all'avventura di Hellscape \"Il Passaggio\"",
-                                EN:"Inspired by the Hellscape quest \"The Passage\""
+                                EN:"Inspired by the Hellscape quest \"The Passage\"",
+                                FR:"Inspir&eacute; de la qu&ecirc;te \"Le Passage\" de Hellscape"
                             },
                             suggestedTilesCount:3,
                             versions:[
@@ -2094,7 +2129,8 @@ ModManager.modules.push(function(){
                             },
                             by:{
                                 IT:"Ispirato all'avventura di Hellscape \"L'Artefatto Demoniaco\"",
-                                EN:"Inspired by the Hellscape quest \"The Demon Artifact\""
+                                EN:"Inspired by the Hellscape quest \"The Demon Artifact\"",
+                                FR:"Inspir&eacute; de la qu&ecirc;te \"L'Art&eacute;fact D&eacute;moniaque\" de Hellscape"
                             },
                             suggestedTilesCount:4,
                             versions:[
@@ -2390,7 +2426,8 @@ ModManager.modules.push(function(){
                             },
                             by:{
                                 IT:"Ispirato all'avventura di Hellscape \"Le Chiavi delle Anime\"",
-                                EN:"Inspired by the Hellscape quest \"The Soul Keys\""
+                                EN:"Inspired by the Hellscape quest \"The Soul Keys\"",
+                                FR:"Inspir&eacute; de la qu&ecirc;te \"Les Cl&eacute;s d'&Acirc;mes\" de Hellscape"
                             },
                             suggestedTilesCount:3,
                             versions:[

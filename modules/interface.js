@@ -57,7 +57,7 @@ ModManager.modules.push(function(){
                                         label:{
                                             IT:"Massive Darkness 2: Rainbow Crossing",
                                             EN:"Massive Darkness 2: Rainbow Crossing",
-                                            FR:"Massive Darkness 2: Au-del&agrave; de l'Arc-en-ciel"
+                                            FR:"Massive Darkness 2 : Au-del&agrave; de l'Arc-en-ciel"
                                         },
                                         description:{
                                             IT:"4 tessere arcobaleno",
@@ -70,11 +70,13 @@ ModManager.modules.push(function(){
                                         code:"H",
                                         label:{
                                             IT:"Massive Darkness 2: Pack di Aggiornamento",
-                                            EN:"Massive Darkness 2: Upgrade Pack"
+                                            EN:"Massive Darkness 2: Upgrade Pack",
+                                            FR:"Massive Darkness 2 : Kit de Mise &agrave; Jour"
                                         },
                                         description:{
                                             IT:"Carte della Campagna Prologo e boss",
-                                            EN:"Prologue Campaign cards and boss"
+                                            EN:"Prologue Campaign cards and boss",
+                                            FR:"Cartes et boss de la Campagne Prologue"
                                         },
                                         tags:[ "campaign-upgradepack" ]
                                     },{
@@ -82,11 +84,13 @@ ModManager.modules.push(function(){
                                         code:"I",
                                         label:{
                                             IT:"Massive Darkness: Ciclope Scudiera e Ciclope Spaccarupi",
-                                            EN:"Massive Darkness: Spearmaiden Cyclops and Cliffbreaker Cyclops"
+                                            EN:"Massive Darkness: Spearmaiden Cyclops and Cliffbreaker Cyclops",
+                                            FR:"Massive Darkness : La Lanci&egrave;re Cyclope et Le Cyclope Cliffbreaker"
                                         },
                                         description:{
                                             IT:"Boss",
-                                            EN:"Boss"
+                                            EN:"Boss",
+                                            FR:"Boss"
                                         },
                                         tags:[ "campaign-upgradepack-cyclopsduo" ]
                                     },{
@@ -94,11 +98,13 @@ ModManager.modules.push(function(){
                                         code:"J",
                                         label:{
                                             IT:"Massive Darkness: Hellephant",
-                                            EN:"Massive Darkness: Hellephant"
+                                            EN:"Massive Darkness: Hellephant",
+                                            FR:"Massive Darkness : Le Pand&eacute;l&eacute;phant"
                                         },
                                         description:{
                                             IT:"Boss",
-                                            EN:"Boss"
+                                            EN:"Boss",
+                                            FR:"Boss"
                                         },
                                         tags:[ "campaign-upgradepack-hellephant" ]
                                     },{
@@ -204,7 +210,8 @@ ModManager.modules.push(function(){
                                 isMandatory:true,
                                 title:{
                                     IT:"Ponti",
-                                    EN:"Bridges"
+                                    EN:"Bridges",
+                                    FR:"Ponts"
                                 },
                                 entries:[
                                     {
@@ -212,22 +219,26 @@ ModManager.modules.push(function(){
                                         isDefault:true,
                                         label:{
                                             IT:"Due uscite",
-                                            EN:"Two Exits"
+                                            EN:"Two Exits",
+                                            FR:"Deux sorties"
                                         },
                                         description:{
                                             IT:"Le tessere ponte possono essere attraversate orizzontalmente oppure verticalmente.",
                                             EN:"Bridge tiles can be crossed horizontally or vertically.",
+                                            FR:"Les dalles de Pont peuvent &ecirc;tre travers&eacute;es horizontalement et verticalement.",
                                         },
                                         tags:[ "bridge-default-twoexits" ]
                                     },{
                                         code:"u",
                                         label:{
                                             IT:"Quattro uscite",
-                                            EN:"Four exits"
+                                            EN:"Four exits",
+                                            FR:"Quatre sorties"
                                         },
                                         description:{
                                             IT:"Le tessere ponte possono essere attraversate da ogni direzione.",
                                             EN:"Bridge tiles can be crossed from any direction.",
+                                            FR:"Les dalles de Pont peuvent &ecirc;tre travers&eacute;es dans n'importe quelle dir&eacute;ction.",
                                         },
                                         tags:[ "bridge-default-fourexits" ]
                                     }
@@ -239,7 +250,8 @@ ModManager.modules.push(function(){
                                 isMandatory:true,
                                 title:{
                                     IT:"Generatore",
-                                    EN:"Generator"
+                                    EN:"Generator",
+                                    FR:"G&eacute;n&eacute;rateur"
                                 },
                                 entries:[
                                     {
@@ -248,11 +260,13 @@ ModManager.modules.push(function(){
                                         isDefault:true,
                                         label:{
                                             IT:"Avventura one-shot",
-                                            EN:"One-shot quest"
+                                            EN:"One-shot quest",
+                                            FR:"Qu&ecirc;te one-shot"
                                         },
                                         description:{
                                             IT:"Genera un'avventura one-shot.",
-                                            EN:"Generate a one-shot quest."
+                                            EN:"Generate a one-shot quest.",
+                                            FR:"G&eacute;n&eacute;rer une Qu&ecirc;te one-shot."
                                         },
                                         tags:[ "generator-oneshot" ]
                                     },{
@@ -260,11 +274,13 @@ ModManager.modules.push(function(){
                                         code:"v",
                                         label:{
                                             IT:"Campagna",
-                                            EN:"Campaign"
+                                            EN:"Campaign",
+                                            FR:"Campagne"
                                         },
                                         description:{
                                             IT:"Genera una serie di avventure da giocare in sequenza seguendo le regole di Massive Darkness 2: Heavenfall.",
-                                            EN:"Generate a series of adventures to be played in sequence following the rules of Massive Darkness 2: Heavenfall."
+                                            EN:"Generate a series of adventures to be played in sequence following the rules of Massive Darkness 2: Heavenfall.",
+                                            FR:"G&eacute;n&eacute;rer une s&eacute;rie de Qu&ecirc;tes qui se suivent avec les r&egrave;gles de Massive Darkness 2 : Heavenfall."
                                         },
                                         tags:[ "generator-campaign", "boss" ]
                                     }
@@ -375,11 +391,13 @@ ModManager.modules.push(function(){
                                         ifMenuOptionSelected:"generator-campaign",
                                         label:{
                                             IT:"Nascondi gli spoiler",
-                                            EN:"Hide spoilers"
+                                            EN:"Hide spoilers",
+                                            FR:"Cacher les spoilers"
                                         },
                                         description:{
                                             IT:"Le ricompense e le parti narrative vengono nascoste.",
                                             EN:"The rewards and the narrative parts are hidden.",
+                                            FR:"Les r&eacute;compenses et les parties narratives sont cach&eacute;es.",
                                         },
                                         tags:[ "campaign-hidespoilers" ]
                                     },{
@@ -401,11 +419,13 @@ ModManager.modules.push(function(){
                                         ifMenuOptionSelected:"generator-oneshot",
                                         label:{
                                             IT:"Scontri con i Boss",
-                                            EN:"Boss fights"
+                                            EN:"Boss fights",
+                                            FR:"Combats de Boss"
                                         },
                                         description:{
                                             IT:"Aggiunge al termine di alcune avventure uno scontro con il boss.",
                                             EN:"It adds a boss fight at the end of some quests.",
+                                            FR:"Ajoute un combat de boss &agrave; la fin de certaines qu&ecirc;tes.",
                                         },
                                         tags:[ "boss" ]
                                     },{

@@ -141,11 +141,13 @@ ModManager.modules.push(function(){
                                 type:"rule",
                                 name:{
                                     IT:"Le Zone Allagate",
-                                    EN:"The Waterholes"
+                                    EN:"The Waterholes",
+                                    FR:"Les Zones Innond&eacute;es"
                                 },
                                 explanation:{
                                     IT:"Nemici ed Eroi si muovono regolarmente attraverso le Zone Allagate ma devono spendere 1 PM in pi&ugrave; per uscire da una Zona Allagata attraverso un cornicione.",
-                                    EN:"Enemies and Heroes move through Waterholes regularly but must spend 1 extra MP to leave a Waterhole through a Ledge."
+                                    EN:"Enemies and Heroes move through Waterholes regularly but must spend 1 extra MP to leave a Waterhole through a Ledge.",
+                                    FR:"Les Ennemis et les H&eacute;ros se d&eacute;placent normalement dans les Zones Innond&eacute;es mais doivent d&eacute;penser 1 PM suppl&eacute;mentaire pour quitter une Zones Innond&eacute;e par un rebord."
                                 }
                             }
                         ],
@@ -155,7 +157,8 @@ ModManager.modules.push(function(){
                                 type:"rule",
                                 name:{
                                     IT:"I Bastioni",
-                                    EN:"The Ramparts"
+                                    EN:"The Ramparts",
+                                    FR:"Les Remparts"
                                 },
                                 explanation:{
                                     IT:"Le tessere delle torri contengono sia Zone degli edifici che Zone di strada, delimitate dai bastioni:<ul>"+
@@ -171,6 +174,13 @@ ModManager.modules.push(function(){
                                         "<li>A Hero or Enemy in a tower Zone can see over a building to Zones beyond it. Likewise, any Hero or Enemy in one of these Zones has a Line of Sight to the Hero or Enemy on the tower.</li>"+
                                         "<li>A Hero can shoot from a tower Zone, over a building Zone. The building Zone that is shot through counts towards the weapon or spell's Range, but there is no Line of Sight to it.</li>"+
                                         "<li>Lines of Sight can't be drawn between tower Zones bordered with ramparts and building Zones next to them, even with an open door.</li>"+
+                                        "</ul>",
+                                    FR:"Les dalles de Tours ont &agrave; la fois des Zones de B&acirc;timents et de rues, entour&eacute;es par des Remparts:<ul>"+
+                                        "<li>Les Remparts ne peuvent pas &ecirc;tre travers&eacute;s mais ne bloquent pas la Ligne de Vue</li>"+
+                                        "<li>Il est possible de tirer &agrave; travers les Remparts.</li>"+
+                                        "<li>Un H&eacute;ros ou Ennemi dans une Zone de Tour peut voir par-dessus un B&acirc;timent dans les Zones derri&egrave;res. De m&ecirc;mem, un H&eacute;ros ou un Ennemi dans une de ces Zones a une Ligne de Vue sur un H&eacute;ros ou un Ennemi sur la Tour.</li>"+
+                                        "<li>Un H&eacute;ros peut tirer depuis une Zone de Tour, par-dessus une Zone de B&acirc;timent. La Zone de B&acirc;timent &agrave; travers laquelle passe un tir compte dans la port&eacute;e de l'arme ou du sort, mais il n'y a pas de Ligne de Vue vers celle-ci.</li>"+
+                                        "<li>Il n'y a pas de Ligne de Vue entre des Zones de Tour entour&eacute;es de Remparts et les Zones de B&acirc;timent qui les bordent, y compris s'il y a une porte ouverte.</li>"+
                                         "</ul>"
                                 }
                             }
