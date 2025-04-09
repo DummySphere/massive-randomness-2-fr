@@ -80,7 +80,7 @@ ModManager.modules.push(function(){
                                         },
                                         tags:[ "campaign-upgradepack" ]
                                     },{
-                                        ifMenuOptionSelected:"campaign-upgradepack",
+                                        ifMenuOptionSelected:[ "campaign-upgradepack" ],
                                         code:"I",
                                         label:{
                                             IT:"Massive Darkness: Ciclope Scudiera e Ciclope Spaccarupi",
@@ -94,7 +94,7 @@ ModManager.modules.push(function(){
                                         },
                                         tags:[ "campaign-upgradepack-cyclopsduo" ]
                                     },{
-                                        ifMenuOptionSelected:"campaign-upgradepack",
+                                        ifMenuOptionSelected:[ "campaign-upgradepack" ],
                                         code:"J",
                                         label:{
                                             IT:"Massive Darkness: Hellephant",
@@ -107,6 +107,28 @@ ModManager.modules.push(function(){
                                             FR:"Boss"
                                         },
                                         tags:[ "campaign-upgradepack-hellephant" ]
+                                    },{
+                                        code:"K",
+                                        label:{
+                                            IT:"Massive Darkness 2: Quattro Cavalieri",
+                                            EN:"Massive Darkness 2: Four Horsemen Pack"
+                                        },
+                                        description:{
+                                            IT:"Boss",
+                                            EN:"Boss"
+                                        },
+                                        tags:[ "campaign-fourhorsemen" ]
+                                    },{
+                                        code:"L",
+                                        label:{
+                                            IT:"Massive Darkness 2: Darkbringer",
+                                            EN:"Massive Darkness 2: Darkbringer"
+                                        },
+                                        description:{
+                                            IT:"Boss",
+                                            EN:"Boss"
+                                        },
+                                        tags:[ "campaign-darkbringer" ]
                                     },{
                                         code:"D",
                                         label:{
@@ -245,7 +267,7 @@ ModManager.modules.push(function(){
                                 ]
                             },{
                                 type:"includeSelected",
-                                ifMenuOptionSelected:"md2-heavenfall",
+                                ifMenuOptionSelected:[ "md2-heavenfall" ],
                                 isSingleOption:true,
                                 isMandatory:true,
                                 title:{
@@ -282,12 +304,24 @@ ModManager.modules.push(function(){
                                             EN:"Generate a series of adventures to be played in sequence following the rules of Massive Darkness 2: Heavenfall.",
                                             FR:"G&eacute;n&eacute;rer une s&eacute;rie de Qu&ecirc;tes qui se suivent avec les r&egrave;gles de Massive Darkness 2 : Heavenfall."
                                         },
-                                        tags:[ "generator-campaign", "boss" ]
+                                        tags:[ "generator-campaign", "campaign-full",  "boss" ]
+                                    },{
+                                        idOption:"generator-campaign-mini",
+                                        code:"w",
+                                        label:{
+                                            IT:"Mini-campagna",
+                                            EN:"Mini-campaign"
+                                        },
+                                        description:{
+                                            IT:"Genera una breve serie di avventure da giocare in sequenza seguendo le regole delle mini-campagne.",
+                                            EN:"Generate a short series of adventures to be played in sequence following the mini-campaign rules."
+                                        },
+                                        tags:[ "generator-campaign", "campaign-mini",  "boss" ]
                                     }
                                 ]
                             },{
                                 type:"includeSelected",
-                                ifMenuOptionSelected:"generator-oneshot",
+                                ifMenuOptionSelected:[ "generator-oneshot" ],
                                 isSingleOption:true,
                                 isMandatory:true,
                                 title:{
@@ -340,7 +374,7 @@ ModManager.modules.push(function(){
                                 ]
                             },{
                                 type:"includeSelected",
-                                ifMenuOptionSelected:"generator-oneshot",
+                                ifMenuOptionSelected:[ "generator-oneshot" ],
                                 isSingleOption:true,
                                 isMandatory:true,
                                 title:{
@@ -363,6 +397,17 @@ ModManager.modules.push(function(){
                                             FR:"Toutes les dalles de la carte ont le m&ecirc;me environnement."
                                         },
                                         tags:[ "maps-default-uniform" ]
+                                    },{
+                                        code:"y",
+                                        label:{
+                                            IT:"Divisa",
+                                            EN:"Split"
+                                        },
+                                        description:{
+                                            IT:"Le tessere sulla mappa possono mostrare 2 ambientazioni diverse. Migliora la variet&agrave; di struttura cercando di mantenere una buona estetica.",
+                                            EN:"The map tiles can show 2 environments. Improves the variety of structure while trying to maintain good aesthetics.",
+                                        },
+                                        tags:[ "maps-default-split" ]
                                     },{
                                         code:"z",
                                         label:{
@@ -388,7 +433,7 @@ ModManager.modules.push(function(){
                                 entries:[
                                     {
                                         code:"O",
-                                        ifMenuOptionSelected:"generator-campaign",
+                                        ifMenuOptionSelected:[ "generator-campaign", "generator-campaign-mini" ],
                                         label:{
                                             IT:"Nascondi gli spoiler",
                                             EN:"Hide spoilers",
@@ -402,7 +447,7 @@ ModManager.modules.push(function(){
                                         tags:[ "campaign-hidespoilers" ]
                                     },{
                                         code:"X",
-                                        ifMenuOptionSelected:"generator-oneshot",
+                                        ifMenuOptionSelected:[ "generator-oneshot" ],
                                         label:{
                                             IT:"Sfide",
                                             EN:"Challenges",
@@ -416,7 +461,7 @@ ModManager.modules.push(function(){
                                         tags:[ "challenges-default" ]
                                     },{
                                         code:"N",
-                                        ifMenuOptionSelected:"generator-oneshot",
+                                        ifMenuOptionSelected:[ "generator-oneshot" ],
                                         label:{
                                             IT:"Scontri con i Boss",
                                             EN:"Boss fights",
@@ -430,7 +475,7 @@ ModManager.modules.push(function(){
                                         tags:[ "boss" ]
                                     },{
                                         code:"Y",
-                                        ifMenuOptionSelected:"generator-oneshot",
+                                        ifMenuOptionSelected:[ "generator-oneshot" ],
                                         label:{
                                             IT:"Modalit&agrave; Esplorazione",
                                             EN:"Dungeon Crawling Mode",
@@ -443,7 +488,7 @@ ModManager.modules.push(function(){
                                         },
                                         tags:[ "gamemode-dungeoncrawling" ]
                                     },{
-                                        code:"W",
+                                        code:"y",
                                         label:{
                                             IT:"Escludi avventure non tradotte",
                                             EN:"Exclude untranslated quests",

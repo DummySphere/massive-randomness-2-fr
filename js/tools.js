@@ -15,9 +15,9 @@ Tools=(function(){
             itemQuality3:2
         },
         ALLOWED_ENTITIES={
-            IT:[ "ograve", "agrave", "egrave", "eacute", "ugrave", "igrave", "deg", "amp", "Egrave", "dash" ],
-            EN:[ "amp", "dash" ],
-            FR:[ "amp", "agrave", "acirc", "eacute", "ecirc", "egrave", "euml", "icirc", "iuml", "ocirc", "oelig", "ucirc", "ugrave", "uuml", "ccedil", "dash" ]
+            IT:[ "ograve", "agrave", "egrave", "eacute", "ugrave", "igrave", "deg", "amp", "Egrave", "dash", "OElig", "ocirc" ],
+            EN:[ "amp", "dash", "OElig", "ocirc" ],
+            FR:[ "acirc", "Acirc", "agrave", "amp", "ccedil", "dash", "eacute", "ecirc", "egrave", "euml", "icirc", "iuml", "ocirc", "oelig", "OElig", "ucirc", "ugrave", "uuml" ]
         },
         ALLOWED_TAGS=[ "p", "/p", "ul", "/ul", "ol", "/ol", "li", "/li", "b", "/b", "i", "/i", "span class='phase'", "span class='displayonly'", "span class='printonly'", "span class='hiddentext'",  "/span", "br", "p class='credits'", "/a", /^a target=_blank href='[^']+'$/ ],
         ALLOWED_PLACEHOLDER_MODS=[ "capital" ],
@@ -41,24 +41,44 @@ Tools=(function(){
         },
         CAMPAIGN_CONFIGS = [
             {
-                id:"campaign-heavenfall",
+                id:"full-campaign-heavenfall",
                 excludes:[],
-                needs:[ "bridge-default-twoexits", "generator-campaign", "campaign-default", "md2-heavenfall", "quests", "maps-default", "md2-hellscape" ]
+                needs:[ "boss", "bridge-default-twoexits", "generator-campaign", "campaign-full", "campaign-default", "md2-heavenfall", "quests", "maps-default", "md2-hellscape" ]
             },
             {
-                id:"campaign-rainbowcrossing",
+                id:"full-campaign-rainbowcrossing",
                 excludes:[],
-                needs:[ "bridge-default-twoexits", "generator-campaign", "campaign-default", "md2-heavenfall", "quests", "maps-default", "md2-hellscape", "md2-rainbowcrossing" ]
+                needs:[ "boss", "bridge-default-twoexits", "generator-campaign", "campaign-full", "campaign-default", "md2-heavenfall", "quests", "maps-default", "md2-hellscape", "md2-rainbowcrossing" ]
             },
             {
-                id:"campaign-blackplague",
+                id:"full-campaign-blackplague",
                 excludes:[],
-                needs:[ "bridge-default-twoexits", "generator-campaign", "campaign-default", "md2-heavenfall", "quests", "maps-default", "md2-hellscape", "zc-blackplague" ]
+                needs:[ "boss", "bridge-default-twoexits", "generator-campaign", "campaign-full", "campaign-default", "md2-heavenfall", "quests", "maps-default", "md2-hellscape", "zc-blackplague" ]
             },
             {
-                id:"campaign-greenhorde",
+                id:"full-campaign-greenhorde",
                 excludes:[],
-                needs:[ "bridge-default-twoexits", "generator-campaign", "campaign-default", "md2-heavenfall", "quests", "maps-default", "md2-hellscape", "zc-greenhorde" ]
+                needs:[ "boss", "bridge-default-twoexits", "generator-campaign", "campaign-full", "campaign-default", "md2-heavenfall", "quests", "maps-default", "md2-hellscape", "zc-greenhorde" ]
+            },
+            {
+                id:"mini-campaign-heavenfall",
+                excludes:[],
+                needs:[ "boss", "bridge-default-twoexits", "generator-campaign", "campaign-mini", "campaign-default", "md2-heavenfall", "quests", "maps-default", "md2-hellscape" ]
+            },
+            {
+                id:"mini-campaign-rainbowcrossing",
+                excludes:[],
+                needs:[ "boss", "bridge-default-twoexits", "generator-campaign", "campaign-mini", "campaign-default", "md2-heavenfall", "quests", "maps-default", "md2-hellscape", "md2-rainbowcrossing" ]
+            },
+            {
+                id:"mini-campaign-blackplague",
+                excludes:[],
+                needs:[ "boss", "bridge-default-twoexits", "generator-campaign", "campaign-mini", "campaign-default", "md2-heavenfall", "quests", "maps-default", "md2-hellscape", "zc-blackplague" ]
+            },
+            {
+                id:"mini-campaign-greenhorde",
+                excludes:[],
+                needs:[ "boss", "bridge-default-twoexits", "generator-campaign", "campaign-mini", "campaign-default", "md2-heavenfall", "quests", "maps-default", "md2-hellscape", "zc-greenhorde" ]
             }
         ],
         QUEST_CONFIGS=[
@@ -336,7 +356,7 @@ Tools=(function(){
                         return okTag;
                     }),
                     checkArgument = orgArgument.replace(/([^0-9a-zA-Z() +/\-,.;:'!?_"]+)/g,function(m,m1){
-                        return "<span style='background-color:#000;color:#fff'>"+m1+"</span>";
+                        return "<span style='background-color:#000;color:#fff'>["+m1+"]</span>";
                     });
                 if (orgArgument != checkArgument)
                     errors.push(errorHeader+" L["+lang+"] O["+aid+"]: "+checkArgument);
@@ -1290,9 +1310,31 @@ Tools=(function(){
         },
 
         testCampaign:(into)=>{
+            const
+                MINICAMPAIGN_XP_STRATEGY = [
+                    { ifKey:"gameMode", has:"targets", expectedAmount:"label.miniCampaignObjectivesXp:split:tokensCount.objective" },
+                    { ifKey:"gameMode", has:"xpAndDeliver", expectedAmount:"label.miniCampaignObjectivesXp:split:tokensCount.objective::5" },
+                    { ifKey:"gameMode", has:"unlockAndActivate", expectedAmount:"label.miniCampaignObjectivesXp:split:tokensCount.objective" },
+                    { ifKey:"gameMode", has:"collectAndDeliver", expectedAmount:"label.miniCampaignObjectivesXp:split:tokensCount.objective" },
+                    { ifKey:"gameMode", has:"collectTimed", expectedAmount:"label.miniCampaignObjectivesXp:split:tokensCount.objective" },
+                    { ifKey:"gameMode", has:"adventureAndBoss", expectedAmount:"label.miniCampaignObjectivesXp:split:tokensCount.objective" },
+                    { ifKey:"gameMode", has:"unlockAndBoss", expectedAmount:"label.miniCampaignObjectivesXp:split:tokensCount.objective" },
+                    { ifKey:"gameMode", has:"fallingDungeon", expectedAmount:"label.miniCampaignObjectivesXp:split:3::7" },
+                    { ifKey:"gameMode", has:"capture", expectedAmount:"label.miniCampaignObjectivesXp:split:tokensCount.objective::5" },
+                    { ifKey:"gameMode", has:"chase", expectedAmount:"label.miniCampaignObjectivesXp:split:tokensCount.objective" },
+                    { ifKey:"gameMode", has:"removeCorruption", expectedAmount:"label.miniCampaignObjectivesXp:split:tokensCount.corruption" },
+                    { ifKey:"gameMode", has:"massiveRandomness", expectedAmount:"label.miniCampaignObjectivesXp:split:3" },
+                    { ifKey:"gameMode", has:"magicMazeHunt", expectedAmount:"label.miniCampaignObjectivesXp:split:tokensCount.corruption" },
+                    { ifKey:"gameMode", has:"elementalLord", expectedAmount:"label.miniCampaignObjectivesXp:split:tokensCount.objective" },
+                    { ifKey:"gameMode", has:"unlockAndEscape", expectedAmount:"label.miniCampaignObjectivesXp:split:tokensCount.objective" },
+                    { ifKey:"gameMode", has:"mirrorToBoss", expectedAmount:"label.miniCampaignObjectivesXp:split:tokensCount.time" },
+                    { ifKey:"gameMode", has:"nestBossStealExit", expectedAmount:"label.miniCampaignObjectivesXp:split:tokensCount.corruption:1" },
+                    { ifKey:"gameMode", has:"eliminateBuffBoss", expectedAmount:"label.miniCampaignObjectivesXp:split:4" },
+                ];
+
             let
                 resources = ModManager.load({
-                    needs:[ "quests", "generator-campaign" ]
+                    needs:[ "quests", "generator-campaign", "campaign-full" ]
                 }),
                 html = "",
                 errorsNode = createErrorsNode(into),
@@ -1306,6 +1348,7 @@ Tools=(function(){
                     acts[act][map] = [];
                     resources.quests.forEach(quest=>{
                         let
+                            questLabel = quest.type+" - "+quest.by.EN;
                             ok = true,
                             entry = {
                                 score:0,
@@ -1319,6 +1362,8 @@ Tools=(function(){
                             quest._campaignSpecificRules = false;
                             quest._endingOnly = quest.forActs && quest.forActs.length == 1 && quest.forActs[0] == 2 && quest.forMaps && quest.forMaps.length == 1 && quest.forMaps[0] == 2;
                             quest._rulesToFix = [];
+                            quest._hasMiniCampaignRules = false;
+                            quest._nomini = quest.forCampaign && (quest.forCampaign.indexOf("nomini") != -1);
                             quest.versions.forEach(version=>{
                                 if (!version.campaign)
                                     quest._noCampaignData = true;
@@ -1343,19 +1388,54 @@ Tools=(function(){
                                         )
                                             quest._isBoss = true;
 
+                                        if (rule.miniCampaignExplanation)
+                                            quest._hasMiniCampaignRules = true;
+
                                         if (
-                                            (
-                                                rule.explanation &&
-                                                (rule.explanation[0].EN.indexOf("XP") != -1)) &&
-                                                !rule.explanation[0].EN.match(/expected XP/) &&
-                                                (!rule.campaignExplanation || (
-                                                    (rule.campaignExplanation[0].EN.indexOf("XP") != -1) &&
-                                                    !rule.campaignExplanation[0].EN.match(/[aA]ll Heroes gets[0-9 ]+XP/) &&
-                                                    !rule.campaignExplanation[0].EN.match(/without gaining XP/)
-                                                )
+                                            rule.explanation &&
+                                            (rule.explanation[0].EN.indexOf("XP") != -1) &&
+                                            !rule.explanation[0].EN.match(/expected XP/)
+                                        ) {
+                                            if (!rule.campaignExplanation || (
+                                                (rule.campaignExplanation[0].EN.indexOf("XP") != -1) &&
+                                                !rule.campaignExplanation[0].EN.match(/[aA]ll Heroes gets[0-9 ]+XP/) &&
+                                                !rule.campaignExplanation[0].EN.match(/without gaining XP/)
+                                            ))
+                                                quest._rulesToFix.push([ rule.explanation[0].EN, rule.campaignExplanation ? rule.campaignExplanation[0].EN : 0 ]);
+
+                                            if (
+                                                !quest._nomini &&
+                                                !rule.miniCampaignExplanation &&
+                                                rule.campaignExplanation &&
+                                                (rule.campaignExplanation[0].EN.indexOf("XP") != -1) &&
+                                                !rule.campaignExplanation[0].EN.match(/[aA]ll Heroes gets[0-9 ]+XP/) &&
+                                                !rule.campaignExplanation[0].EN.match(/without gaining XP/)
                                             )
-                                        )
-                                            quest._rulesToFix.push([ rule.explanation[0].EN, rule.campaignExplanation ? rule.campaignExplanation[0].EN : 0 ]);
+                                                quest._rulesToFix.push([ rule.explanation[0].EN, rule.miniCampaignExplanation ? rule.miniCampaignExplanation[0].EN : 0 ]);
+                                        }
+
+                                        if (rule.miniCampaignExplanation) {
+
+                                            let
+                                                miniOk = false,
+                                                expectedAmount = "UNKNOWN";
+
+                                            version.map.forEach(mapmodel=>{
+                                                MINICAMPAIGN_XP_STRATEGY.forEach(strategy=>{
+                                                    if (mapmodel[strategy.ifKey].indexOf(strategy.has) != -1)
+                                                        expectedAmount = strategy.expectedAmount;
+                                                })
+                                            });
+                                            
+                                            rule.miniCampaignExplanation[0].EN.replace(/[Aa]ll Heroes gets \{([^}]+)\} XP/,(m,m1)=>{
+                                                if (m1 == expectedAmount)
+                                                    miniOk = true;
+                                            });
+
+                                            if (!miniOk)
+                                                quest._rulesToFix.push([ rule.explanation[0].EN, rule.miniCampaignExplanation ? rule.miniCampaignExplanation[0].EN : 0, expectedAmount ]);
+
+                                        }
 
                                         if (
                                             (rule.explanation && rule.explanation[0].EN.match(/level 5/i)) &&
@@ -1397,35 +1477,38 @@ Tools=(function(){
                         if (!quest._matches)
                             quest._matches = 0;
 
-                        if (quest.forActs)
-                            if (quest.forActs.indexOf(act) != -1) {
-                                entry.matchAct = true;
-                                entry.score++;
+                        if (quest.forCampaign && quest.forCampaign.length) {
+
+                            if (quest.forActs)
+                                if (quest.forActs.indexOf(act) != -1) {
+                                    entry.matchAct = true;
+                                    entry.score++;
+                                }
+                                else
+                                    ok = false;
+
+                            if (quest.forMaps)
+                                if (quest.forMaps.indexOf(map) != -1) {
+                                    entry.matchMap = true;
+                                    entry.score++;
+                                } else
+                                    ok = false;
+
+                            if (ok) {
+                                let
+                                    label = "";
+                                if (entry.matchAct)
+                                    label+="<span style='color:green'>A</span> ";
+                                else
+                                    label+="<span style='color:red'>A</span> ";
+                                if (entry.matchMap)
+                                    label+="<span style='color:green'>M</span> ";
+                                else
+                                    label+="<span style='color:red'>M</span> ";
+                                entry.label = label;
+                                acts[act][map].push(entry);
+                                quest._matches++;
                             }
-                            else
-                                ok = false;
-
-                        if (quest.forMaps)
-                            if (quest.forMaps.indexOf(map) != -1) {
-                                entry.matchMap = true;
-                                entry.score++;
-                            } else
-                                ok = false;
-
-                        if (ok) {
-                            let
-                                label = "";
-                            if (entry.matchAct)
-                                label+="<span style='color:green'>A</span> ";
-                            else
-                                label+="<span style='color:red'>A</span> ";
-                            if (entry.matchMap)
-                                label+="<span style='color:green'>M</span> ";
-                            else
-                                label+="<span style='color:red'>M</span> ";
-                            entry.label = label;
-                            acts[act][map].push(entry);
-                            quest._matches++;
                         }
                     })
                 };
@@ -1471,6 +1554,12 @@ Tools=(function(){
                         if (quest.quest._campaignSpecificRules)
                             html+=" <span style='background-color:blue;color:white'>Campaign rules</span>";
 
+                        if (quest.quest._hasMiniCampaignRules)
+                            html+=" <span style='background-color:lime;color:black'>Mini-campaign</span>";
+
+                        if (quest.quest._nomini)
+                            html+=" <span style='background-color:black;color:lime'>No mini-campaign</span>";
+
                         if (quest.quest._noCampaignData)
                             html += " <span style='color:red'>(No campaign data)</span>";
                         else
@@ -1497,260 +1586,25 @@ Tools=(function(){
                 let
                     questLabel = quest.type+" - "+quest.by.EN;
 
+                if (!quest.forCampaign)
+                    errors.push("Quest <b>"+questLabel+"</b> has no forCampaign specific");
+                else if (quest.forCampaign.length) {
 
-                if (quest._matches) {
+                    if (quest._hasMiniCampaignRules && (quest.forCampaign.indexOf("mini") == -1))
+                        errors.push("Quest <b>"+questLabel+"</b> has mini-campaign rules but no 'mini' in forCampaign");
 
-                    let
-                        isMap3Only = quest.forMaps && (quest.forMaps.length ==1) && (quest.forMaps[0] == 2),
-                        isMap3 = !quest.forMaps || (quest.forMaps.indexOf(2) != -1);
+                    if (quest._hasMiniCampaignRules && quest._nomini)
+                        errors.push("Quest <b>"+questLabel+"</b> has mini-campaign rules has 'nomini' in forCampaign");
 
-                    if (quest._noCampaignData)
-                        errors.push("Used quest <b>"+questLabel+"</b> is missing campaign data");
-                    else {
-                        
-                        if (CAMPAIGN_SIDEQUEST_COUNT[quest._sideQuests.length] && !quest._endingOnly)
-                            errors.push("Used quest <b>"+questLabel+"</b> has not enough side quests ("+quest._sideQuests.length+")");
-
-                        if (!quest._noCampaignData && quest._rulesToFix.length) {
-                            let
-                                line="Quest <b>"+questLabel+"</b> rules may not have fixed for campaign.";
-                            quest._rulesToFix.forEach(rule=>{
-                                line+="<ul><li><b>Original:</b> "+rule[0]+"</li><li><b>Changed:</b> "+(rule[1] || "(Missing)")+"</li></ul>";
-                            });
-                            errors.push(line);
-                        }
-                        
-                        if (quest._isBoss && !isMap3Only)
-                            errors.push("Quest <b>"+questLabel+"</b> is BOSS, so it should be for map 3 only");
-                        if (!quest._isBoss && isMap3)
-                            errors.push("Quest <b>"+questLabel+"</b> is not BOSS, so it should avoid map 3");
-
+                    if (!quest._hasMiniCampaignRules && (quest.forCampaign.indexOf("mini") != -1)) {
+                        errors.push("Quest <b>"+questLabel+"</b> has no mini-campaign rules but 'mini' in forCampaign");
                     }
 
-                } else {
-                    
-                    if (!quest._noCampaignData)
-                        errors.push("Unused quest <b>"+questLabel+"</b> has campaign data.");    
-    
+                    if (!quest._hasMiniCampaignRules && !quest._nomini) {
+                        errors.push("Quest <b>"+questLabel+"</b> has no mini-campaign rules but no 'nomini' in forCampaign");
+                    }
+
                 }
-
-            });
-
-            resultsNode.innerHTML=html;
-            dumpErrors(errorsNode,errors);
-
-            console.log(acts);
-            console.log(resources);
-        },
-
-        testCampaign:(into)=>{
-            let
-                resources = ModManager.load({
-                    needs:[ "quests", "generator-campaign" ]
-                }),
-                html = "",
-                errorsNode = createErrorsNode(into),
-                resultsNode = createNode(into,"div"),
-                errors = [],
-                acts = [];
-
-            for (let act=0;act<ACTS;act++) {
-                acts[act] = [];
-                for (let map=0;map<ACT_MAPS;map++) {
-                    acts[act][map] = [];
-                    resources.quests.forEach(quest=>{
-                        let
-                            ok = true,
-                            entry = {
-                                score:0,
-                                quest:quest
-                            };
-
-                        if (!quest._tested) {
-                            quest._tested = true;
-                            quest._noCampaignData = false;
-                            quest._sideQuests = [];
-                            quest._campaignSpecificRules = false;
-                            quest._endingOnly = quest.forActs && quest.forActs.length == 1 && quest.forActs[0] == 2 && quest.forMaps && quest.forMaps.length == 1 && quest.forMaps[0] == 2;
-                            quest._rulesToFix = [];
-                            quest.versions.forEach(version=>{
-                                if (!version.campaign)
-                                    quest._noCampaignData = true;
-                                else if (version.campaign.sideQuests)
-                                    version.campaign.sideQuests.forEach(sidequest=>{
-                                        sidequest.tags.forEach(tagset=>{
-                                            tagset.forEach(tag=>{
-                                                if (quest._sideQuests.indexOf(tag) == -1)
-                                                    quest._sideQuests.push(tag);
-                                            })
-                                        })
-                                    });
-                                version.rules.forEach(ruleset=>{
-                                    ruleset.forEach(rule=>{
-                                        
-                                        if (rule.campaignExplanation || rule.campaignSummary)
-                                            quest._campaignSpecificRules = true;
-
-                                        if (
-                                            rule.explanation && rule.explanation[0].EN.match(/level 5/i) ||
-                                            (rule.campaignExplanation && rule.campaignExplanation.length && rule.campaignExplanation[0].EN.match(/label\.campaign[a-zA-Z]*Boss@/))
-                                        )
-                                            quest._isBoss = true;
-
-                                        if (
-                                            (
-                                                rule.explanation &&
-                                                (rule.explanation[0].EN.indexOf("XP") != -1)) &&
-                                                !rule.explanation[0].EN.match(/expected XP/) &&
-                                                (!rule.campaignExplanation || (
-                                                    (rule.campaignExplanation[0].EN.indexOf("XP") != -1) &&
-                                                    !rule.campaignExplanation[0].EN.match(/[aA]ll Heroes gets[0-9 ]+XP/) &&
-                                                    !rule.campaignExplanation[0].EN.match(/without gaining XP/)
-                                                )
-                                            )
-                                        )
-                                            quest._rulesToFix.push([ rule.explanation[0].EN, rule.campaignExplanation ? rule.campaignExplanation[0].EN : 0 ]);
-
-                                        if (
-                                            (rule.explanation && rule.explanation[0].EN.match(/level 5/i)) &&
-                                            (!rule.campaignExplanation || (
-                                                rule.campaignExplanation[0].EN.match(/level 5/i) ||
-                                                (
-                                                    !rule.campaignExplanation[0].EN.match(/label\.campaignBoss@/) &&
-                                                    !rule.campaignExplanation[0].EN.match(/label\.campaignEasyBoss@/)
-                                                )
-                                            ))
-                                        )
-                                            quest._rulesToFix.push([ rule.explanation[0].EN, rule.campaignExplanation ? rule.campaignExplanation[0].EN : 0 ]);
-
-                                        if (
-                                            (rule.summary && (rule.summary[0].EN.indexOf("XP") != -1)) &&
-                                            (!rule.campaignSummary || (
-                                                (rule.campaignSummary[0].EN.indexOf("XP") != -1)
-                                            ))
-                                        )
-                                            quest._rulesToFix.push([ rule.summary[0].EN, rule.campaignSummary ? rule.campaignSummary[0].EN : 0 ]);
-
-                                        if (
-                                            (rule.summary && rule.summary[0].EN.match(/level 5/i)) &&
-                                            (!rule.campaignSummary || (
-                                                rule.campaignSummary[0].EN.match(/level 5/i) ||
-                                                (
-                                                    !rule.campaignSummary[0].EN.match(/label\.campaignBoss@/) &&
-                                                    !rule.campaignSummary[0].EN.match(/label\.campaignEasyBoss@/)
-                                                )
-                                            ))
-                                        )
-                                            quest._rulesToFix.push([ rule.summary[0].EN, rule.campaignSummary ? rule.campaignSummary[0].EN : 0 ]);
-                                    })
-                                })
-
-                            })
-                        }
-
-                        if (!quest._matches)
-                            quest._matches = 0;
-
-                        if (quest.forActs)
-                            if (quest.forActs.indexOf(act) != -1) {
-                                entry.matchAct = true;
-                                entry.score++;
-                            }
-                            else
-                                ok = false;
-
-                        if (quest.forMaps)
-                            if (quest.forMaps.indexOf(map) != -1) {
-                                entry.matchMap = true;
-                                entry.score++;
-                            } else
-                                ok = false;
-
-                        if (ok) {
-                            let
-                                label = "";
-                            if (entry.matchAct)
-                                label+="<span style='color:green'>A</span> ";
-                            else
-                                label+="<span style='color:red'>A</span> ";
-                            if (entry.matchMap)
-                                label+="<span style='color:green'>M</span> ";
-                            else
-                                label+="<span style='color:red'>M</span> ";
-                            entry.label = label;
-                            acts[act][map].push(entry);
-                            quest._matches++;
-                        }
-                    })
-                };
-            };
-
-            for (let act=0;act<ACTS;act++) {
-                html+="<h2>Act "+(act+1)+"</h2>";
-                for (let map=0;map<ACT_MAPS;map++) {
-                    acts[act][map].sort((a,b)=>{
-                        if (a.score < b.score) return 1;
-                        else if (a.score > b.score) return -1;
-                        else if (a.label < b.label) return -1;
-                        else if (a.label > b.label) return 1;
-                        else return 0;
-                    });
-                    
-                    html+="<h3>Map "+(map+1)+" ("+acts[act][map].length+")</h3><ul>";
-                    acts[act][map].forEach(quest=>{
-                        let
-                            label = quest.label+" "+quest.quest.type+" - "+quest.quest.by.EN;
-                        html+="<li>";
-                        switch (quest.score) {
-                            case 0:{
-                                html+=label;
-                                break;
-                            }
-                            case 1:{
-                                html+="<u>"+label+"</u>";
-                                break;
-                            }
-                            case 2:{
-                                html+="<b>"+label+"</b>";
-                                break;
-                            }
-                        }
-
-                        if (quest.quest._isBoss)
-                            html+=" <span style='background-color:purple;color:white'>BOSS</span>";
-
-                        if (quest.quest._endingOnly)
-                            html+=" <span style='background-color:cyan;color:white'>Ending</span>";
-
-                        if (quest.quest._campaignSpecificRules)
-                            html+=" <span style='background-color:blue;color:white'>Campaign rules</span>";
-
-                        if (quest.quest._noCampaignData)
-                            html += " <span style='color:red'>(No campaign data)</span>";
-                        else
-                            html += " <span style='color:white;background-color:"+(quest.quest._endingOnly ? "gray" : CAMPAIGN_SIDEQUEST_COUNT[quest.quest._sideQuests.length] || "green")+"'>"+quest.quest._sideQuests.length+" side quests ("+(quest.quest._sideQuests.join(", "))+")</span>";
-                        
-                        html+="</li>";
-                    })
-
-                    html+="</ul>";
-                };
-
-            };
-
-            html+="<h2>Unused</h2><ul>";
-
-            resources.quests.forEach(quest=>{
-                if (!quest._matches)
-                    html+="<li>"+quest.type+" - "+quest.by.EN+"</li>";
-            });
-
-            html+="</ul>";
-
-            resources.quests.forEach(quest=>{
-                let
-                    questLabel = quest.type+" - "+quest.by.EN;
-
 
                 if (quest._matches) {
 
@@ -1769,7 +1623,10 @@ Tools=(function(){
                             let
                                 line="Quest <b>"+questLabel+"</b> rules may not have fixed for campaign.";
                             quest._rulesToFix.forEach(rule=>{
-                                line+="<ul><li><b>Original:</b> "+rule[0]+"</li><li><b>Changed:</b> "+(rule[1] || "(Missing)")+"</li></ul>";
+                                line+="<ul><li><b>Original:</b> "+rule[0]+"</li><li><b>Changed:</b> "+(rule[1] || "(Missing)")+"</li>";
+                                if (rule[2])
+                                    line+="<li><b>Expected:</b>"+rule[2]+"</li>";
+                                line+="</ul>";
                             });
                             errors.push(line);
                         }
@@ -1801,7 +1658,7 @@ Tools=(function(){
             let
                 errorsNode = createErrorsNode(into),
                 resources = ModManager.load({
-                    needs:[ "quests", "generator-campaign" ]
+                    needs:[ "quests", "generator-campaign", "campaign-full" ]
                 }),
                 words = [],
                 errors = [];
@@ -1920,6 +1777,7 @@ Tools=(function(){
                                 place:"<span style='font-weight:bold'>Place</span>",
                                 uniform:{
                                     yes:"<span style='color:green'>[Unform]</span>",
+                                    split:"<span style='color:yellow'>[Split]</span>",
                                     no:"<span style='color:red'>[Multi]</span>"
                                 }
                             }
@@ -2054,7 +1912,7 @@ Tools=(function(){
                 previewNode = createNode(into,"div"),
                 errors = [],
                 resources = ModManager.load({
-                    needs:[ "quests", "generator-campaign" ]
+                    needs:[ "quests", "generator-campaign", "campaign-full" ]
                 });
 
             CAMPAIGN_CONFIGS.forEach(config=>{
@@ -2234,8 +2092,13 @@ Tools=(function(){
                     oneshotHtml+="</td><td>";
 
                     if (boss.levels[k].labels.bossHealth) {
-                        oneshotHtml+=boss.levels[k].labels.bossHealth.EN;
-                        totalHealth += boss.levels[k].labels.bossHealth.EN;
+                        if (boss.components) {
+                            oneshotHtml+= (boss.levels[k].labels.bossHealth.EN * boss.components) + "(" + boss.levels[k].labels.bossHealth.EN + "&times;"+boss.components+")"
+                            totalHealth += boss.levels[k].labels.bossHealth.EN * boss.components;
+                        } else {
+                            oneshotHtml+=boss.levels[k].labels.bossHealth.EN;
+                            totalHealth += boss.levels[k].labels.bossHealth.EN;
+                        }
                     } else {
                         oneshotHtml+="[!!]";
                         errors.push("Boss "+label+" is missing base health (bossHealth)");
@@ -2254,8 +2117,13 @@ Tools=(function(){
                         }
                         if (boss.levels[k].labels.bossPhase2Health.EN < boss.levels[k].labels.bossHealth.EN)
                             errors.push("Boss "+label+" has phase 2 health less than phase 1 health");
-                        oneshotHtml+="<td>"+boss.levels[k].labels.bossPhase2Health.EN+"</td>";
-                        totalHealth += boss.levels[k].labels.bossPhase2Health.EN;
+                        if (boss.components) {
+                            oneshotHtml+="<td>"+ (boss.levels[k].labels.bossPhase2Health.EN * boss.components) + "(" + boss.levels[k].labels.bossPhase2Health.EN + "&times;"+boss.components+")</td>";
+                            totalHealth += boss.levels[k].labels.bossPhase2Health.EN * boss.components;
+                        } else {
+                            oneshotHtml+="<td>"+boss.levels[k].labels.bossPhase2Health.EN+"</td>";
+                            totalHealth += boss.levels[k].labels.bossPhase2Health.EN;
+                        }
                     } else {
                         if (boss.levels[k].labels.bossPhase2Modifier)
                             errors.push("Boss "+label+" is missing phase 2 health (bossPhase2Health)");
@@ -2335,7 +2203,12 @@ Tools=(function(){
                                                 }
                                                 campaignHtml+="<td>"+bonus+"</td>";
                                                 total+=bonus;
-                                                campaignHtml+="<td>"+total+"</td>";
+                                                if (boss.components) {
+                                                    campaignHtml+="<td>"+(total*boss.components)+" ("+total+"&times;"+boss.components+")</td>";
+                                                    total*=boss.components;
+                                                } else {
+                                                    campaignHtml+="<td>"+total+"</td>";
+                                                }
                                                 
                                                 if (prep1)
                                                     campaignHtml+="<td>"+summarizer(prep1.EN).join(", ")+(bossMode ? " + "+bossMode.EN : "")+"</td>";
@@ -2386,7 +2259,7 @@ Tools=(function(){
                                     if (stats[a][m][l].min == stats[a][m][l].max)
                                         campaignHtml+=stats[a][m][l].min;
                                     else
-                                        campaignHtml+=stats[a][m][l].min+" - "+stats[a][m][l].max;
+                                        campaignHtml+=stats[a][m][l].min+" - "+stats[a][m][l].max+" (&plusmn;"+(stats[a][m][l].max-stats[a][m][l].min)+")";
                                 else
                                     campaignHtml+="&nbsp;"
                                 campaignHtml+="</td>";
@@ -2426,7 +2299,7 @@ Tools=(function(){
                             if (globalStats[a][m][l].min == globalStats[a][m][l].max)
                                 summaryHtml+=globalStats[a][m][l].min;
                             else
-                                summaryHtml+=globalStats[a][m][l].min+" - "+globalStats[a][m][l].max;
+                                summaryHtml+=globalStats[a][m][l].min+" - "+globalStats[a][m][l].max+" (&plusmn;"+(globalStats[a][m][l].max-globalStats[a][m][l].min)+")";;
                         } else
                             summaryHtml+=">&nbsp;"
                         summaryHtml+="</td>";
@@ -2444,7 +2317,7 @@ Tools=(function(){
             
             let
                 resources = ModManager.load({
-                    needs:[ "quests", "generator-campaign" ]
+                    needs:[ "quests", "generator-campaign", "campaign-full" ]
                 }),
                 keepHtml = "",
                 notKeepHtml = "",
@@ -2843,7 +2716,7 @@ Tools=(function(){
             resultsNode.innerHTML=html;
         },
 
-        generateSummary:(into)=>{
+        generateSummary:(into,full)=>{
             const
                 QUEST_HEADERS = [
                     {
@@ -2856,8 +2729,17 @@ Tools=(function(){
                         id:[ "quests-upgradepack" ],
                         title:"Adapted from **Upgrade pack**"
                     },{
+                        id:[ "quests-rainbowcrossing", ],
+                        title:"Adapted from **Rainbow Crossing**"
+                    },{
+                        id:[ "quests-darkbringerpack", ],
+                        title:"Adapted from **Darkbringer Pack**"
+                    },{
                         id:[ "quests-internet" ],
                         title:"Adapted **fan-made quests**"
+                    },{
+                        id:[ "quests-ravaged", ],
+                        title:"Adapted from **Ravaged Mountains campaign**"
                     },{
                         id:[ "quests-mr", "quests-mr-ending" ],
                         title:"Massive Randomness 2 **original**"
@@ -2871,6 +2753,7 @@ Tools=(function(){
                 resultsNode = createNode(into,"div"),
                 resources = getAllResourcesTypes([ "quests", "interface", "campaignSideQuests", "campaignRewards", "campaignModels", "campaignActModels", "campaignMapModels", "campaignCrawlingModels", "campaignRewardModels", "campaignBossFightModels", "bossList" ]),
                 questPackages = {},
+                questTypes = { },
                 componentsList = [],
                 components = {};
 
@@ -2901,6 +2784,14 @@ Tools=(function(){
 
                 questData.inCampaign = false;
                 questData.sideQuests = [];
+
+                if (quest.forCampaign)
+                    quest.forCampaign.forEach(type=>{
+                        if (!questTypes[type])
+                            questTypes[type] = 1;
+                        else
+                            questTypes[type]++;
+                    })
 
                 quest.versions.forEach(version=>{
 
@@ -2942,7 +2833,7 @@ Tools=(function(){
                             let
                                 row = "   * "+(quest.name || quest.inspiredBy)+"\n";
 
-                            // if (quest.objective) row+="     *  "+quest.objective+"\n";
+                            if (full && quest.objective) row+="     *  "+quest.objective+"\n";
                             if (quest.variants) row+="     *  "+quest.variants+"\n";
                             if (quest.boss) row+="     *  Can include a boss fight.\n";
                             if (quest.inCampaign) {
@@ -3003,14 +2894,17 @@ Tools=(function(){
             text+=" * Small maps\n";
             text+=" * Large maps\n";
             text+=" * Interdimensional maps\n";
+            text+=" * Split maps\n";
 
             text+="\n## Game variants\n\n";
             text+=" * Challenges _(adapted from anubys [Dungeon Skill Challenge](https://boardgamegeek.com/filepage/245223/dungeon-skills-challenge))_\n";
             text+=" * Dungeon Crawling Mode\n";
 
             text+="\n## Campaign mode\n\n";
+            text+=" * "+questTypes.full+" full campaign quests.\n";
+            text+=" * "+questTypes.mini+" mini-campaign quests.\n";
             text+=" * "+resources.campaignSideQuests.length+" side quest types.\n";
-            text+=" * "+resources.campaignModels.length+" campaign model.\n";
+            text+=" * "+resources.campaignModels.length+" campaign models.\n";
             text+=" * "+resources.campaignActModels.length+" campaign acts models.\n";
             text+=" * "+resources.campaignMapModels.length+" campaign map models.\n";
             text+=" * "+resources.campaignCrawlingModels.length+" campaign dungeon crawling models.\n";
