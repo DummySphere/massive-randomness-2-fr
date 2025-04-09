@@ -111,22 +111,26 @@ ModManager.modules.push(function(){
                                         code:"K",
                                         label:{
                                             IT:"Massive Darkness 2: Quattro Cavalieri",
-                                            EN:"Massive Darkness 2: Four Horsemen Pack"
+                                            EN:"Massive Darkness 2: Four Horsemen Pack",
+                                            FR:"Massive Darkness 2 : Quatre Cavaliers"
                                         },
                                         description:{
                                             IT:"Boss",
-                                            EN:"Boss"
+                                            EN:"Boss",
+                                            FR:"Boss"
                                         },
                                         tags:[ "campaign-fourhorsemen" ]
                                     },{
                                         code:"L",
                                         label:{
                                             IT:"Massive Darkness 2: Darkbringer",
-                                            EN:"Massive Darkness 2: Darkbringer"
+                                            EN:"Massive Darkness 2: Darkbringer",
+                                            FR:"Massive Darkness 2 : Darkbringer"
                                         },
                                         description:{
                                             IT:"Boss",
-                                            EN:"Boss"
+                                            EN:"Boss",
+                                            FR:"Boss"
                                         },
                                         tags:[ "campaign-darkbringer" ]
                                     },{
@@ -160,7 +164,7 @@ ModManager.modules.push(function(){
                                         label:{
                                             IT:"Massive Darkness: Una Missione di Lava &amp; Cristalli",
                                             EN:"Massive Darkness: A Quest of Crystal & Lava",
-                                            FR:"Massive Darkness: Une Qu&ecirc;te de Cristal et de Lave"
+                                            FR:"Massive Darkness : Une Qu&ecirc;te de Cristal et de Lave"
                                         },
                                         description:{
                                             IT:"9 tessere dungeon che replicano quelle di Massive Darkness 1",
@@ -310,11 +314,13 @@ ModManager.modules.push(function(){
                                         code:"w",
                                         label:{
                                             IT:"Mini-campagna",
-                                            EN:"Mini-campaign"
+                                            EN:"Mini-campaign",
+                                            FR:"Mini-campagne"
                                         },
                                         description:{
                                             IT:"Genera una breve serie di avventure da giocare in sequenza seguendo le regole delle mini-campagne.",
-                                            EN:"Generate a short series of adventures to be played in sequence following the mini-campaign rules."
+                                            EN:"Generate a short series of adventures to be played in sequence following the mini-campaign rules.",
+                                            FR:"G&eacute;n&eacute;rer une courte s&eacute;rie de Qu&ecirc;tes qui se suivent avec les r&egrave;gles de mini-campagne."
                                         },
                                         tags:[ "generator-campaign", "campaign-mini",  "boss" ]
                                     }
@@ -401,11 +407,13 @@ ModManager.modules.push(function(){
                                         code:"y",
                                         label:{
                                             IT:"Divisa",
-                                            EN:"Split"
+                                            EN:"Split",
+                                            EN:"Divis&eacute;"
                                         },
                                         description:{
                                             IT:"Le tessere sulla mappa possono mostrare 2 ambientazioni diverse. Migliora la variet&agrave; di struttura cercando di mantenere una buona estetica.",
                                             EN:"The map tiles can show 2 environments. Improves the variety of structure while trying to maintain good aesthetics.",
+                                            FR:"Les dalles peuvent utiliser 2 environnements. Am&eacute;liore la diversit&eacute; d'agencement en essayant de maintenir une certaine esth&eacute;tique.",
                                         },
                                         tags:[ "maps-default-split" ]
                                     },{
@@ -418,7 +426,7 @@ ModManager.modules.push(function(){
                                         description:{
                                             IT:"Le tessere sulla mappa possono mostrare ambientazioni diverse. Aumenta la variet&agrave; di struttura a scapito dell'estetica.",
                                             EN:"The map tiles can show different environments. Increase layout variety to the detriment of aesthetics.",
-                                            FR:"Les dalles de la carte peuvent utiliser diff&eacute;rents environnements. Augmente la diversit&eacute; d'agencement au d&eacute;triment de l'esth&eacute;tique."
+                                            FR:"Les dalles peuvent utiliser diff&eacute;rents environnements. Augmente la diversit&eacute; d'agencement au d&eacute;triment de l'esth&eacute;tique."
                                         },
                                         tags:[ "maps-default-notuniform" ]
                                     }
