@@ -662,37 +662,46 @@ ModManager.modules.push(function(){
                                                 reason:[
                                                     { 
                                                         IT:"La proliferazione dei portali attorno la capitale lascia credere",
-                                                        EN:"The proliferation of portals around the capital suggests"
+                                                        EN:"The proliferation of portals around the capital suggests",
+                                                        FR:"La prolif&eacute;ration des portails autout de la capitale sugg&egrave;re"
                                                     },{
                                                         IT:"I misteriosi rapimenti accaduti nei villaggi vicini suggeriscono",
-                                                        EN:"The mysterious kidnappings that occurred in the nearby villages suggest"
+                                                        EN:"The mysterious kidnappings that occurred in the nearby villages suggest",
+                                                        FR:"Les myst&eacute;rieux enl&egrave;vements subvenus dans les villages voisins sugg&egrave;rent"
                                                     },{
                                                         IT:"Gli incendi scoppiati misteriosamente nelle foreste suggeriscono",
-                                                        EN:"The fires that mysteriously broke out in the forests suggest"
+                                                        EN:"The fires that mysteriously broke out in the forests suggest",
+                                                        FR:"Les incendies qui se sont myst&eacute;rieusement d&eacute;clench&eacute;s dans les for&ecirc;ts sugg&egrave;rent"
                                                     }
                                                 ],
                                                 event:[
                                                     {
                                                         IT:"sia stato commesso qualche orrendo sacrificio",
-                                                        EN:"some horrendous sacrifice has been committed"
+                                                        EN:"some horrendous sacrifice has been committed",
+                                                        FR:"d'horribles sacrifices ont &eacute;t&eacute; commis"
                                                     },{
                                                         IT:"si stia diffondendo un traffico illegale",
-                                                        EN:"illegal trafficking is spreading"
+                                                        EN:"illegal trafficking is spreading",
+                                                        FR:"le trafic ill&eacute;gal se r&eacute;pand"
                                                     },{
                                                         IT:"ci sia sotto qualcosa di losco",
-                                                        EN:"there's something fishy going on"
+                                                        EN:"there's something fishy going on",
+                                                        FR:"quelque chose de louche se trame"
                                                     }
                                                 ],
                                                 planb:[
                                                     {
                                                         IT:"Non possiamo fare niente al riguardo, ma forse potremmo trarre vantaggio dalla situazione.",
-                                                        EN:"We can't do anything about it, but maybe we could take advantage of the situation."
+                                                        EN:"We can't do anything about it, but maybe we could take advantage of the situation.",
+                                                        FR:"Nous ne pouvons pas y faire grand chose, mais nous pouvons malgr&eacute; tout tirer profit de la situation."
                                                     },{
                                                         IT:"Nessuno &egrave; disposto a rischiare per porre fine alla questione. Eccetto noi.",
-                                                        EN:"No one is willing to take risks to put an end to the matter. Except us."
+                                                        EN:"No one is willing to take risks to put an end to the matter. Except us.",
+                                                        FR:"Personne n'est pr&ecirc;t &agrave; prendre des risques pour y mettre fin. A part nous."
                                                     },{
                                                         IT:"Bisogna fare qualcosa. E in fretta.",
-                                                        EN:"Something must be done. And quickly."
+                                                        EN:"Something must be done. And quickly.",
+                                                        FR:"Il faut faire quelque chose. Et vite."
                                                     }
                                                 ],
                                                 solution:[
@@ -706,6 +715,13 @@ ModManager.modules.push(function(){
                                                         ],
                                                         EN:[
                                                             "there is something that could lead to the Dark Realm",
+                                                            "We could bring the fight to our enemies home this time",
+                                                            "Entering the Darkness",
+                                                            "Revealed Darkness",
+                                                            "Enter"
+                                                        ],
+                                                        FR:[
+                                                            "quelque chose peut nous mener dans le Royaume Obscure", // WIP here
                                                             "We could bring the fight to our enemies home this time",
                                                             "Entering the Darkness",
                                                             "Revealed Darkness",
